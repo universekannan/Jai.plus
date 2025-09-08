@@ -554,14 +554,16 @@ public function kannanaaaaa() {
             );
         }
 
-        /**
-         * 2) UPLINE COMMISSION
+       /**
+         * 2) UPLINE COMMISSION (20%)
          */
-        $commissionAmount = ($amount * $planData->upline_amount) / 100;
+        $commissionAmount = ($amount * 20) / 100; // 20%
         $uplinerId        = $this->getUpline($currentUser, $planId) ?: 1;
 
+        // 10% of the upline commission
         $perca10 = ($commissionAmount * 10) / 100;
 
+        // Give full 20% to upline
         $this->storeUplinePayment(
             'Upline',
             $planId,
@@ -574,6 +576,8 @@ public function kannanaaaaa() {
             "Upline Sponsor",
             '3'
         );
+
+        // Split 10% of commission for rebirth/admin
         $this->storeUplinePayment(
             'RebirthSplitMain2',
             $planId,
@@ -586,6 +590,7 @@ public function kannanaaaaa() {
             "Upline Sponsor Income",
             '3'
         );
+
         $this->storeUplinePayment(
             'RebirthSplit',
             $planId,
@@ -600,9 +605,9 @@ public function kannanaaaaa() {
         );
 
         /**
-         * 3) GLOBAL REGAIN
+         * 3) GLOBAL REGAIN (20%)
          */
-        $rotatingCommissionAmount = ($amount * $planData->regain_amount) / 100;
+        $rotatingCommissionAmount = ($amount * 20) / 100; // fixed 20%
 
         $globalregainsssar = DB::table('global_regain')
             ->where('plan_id', $planId)
@@ -642,6 +647,7 @@ public function kannanaaaaa() {
                     ->where('to_id', $parentId)
                     ->update(['status' => 1]);
 
+                // total = (20% * 5 cycles) - plan amount
                 $total   = ((($amount * 20) / 100) * 5) - $amount;
                 $share10 = ($total * 10) / 100;
 
@@ -860,13 +866,15 @@ protected function repeatPlanPayment($userId, $amount, $planId, $upgrade)
         }
 
         /**
-         * 2) UPLINE COMMISSION
+         * 2) UPLINE COMMISSION (20%)
          */
-        $commissionAmount = ($amount * $planData->upline_amount) / 100;
+        $commissionAmount = ($amount * 20) / 100; // 20%
         $uplinerId        = $this->getUpline($currentUser, $planId) ?: 1;
 
+        // 10% of the upline commission
         $perca10 = ($commissionAmount * 10) / 100;
 
+        // Give full 20% to upline
         $this->storeUplinePayment(
             'Upline',
             $planId,
@@ -879,6 +887,8 @@ protected function repeatPlanPayment($userId, $amount, $planId, $upgrade)
             "Upline Sponsor",
             '3'
         );
+
+        // Split 10% of commission for rebirth/admin
         $this->storeUplinePayment(
             'RebirthSplitMain2',
             $planId,
@@ -891,6 +901,7 @@ protected function repeatPlanPayment($userId, $amount, $planId, $upgrade)
             "Upline Sponsor Income",
             '3'
         );
+
         $this->storeUplinePayment(
             'RebirthSplit',
             $planId,
@@ -905,9 +916,9 @@ protected function repeatPlanPayment($userId, $amount, $planId, $upgrade)
         );
 
         /**
-         * 3) GLOBAL REGAIN
+         * 3) GLOBAL REGAIN (20%)
          */
-        $rotatingCommissionAmount = ($amount * $planData->regain_amount) / 100;
+        $rotatingCommissionAmount = ($amount * 20) / 100; // fixed 20%
 
         $globalregainsssar = DB::table('global_regain')
             ->where('plan_id', $planId)
@@ -947,6 +958,7 @@ protected function repeatPlanPayment($userId, $amount, $planId, $upgrade)
                     ->where('to_id', $parentId)
                     ->update(['status' => 1]);
 
+                // total = (20% * 5 cycles) - plan amount
                 $total   = ((($amount * 20) / 100) * 5) - $amount;
                 $share10 = ($total * 10) / 100;
 
