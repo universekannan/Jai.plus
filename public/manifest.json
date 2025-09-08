@@ -1,0 +1,16 @@
+{
+    "name": "MiMart",
+    "short_name": "MiMart",
+    "start_url": "/admin/login",
+    "background_color": "#6777ef",
+    "description": "MiMart",
+    "display": "fullscreen",
+    "theme_color": "#6777ef",
+    "icons": [
+        {
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ]
+}
