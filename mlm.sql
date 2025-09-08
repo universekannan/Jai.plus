@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 08, 2025 at 12:30 PM
+-- Generation Time: Sep 08, 2025 at 01:12 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -211,7 +211,7 @@ CREATE TABLE `global_regain` (
 --
 
 INSERT INTO `global_regain` (`id`, `plan_id`, `user_type_id`, `from_id`, `to_id`, `pay_reason_id`, `amount`, `global_regain_amount`, `level`, `payment_status`, `message`, `log_id`, `status`, `created_at`) VALUES
-(1, 1, 3, 2, 1, 2, '1', '0', 1, '1', 'Global regain Income', 2, 1, '2025-08-26 12:42:29'),
+(1, 1, 3, NULL, 1, 2, '1', '0', 1, '1', 'Global regain Income', 2, 1, '2025-08-26 12:42:29'),
 (2, 2, 3, 2, 1, 2, NULL, '0', NULL, NULL, NULL, NULL, 0, NULL),
 (3, 3, 3, 2, 1, 2, NULL, '0', NULL, NULL, NULL, NULL, 0, NULL),
 (4, 4, 3, 2, 1, 2, NULL, '0', NULL, NULL, NULL, NULL, 0, NULL),
@@ -395,10 +395,10 @@ CREATE TABLE `sponser_income` (
 
 INSERT INTO `sponser_income` (`id`, `plan_id`, `user_type_id`, `from_id`, `to_id`, `pay_reason_id`, `amount`, `level`, `payment_status`, `widtdrawal_status`, `message`, `log_id`, `created_at`) VALUES
 (1, 1, 3, 2, 1, 4, '25', 1, '1', '0', 'Referral Upgrade Bonus', 2, '2025-09-08 15:42:34'),
-(2, 1, 3, 2, 1, 1, '250', 1, '1', '0', 'Referral Sponsor Income', 2, '2025-09-08 15:42:34'),
+(2, 1, 3, 2, 1, 1, '250', 1, '1', '1', 'Referral Sponsor Income', 2, '2025-09-08 15:42:34'),
 (3, 1, 3, 2, 1, 5, '25', 1, '1', '0', 'Admin Bonus Upgrade', 2, '2025-09-08 15:42:34'),
 (4, 1, 3, 9, 2, 4, '25', 1, '1', '0', 'Referral Upgrade Bonus', 9, '2025-09-08 15:42:44'),
-(5, 1, 3, 9, 2, 1, '250', 1, '1', '0', 'Referral Sponsor Income', 9, '2025-09-08 15:42:45'),
+(5, 1, 3, 9, 2, 1, '250', 1, '1', '1', 'Referral Sponsor Income', 9, '2025-09-08 15:42:45'),
 (6, 1, 3, 9, 1, 5, '25', 1, '1', '0', 'Admin Bonus Upgrade', 9, '2025-09-08 15:42:45'),
 (7, 1, 3, 10, 9, 4, '25', 1, '1', '0', 'Referral Upgrade Bonus', 10, '2025-09-08 15:43:35'),
 (8, 1, 3, 10, 9, 1, '250', 1, '1', '0', 'Referral Sponsor Income', 10, '2025-09-08 15:43:35'),
@@ -413,7 +413,7 @@ INSERT INTO `sponser_income` (`id`, `plan_id`, `user_type_id`, `from_id`, `to_id
 (17, 1, 3, 13, 12, 1, '250', 1, '1', '0', 'Referral Sponsor Income', 13, '2025-09-08 15:45:08'),
 (18, 1, 3, 13, 1, 5, '25', 1, '1', '0', 'Admin Bonus Upgrade', 13, '2025-09-08 15:45:08'),
 (19, 1, 3, 23, 2, 4, '25', 1, '1', '0', 'Referral Upgrade Bonus', 13, '2025-09-08 15:45:08'),
-(20, 1, 3, 23, 2, 1, '250', 1, '1', '0', 'Referral Sponsor Income', 13, '2025-09-08 15:45:08'),
+(20, 1, 3, 23, 2, 1, '250', 1, '1', '1', 'Referral Sponsor Income', 13, '2025-09-08 15:45:08'),
 (21, 1, 3, 23, 1, 5, '25', 1, '1', '0', 'Admin Bonus Upgrade', 13, '2025-09-08 15:45:08');
 
 -- --------------------------------------------------------
@@ -481,7 +481,7 @@ CREATE TABLE `users` (
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `cpassword` varchar(20) DEFAULT NULL,
-  `wallet` varchar(10) DEFAULT NULL,
+  `wallet` varchar(10) DEFAULT '0',
   `status` int(11) DEFAULT 1,
   `phone` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `whatsapp_number` varchar(20) DEFAULT NULL,
@@ -505,14 +505,14 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `global_id`, `referral_id`, `user_type_id`, `name`, `user_name`, `email`, `email_verified_at`, `password`, `cpassword`, `wallet`, `status`, `phone`, `whatsapp_number`, `address`, `wallet_address`, `remember_token`, `photo`, `created_at`, `updated_at`, `plan_id`, `message`, `fcm_token`, `theme`, `referral_code`, `global_rebirth_amount`, `upgrade`) VALUES
-(1, 1, NULL, 1, 'Admin', 'TFC1000', 'tfc@gmail.com', NULL, '$2y$10$w3UCJFqhijngNBLVU1cwmecl3TvpwmdLVgHGnjtG7WOmlhkOzkrFy', '12345678', '800.45', 1, '9876543210', NULL, NULL, '0x7509dEb5a6367E094BA35ac8f8F7b2c1997654f7', NULL, 'upload/profile_photo/1.png', '2025-08-14 16:43:22', '2025-09-08 10:15:08', 5, 'Nonvisitor', 'eK7FIO_zthVCNgi6MjfvCR:APA91bEvoDpqYrhIXNUSH5eZio-obveHbeY52srANxuK44xIENuiYtzYGGTsNLrZSRy-iGckPwcir9PZYt_tauxazpHH6rks_LoJdfxLr_hFAFUR0b_XCLk', 'bg-theme13', NULL, '319000', '33275'),
-(2, 2, 1, 3, 'Testing1', 'TFC1001', 'testing090@gmail.com', NULL, '$2y$10$eNkqNTUsTWo6YaOE1a.OyemJbN.mQzAC5EQTSn2nRmKhl6QgRRYF2', '12345678', NULL, 1, '918565987834', '918565987834', NULL, '1234567qwertyukl;', NULL, 'upload/profile_photo/user.png', '2025-09-06 06:16:18', '2025-09-08 10:15:08', 1, 'Nonvisitor', NULL, NULL, NULL, '2000', '150'),
-(9, 9, 2, 3, 'Akil', 'TFC1002', 'akil@gmail.com', NULL, '$2y$10$n4oZZmePiJzCQ28q1icopu8JugCqHL1KVhrPNfAOV30Bv3uP75N32', '12345678', NULL, 1, '918825456445', '918825456445', NULL, '123456789qwertyuio', NULL, 'upload/profile_photo/user.png', '2025-09-08 04:09:04', '2025-09-08 10:15:08', 1, 'Nonvisitor', NULL, NULL, NULL, '500', '75'),
-(10, NULL, 9, 3, 'Joshua', 'TFC1009', 'joshua@gmail.com', NULL, '$2y$10$lsIOE60jSoMdqXgMUJ1M7ualWcgtCTNfhqaKCHYJYD8w67Ki/hzq.', '12345678', NULL, 1, '919876543212', '919876543212', NULL, '123456789qwertyuio', NULL, 'upload/profile_photo/user.png', '2025-09-08 04:32:10', '2025-09-08 10:14:13', 1, 'Nonvisitor', NULL, NULL, NULL, '0', '75'),
-(11, 11, 10, 3, 'Ajay', 'TFC1010', 'ajay@gmail.com', NULL, '$2y$10$4WLVcrQea.JqYDRnJ7PALuRUd0Qh89cdETv.u5ZG07j.zzNaCn4jS', '12345678', NULL, 1, '918789789878', '918789789878', NULL, '123456789asdfghjklzxcvbnm,', NULL, 'upload/profile_photo/user.png', '2025-09-08 04:39:19', '2025-09-08 10:14:38', 1, 'Nonvisitor', NULL, NULL, NULL, '0', '75'),
-(12, 12, 11, 3, 'Jesin', 'TFC1011', 'jesin@gmail.com', NULL, '$2y$10$OQJl4t8snfVHGsvnpXFJDeooRVSfWK0LVv3qBo1B4ekWZGxEc6D/i', '12345678', NULL, 1, '919090909090', '919090909090', NULL, '1234567dftyudcvbnm', NULL, 'upload/profile_photo/user.png', '2025-09-08 04:43:42', '2025-09-08 10:15:08', 1, 'Nonvisitor', NULL, NULL, NULL, '0', '75'),
-(13, 13, 12, 3, 'Suriya', 'TFC1012', 'suriya@gmail.com', NULL, '$2y$10$hTOrvq3HPgNbE2LOnA0fwuLZ0br/VwWpkbTo/xaX4q791yScLKUPi', '12345678', NULL, 1, '919878987898', '919878987898', NULL, 'asdfghj2345678', NULL, 'upload/profile_photo/user.png', '2025-09-08 04:49:30', '2025-09-08 10:15:08', 1, 'Nonvisitor', NULL, NULL, NULL, '0', '0'),
-(23, NULL, 2, 4, 'Global - Rebirth', 'TFC1014', 'testing090@gmail.com', NULL, '', NULL, NULL, 1, '918565987834', NULL, NULL, NULL, NULL, 'upload/profile_photo/user.png', '2025-09-08 10:15:08', '2025-09-08 10:15:08', 1, 'Nonvisitor', NULL, NULL, NULL, NULL, NULL);
+(1, 1, NULL, 1, 'Admin', 'TFC1000', 'tfc@gmail.com', NULL, '$2y$10$w3UCJFqhijngNBLVU1cwmecl3TvpwmdLVgHGnjtG7WOmlhkOzkrFy', '12345678', '1000.45', 1, '9876543210', NULL, NULL, '0x7509dEb5a6367E094BA35ac8f8F7b2c1997654f7', NULL, 'upload/profile_photo/1.png', '2025-08-14 16:43:22', '2025-09-08 11:00:06', 5, 'Nonvisitor', 'eK7FIO_zthVCNgi6MjfvCR:APA91bEvoDpqYrhIXNUSH5eZio-obveHbeY52srANxuK44xIENuiYtzYGGTsNLrZSRy-iGckPwcir9PZYt_tauxazpHH6rks_LoJdfxLr_hFAFUR0b_XCLk', 'bg-theme13', NULL, '319000', '33275'),
+(2, 2, 1, 3, 'Testing1', 'TFC1001', 'testing090@gmail.com', NULL, '$2y$10$eNkqNTUsTWo6YaOE1a.OyemJbN.mQzAC5EQTSn2nRmKhl6QgRRYF2', '12345678', '0', 1, '918565987834', '918565987834', NULL, '1234567qwertyukl;', NULL, 'upload/profile_photo/user.png', '2025-09-06 06:16:18', '2025-09-08 10:15:08', 1, 'Nonvisitor', NULL, NULL, NULL, '2000', '150'),
+(9, 9, 2, 3, 'Akil', 'TFC1002', 'akil@gmail.com', NULL, '$2y$10$n4oZZmePiJzCQ28q1icopu8JugCqHL1KVhrPNfAOV30Bv3uP75N32', '12345678', '0', 1, '918825456445', '918825456445', NULL, '123456789qwertyuio', NULL, 'upload/profile_photo/user.png', '2025-09-08 04:09:04', '2025-09-08 10:15:08', 1, 'Nonvisitor', NULL, NULL, NULL, '500', '75'),
+(10, NULL, 9, 3, 'Joshua', 'TFC1009', 'joshua@gmail.com', NULL, '$2y$10$lsIOE60jSoMdqXgMUJ1M7ualWcgtCTNfhqaKCHYJYD8w67Ki/hzq.', '12345678', '0', 1, '919876543212', '919876543212', NULL, '123456789qwertyuio', NULL, 'upload/profile_photo/user.png', '2025-09-08 04:32:10', '2025-09-08 10:14:13', 1, 'Nonvisitor', NULL, NULL, NULL, '0', '75'),
+(11, 11, 10, 3, 'Ajay', 'TFC1010', 'ajay@gmail.com', NULL, '$2y$10$4WLVcrQea.JqYDRnJ7PALuRUd0Qh89cdETv.u5ZG07j.zzNaCn4jS', '12345678', '0', 1, '918789789878', '918789789878', NULL, '123456789asdfghjklzxcvbnm,', NULL, 'upload/profile_photo/user.png', '2025-09-08 04:39:19', '2025-09-08 10:14:38', 1, 'Nonvisitor', NULL, NULL, NULL, '0', '75'),
+(12, 12, 11, 3, 'Jesin', 'TFC1011', 'jesin@gmail.com', NULL, '$2y$10$OQJl4t8snfVHGsvnpXFJDeooRVSfWK0LVv3qBo1B4ekWZGxEc6D/i', '12345678', '0', 1, '919090909090', '919090909090', NULL, '1234567dftyudcvbnm', NULL, 'upload/profile_photo/user.png', '2025-09-08 04:43:42', '2025-09-08 10:15:08', 1, 'Nonvisitor', NULL, NULL, NULL, '0', '75'),
+(13, 13, 12, 3, 'Suriya', 'TFC1012', 'suriya@gmail.com', NULL, '$2y$10$hTOrvq3HPgNbE2LOnA0fwuLZ0br/VwWpkbTo/xaX4q791yScLKUPi', '12345678', '0', 1, '919878987898', '919878987898', NULL, 'asdfghj2345678', NULL, 'upload/profile_photo/user.png', '2025-09-08 04:49:30', '2025-09-08 10:15:08', 1, 'Nonvisitor', NULL, NULL, NULL, '0', '0'),
+(23, NULL, 2, 4, 'Global - Rebirth', 'TFC1014', 'testing090@gmail.com', NULL, '', NULL, '0', 1, '918565987834', NULL, NULL, NULL, NULL, 'upload/profile_photo/user.png', '2025-09-08 10:15:08', '2025-09-08 10:15:08', 1, 'Nonvisitor', NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -585,6 +585,14 @@ CREATE TABLE `wallet` (
   `created_at` varchar(35) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `wallet`
+--
+
+INSERT INTO `wallet` (`id`, `user_id`, `wallet_amount`, `status`, `type`, `created_at`) VALUES
+(1, 2, '500', '1', 'sponser_income', '2025-09-08 16:28:01'),
+(2, 1, '250', '1', 'sponser_income', '2025-09-08 16:29:36');
+
 -- --------------------------------------------------------
 
 --
@@ -607,6 +615,13 @@ CREATE TABLE `withdrawal` (
   `updated_at` datetime DEFAULT NULL,
   `log_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `withdrawal`
+--
+
+INSERT INTO `withdrawal` (`id`, `from_id`, `to_id`, `tds_amount`, `youwillget`, `withdrawal_amount`, `new_balance`, `status`, `message`, `transfer_password`, `time`, `created_at`, `updated_at`, `log_id`) VALUES
+(1, 1, 1, 0.00, 0.00, 50.00, 1000.45, '2', 'TEST', NULL, NULL, '2025-09-08 16:29:54', '2025-09-08 16:30:06', NULL);
 
 --
 -- Indexes for dumped tables
@@ -782,13 +797,13 @@ ALTER TABLE `user_type`
 -- AUTO_INCREMENT for table `wallet`
 --
 ALTER TABLE `wallet`
-  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `withdrawal`
 --
 ALTER TABLE `withdrawal`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
