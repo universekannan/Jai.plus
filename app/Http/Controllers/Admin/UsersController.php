@@ -307,6 +307,7 @@ class UsersController extends Controller
             }else{
                 $updatepass = DB::table('users')->where('id', '=', $userid)->update([
                     'password'  => Hash::make($new_password),
+                    'cpassword'  => $new_password,
                 ]);
                 return redirect()->back()->with('success', 'Passwords Change Succesfully');
             }
