@@ -584,10 +584,10 @@ public function kannanaaaaa() {
             $userId,
             $uplinerId,
             $planId,
-            '3',
+            '4',
             $perca10,
             1,
-            "Upline Sponsor Income",
+            "Upgrade Upline Sponsor Income",
             '3'
         );
 
@@ -895,10 +895,10 @@ protected function repeatPlanPayment($userId, $amount, $planId, $upgrade)
             $userId,
             $uplinerId,
             $planId,
-            '3',
+            '4',
             $perca10,
             1,
-            "Upline Sponsor Income",
+            "Upgrade Upline Sponsor Income",
             '3'
         );
 
