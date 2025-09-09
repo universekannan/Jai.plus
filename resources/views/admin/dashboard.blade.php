@@ -85,7 +85,7 @@
                         <div class="info-box-content">
                             <span class="info-box-text">Wallet</span>
                             <span class="info-box-number">{{ Auth::user()->wallet }} </span>
-                            <small>{{ $LastWeekwalletIncome }}  from last week</small>
+                            <small>{{ $LastWeekwalletIncome }} from last week</small>
                         </div>
                     </div>
                 </a>
@@ -98,7 +98,7 @@
                         <div class="info-box-content">
                             <span class="info-box-text">Sponsor Income (50%)</span>
                             <span class="info-box-number">{{ $sponserIncome }} </span>
-                            <small>{{ $LastWeeksponserIncome }}  from last week</small>
+                            <small>{{ $LastWeeksponserIncome }} from last week</small>
                         </div>
                     </div>
                 </a>
@@ -129,19 +129,112 @@
                     </div>
                 </a>
             </div>
+            <div class="modal fade" id="rebirthIncome" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-md" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header bg-primary">
+                            <h5 class="modal-title text-white">Global Rebirth Income</h5>
+                            <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-striped">
+                                    <thead class="bg-primary text-white">
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Name</th>
+                                            <th>Amount ($)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Upgrade</td>
+                                            <td><strong>{{ $GRUpgrade }}</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Admin</td>
+                                            <td><strong>{{ $GRAdmin }}</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2" class="bg-light text-right"><strong>Total</strong></td>
+                                            <td class="bg-light"><strong>{{ $GRTotal }}</strong></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="modal-footer justify-content-between">
+                            <a href="{{ url('admin/global_rebirth') }}" class="btn btn-primary">Read More</a>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
 
             <div class="col-md-3 col-sm-6">
                 <a href="#" data-toggle="modal" data-target="#uplineIncome">
                     <div class="info-box bg-light">
                         <span class="info-box-icon bg-success"><i class="fas fa-sitemap"></i></span>
                         <div class="info-box-content">
-                            <span class="info-box-text">Total 7 Upline Sponsor Income</span>
+                            <span class="info-box-text">Total Upline Sponsor Income</span>
                             <span class="info-box-number">{{ $uplineIncome }} </span>
-                            <small>{{ $LastWeekInuplineIncome }}  from last week</small>
+                            <small>{{ $LastWeekInuplineIncome }} from last week</small>
                         </div>
                     </div>
                 </a>
             </div>
+
+            <div class="modal fade" id="uplineIncome" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-md" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header bg-primary">
+                            <h5 class="modal-title text-white">Upline Sponsor Income</h5>
+                            <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-striped">
+                                    <thead class="bg-primary text-white">
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Name</th>
+                                            <th>Amount ($)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Upgrade</td>
+                                            <td><strong>{{ $UPUpgrade }}</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Admin</td>
+                                            <td><strong>{{ $UPAdmin }}</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2" class="bg-light text-right"><strong>Total</strong></td>
+                                            <td class="bg-light"><strong>{{ $UPTotal }}</strong></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="modal-footer justify-content-between">
+                            <a href="{{ url('admin/upline_spornser') }}" class="btn btn-primary">Read More</a>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
 
             <div class="col-md-3 col-sm-6">
                 <a href="{{ url('admin/withdrawal') }}/1">

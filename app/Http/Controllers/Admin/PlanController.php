@@ -650,7 +650,7 @@ public function kannanaaaaa() {
                 // total = (20% * 5 cycles) - plan amount
                 $total   = ((($amount * 20) / 100) * 5) - $amount;
                 $share10 = ($total * 10) / 100;
-
+//  dd($share10);
                 $this->storeGlobalPayment(
                     'RebirthSplitMain2',
                     $planId,
@@ -961,7 +961,7 @@ protected function repeatPlanPayment($userId, $amount, $planId, $upgrade)
                 // total = (20% * 5 cycles) - plan amount
                 $total   = ((($amount * 20) / 100) * 5) - $amount;
                 $share10 = ($total * 10) / 100;
-
+// dd($share10);
                 $this->storeGlobalPayment(
                     'RebirthSplitMain2',
                     $planId,
