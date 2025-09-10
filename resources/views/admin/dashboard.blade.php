@@ -96,9 +96,8 @@
                     <div class="info-box bg-light">
                         <span class="info-box-icon bg-info"><i class="fas fa-dollar-sign"></i></span>
                         <div class="info-box-content">
-                            <span class="info-box-text">Sponsor Income (50%)</span>
+                            <span class="info-box-text">Direct Refferal Income</span>
                             <span class="info-box-number">{{ $sponserIncome }} </span>
-                            <small>{{ $LastWeeksponserIncome }} from last week</small>
                         </div>
                     </div>
                 </a>
