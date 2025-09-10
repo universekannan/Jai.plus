@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 08, 2025 at 01:12 PM
+-- Generation Time: Sep 10, 2025 at 07:51 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -20,6 +20,28 @@ SET time_zone = "+00:00";
 --
 -- Database: `mlm`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin_income`
+--
+
+CREATE TABLE `admin_income` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `plan_id` int(11) DEFAULT NULL,
+  `user_type_id` int(11) DEFAULT NULL,
+  `from_id` int(11) DEFAULT NULL,
+  `to_id` int(11) DEFAULT NULL,
+  `pay_reason_id` int(11) DEFAULT NULL,
+  `amount` varchar(10) DEFAULT NULL,
+  `level` int(11) DEFAULT NULL,
+  `payment_status` varchar(20) DEFAULT NULL,
+  `widtdrawal_status` varchar(15) NOT NULL DEFAULT '0',
+  `message` varchar(200) DEFAULT NULL,
+  `log_id` int(11) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -211,20 +233,11 @@ CREATE TABLE `global_regain` (
 --
 
 INSERT INTO `global_regain` (`id`, `plan_id`, `user_type_id`, `from_id`, `to_id`, `pay_reason_id`, `amount`, `global_regain_amount`, `level`, `payment_status`, `message`, `log_id`, `status`, `created_at`) VALUES
-(1, 1, 3, NULL, 1, 2, '1', '0', 1, '1', 'Global regain Income', 2, 1, '2025-08-26 12:42:29'),
+(1, 1, 3, 2, 1, 2, '1', '0', 1, '1', 'Global regain Income', 1, 0, '2025-08-26 12:42:29'),
 (2, 2, 3, 2, 1, 2, NULL, '0', NULL, NULL, NULL, NULL, 0, NULL),
 (3, 3, 3, 2, 1, 2, NULL, '0', NULL, NULL, NULL, NULL, 0, NULL),
 (4, 4, 3, 2, 1, 2, NULL, '0', NULL, NULL, NULL, NULL, 0, NULL),
-(5, 5, 3, 2, 1, 2, NULL, '0', NULL, NULL, NULL, NULL, 0, NULL),
-(36, 1, 3, 1, 2, 2, '500', '0', 1, '1', 'Global Regain Income (Admin fallback)', 2, 1, '2025-09-08 15:42:34'),
-(37, 1, 3, 2, 9, 2, '500', '0', 1, '1', 'Global Regain Income', 9, 0, '2025-09-08 15:42:45'),
-(38, 1, 3, 2, 10, 2, '500', '0', 1, '1', 'Global Regain Income', 10, 0, '2025-09-08 15:43:35'),
-(39, 1, 3, 2, 11, 2, '500', '0', 1, '1', 'Global Regain Income', 11, 0, '2025-09-08 15:44:13'),
-(40, 1, 3, 2, 12, 2, '500', '0', 1, '1', 'Global Regain Income', 12, 0, '2025-09-08 15:44:38'),
-(41, 1, 3, 2, 13, 2, '500', '0', 1, '1', 'Global Regain Income', 13, 0, '2025-09-08 15:45:08'),
-(42, 1, 3, 2, 13, 4, '0', '1', 1, '1', 'Upgrade Global Rebirth Income', 13, 0, '2025-09-08 15:45:08'),
-(43, 1, 3, 2, 1, 5, '0', '1', 1, '1', 'Admin 10% Global Rebirth Income', 13, 0, '2025-09-08 15:45:08'),
-(44, 1, 3, 9, 23, 2, '500', '0', 1, '1', 'Global Regain Income', 13, 0, '2025-09-08 15:45:08');
+(5, 5, 3, 2, 1, 2, NULL, '0', NULL, NULL, NULL, NULL, 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -315,6 +328,7 @@ CREATE TABLE `plans` (
   `sponser_amount` varchar(20) DEFAULT NULL,
   `upline_amount` varchar(20) DEFAULT NULL,
   `regain_amount` varchar(20) DEFAULT NULL,
+  `service_amount` int(11) NOT NULL DEFAULT 0,
   `status` varchar(11) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
@@ -324,12 +338,12 @@ CREATE TABLE `plans` (
 -- Dumping data for table `plans`
 --
 
-INSERT INTO `plans` (`id`, `plan_name`, `plan_amount`, `sponser_amount`, `upline_amount`, `regain_amount`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Health', '500', '250', '100', '100', '1', '2025-08-14 14:44:08', '2025-09-06 10:19:16'),
-(2, 'Happiness', '2000', '1000', '400', '400', '1', '2025-08-14 14:45:22', '2025-09-06 10:20:11'),
-(3, 'Envirolment', '5000', '2500', '1000', '1000', '1', '2025-08-14 14:45:55', '2025-09-06 10:20:57'),
-(4, 'Spritnal', '7000', '3500', '1400', '1400', '1', '2025-08-14 14:46:22', '2025-09-06 10:21:36'),
-(5, 'Economical', '9000', '4500', '1800', '1800', '1', '2025-08-14 14:46:52', '2025-09-06 10:23:37');
+INSERT INTO `plans` (`id`, `plan_name`, `plan_amount`, `sponser_amount`, `upline_amount`, `regain_amount`, `service_amount`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'Health', '500', '50', '20', '20', 10, '1', '2025-08-14 14:44:08', '2025-09-10 10:17:40'),
+(2, 'Happiness', '2000', '50', '20', '20', 10, '1', '2025-08-14 14:45:22', '2025-09-10 10:18:02'),
+(3, 'Envirolment', '5000', '50', '20', '20', 10, '1', '2025-08-14 14:45:55', '2025-09-10 10:18:20'),
+(4, 'Spritnal', '7000', '50', '20', '20', 10, '1', '2025-08-14 14:46:22', '2025-09-10 10:18:41'),
+(5, 'Economical', '9000', '50', '20', '20', 10, '1', '2025-08-14 14:46:52', '2025-09-10 10:19:47');
 
 -- --------------------------------------------------------
 
@@ -389,33 +403,6 @@ CREATE TABLE `sponser_income` (
   `created_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
---
--- Dumping data for table `sponser_income`
---
-
-INSERT INTO `sponser_income` (`id`, `plan_id`, `user_type_id`, `from_id`, `to_id`, `pay_reason_id`, `amount`, `level`, `payment_status`, `widtdrawal_status`, `message`, `log_id`, `created_at`) VALUES
-(1, 1, 3, 2, 1, 4, '25', 1, '1', '0', 'Referral Upgrade Bonus', 2, '2025-09-08 15:42:34'),
-(2, 1, 3, 2, 1, 1, '250', 1, '1', '1', 'Referral Sponsor Income', 2, '2025-09-08 15:42:34'),
-(3, 1, 3, 2, 1, 5, '25', 1, '1', '0', 'Admin Bonus Upgrade', 2, '2025-09-08 15:42:34'),
-(4, 1, 3, 9, 2, 4, '25', 1, '1', '0', 'Referral Upgrade Bonus', 9, '2025-09-08 15:42:44'),
-(5, 1, 3, 9, 2, 1, '250', 1, '1', '1', 'Referral Sponsor Income', 9, '2025-09-08 15:42:45'),
-(6, 1, 3, 9, 1, 5, '25', 1, '1', '0', 'Admin Bonus Upgrade', 9, '2025-09-08 15:42:45'),
-(7, 1, 3, 10, 9, 4, '25', 1, '1', '0', 'Referral Upgrade Bonus', 10, '2025-09-08 15:43:35'),
-(8, 1, 3, 10, 9, 1, '250', 1, '1', '0', 'Referral Sponsor Income', 10, '2025-09-08 15:43:35'),
-(9, 1, 3, 10, 1, 5, '25', 1, '1', '0', 'Admin Bonus Upgrade', 10, '2025-09-08 15:43:35'),
-(10, 1, 3, 11, 10, 4, '25', 1, '1', '0', 'Referral Upgrade Bonus', 11, '2025-09-08 15:44:13'),
-(11, 1, 3, 11, 10, 1, '250', 1, '1', '0', 'Referral Sponsor Income', 11, '2025-09-08 15:44:13'),
-(12, 1, 3, 11, 1, 5, '25', 1, '1', '0', 'Admin Bonus Upgrade', 11, '2025-09-08 15:44:13'),
-(13, 1, 3, 12, 11, 4, '25', 1, '1', '0', 'Referral Upgrade Bonus', 12, '2025-09-08 15:44:38'),
-(14, 1, 3, 12, 11, 1, '250', 1, '1', '0', 'Referral Sponsor Income', 12, '2025-09-08 15:44:38'),
-(15, 1, 3, 12, 1, 5, '25', 1, '1', '0', 'Admin Bonus Upgrade', 12, '2025-09-08 15:44:38'),
-(16, 1, 3, 13, 12, 4, '25', 1, '1', '0', 'Referral Upgrade Bonus', 13, '2025-09-08 15:45:08'),
-(17, 1, 3, 13, 12, 1, '250', 1, '1', '0', 'Referral Sponsor Income', 13, '2025-09-08 15:45:08'),
-(18, 1, 3, 13, 1, 5, '25', 1, '1', '0', 'Admin Bonus Upgrade', 13, '2025-09-08 15:45:08'),
-(19, 1, 3, 23, 2, 4, '25', 1, '1', '0', 'Referral Upgrade Bonus', 13, '2025-09-08 15:45:08'),
-(20, 1, 3, 23, 2, 1, '250', 1, '1', '1', 'Referral Sponsor Income', 13, '2025-09-08 15:45:08'),
-(21, 1, 3, 23, 1, 5, '25', 1, '1', '0', 'Admin Bonus Upgrade', 13, '2025-09-08 15:45:08');
-
 -- --------------------------------------------------------
 
 --
@@ -436,33 +423,6 @@ CREATE TABLE `upline_income` (
   `log_id` int(11) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
---
--- Dumping data for table `upline_income`
---
-
-INSERT INTO `upline_income` (`id`, `plan_id`, `user_type_id`, `from_id`, `to_id`, `pay_reason_id`, `amount`, `level`, `payment_status`, `message`, `log_id`, `created_at`) VALUES
-(1, 1, 3, 2, 1, 3, '500', 1, '1', 'Upline Sponsor', 2, '2025-09-08 15:42:34'),
-(2, 1, 3, 2, 1, 3, '50', 1, '1', 'Upline Sponsor Income', 2, '2025-09-08 15:42:34'),
-(3, 1, 3, 2, 1, 5, '50', 1, '1', 'Admin 10% Upline Upgrade', 2, '2025-09-08 15:42:34'),
-(4, 1, 3, 9, 2, 3, '500', 1, '1', 'Upline Sponsor', 9, '2025-09-08 15:42:45'),
-(5, 1, 3, 9, 2, 3, '50', 1, '1', 'Upline Sponsor Income', 9, '2025-09-08 15:42:45'),
-(6, 1, 3, 9, 2, 5, '50', 1, '1', 'Admin 10% Upline Upgrade', 9, '2025-09-08 15:42:45'),
-(7, 1, 3, 10, 9, 3, '500', 1, '1', 'Upline Sponsor', 10, '2025-09-08 15:43:35'),
-(8, 1, 3, 10, 9, 3, '50', 1, '1', 'Upline Sponsor Income', 10, '2025-09-08 15:43:35'),
-(9, 1, 3, 10, 9, 5, '50', 1, '1', 'Admin 10% Upline Upgrade', 10, '2025-09-08 15:43:35'),
-(10, 1, 3, 11, 10, 3, '500', 1, '1', 'Upline Sponsor', 11, '2025-09-08 15:44:13'),
-(11, 1, 3, 11, 10, 3, '50', 1, '1', 'Upline Sponsor Income', 11, '2025-09-08 15:44:13'),
-(12, 1, 3, 11, 10, 5, '50', 1, '1', 'Admin 10% Upline Upgrade', 11, '2025-09-08 15:44:13'),
-(13, 1, 3, 12, 11, 3, '500', 1, '1', 'Upline Sponsor', 12, '2025-09-08 15:44:38'),
-(14, 1, 3, 12, 11, 3, '50', 1, '1', 'Upline Sponsor Income', 12, '2025-09-08 15:44:38'),
-(15, 1, 3, 12, 11, 5, '50', 1, '1', 'Admin 10% Upline Upgrade', 12, '2025-09-08 15:44:38'),
-(16, 1, 3, 13, 12, 3, '500', 1, '1', 'Upline Sponsor', 13, '2025-09-08 15:45:08'),
-(17, 1, 3, 13, 12, 3, '50', 1, '1', 'Upline Sponsor Income', 13, '2025-09-08 15:45:08'),
-(18, 1, 3, 13, 12, 5, '50', 1, '1', 'Admin 10% Upline Upgrade', 13, '2025-09-08 15:45:08'),
-(19, 1, 3, 23, 2, 3, '500', 1, '1', 'Upline Sponsor', 13, '2025-09-08 15:45:08'),
-(20, 1, 3, 23, 2, 3, '50', 1, '1', 'Upline Sponsor Income', 13, '2025-09-08 15:45:08'),
-(21, 1, 3, 23, 2, 5, '50', 1, '1', 'Admin 10% Upline Upgrade', 13, '2025-09-08 15:45:08');
 
 -- --------------------------------------------------------
 
@@ -496,23 +456,22 @@ CREATE TABLE `users` (
   `fcm_token` varchar(200) DEFAULT NULL,
   `theme` varchar(10) DEFAULT NULL,
   `referral_code` varchar(30) DEFAULT NULL,
-  `global_rebirth_amount` varchar(10) DEFAULT NULL,
-  `upgrade` varchar(10) DEFAULT NULL
+  `global_rebirth_amount` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `global_id`, `referral_id`, `user_type_id`, `name`, `user_name`, `email`, `email_verified_at`, `password`, `cpassword`, `wallet`, `status`, `phone`, `whatsapp_number`, `address`, `wallet_address`, `remember_token`, `photo`, `created_at`, `updated_at`, `plan_id`, `message`, `fcm_token`, `theme`, `referral_code`, `global_rebirth_amount`, `upgrade`) VALUES
-(1, 1, NULL, 1, 'Admin', 'TFC1000', 'tfc@gmail.com', NULL, '$2y$10$w3UCJFqhijngNBLVU1cwmecl3TvpwmdLVgHGnjtG7WOmlhkOzkrFy', '12345678', '1000.45', 1, '9876543210', NULL, NULL, '0x7509dEb5a6367E094BA35ac8f8F7b2c1997654f7', NULL, 'upload/profile_photo/1.png', '2025-08-14 16:43:22', '2025-09-08 11:00:06', 5, 'Nonvisitor', 'eK7FIO_zthVCNgi6MjfvCR:APA91bEvoDpqYrhIXNUSH5eZio-obveHbeY52srANxuK44xIENuiYtzYGGTsNLrZSRy-iGckPwcir9PZYt_tauxazpHH6rks_LoJdfxLr_hFAFUR0b_XCLk', 'bg-theme13', NULL, '319000', '33275'),
-(2, 2, 1, 3, 'Testing1', 'TFC1001', 'testing090@gmail.com', NULL, '$2y$10$eNkqNTUsTWo6YaOE1a.OyemJbN.mQzAC5EQTSn2nRmKhl6QgRRYF2', '12345678', '0', 1, '918565987834', '918565987834', NULL, '1234567qwertyukl;', NULL, 'upload/profile_photo/user.png', '2025-09-06 06:16:18', '2025-09-08 10:15:08', 1, 'Nonvisitor', NULL, NULL, NULL, '2000', '150'),
-(9, 9, 2, 3, 'Akil', 'TFC1002', 'akil@gmail.com', NULL, '$2y$10$n4oZZmePiJzCQ28q1icopu8JugCqHL1KVhrPNfAOV30Bv3uP75N32', '12345678', '0', 1, '918825456445', '918825456445', NULL, '123456789qwertyuio', NULL, 'upload/profile_photo/user.png', '2025-09-08 04:09:04', '2025-09-08 10:15:08', 1, 'Nonvisitor', NULL, NULL, NULL, '500', '75'),
-(10, NULL, 9, 3, 'Joshua', 'TFC1009', 'joshua@gmail.com', NULL, '$2y$10$lsIOE60jSoMdqXgMUJ1M7ualWcgtCTNfhqaKCHYJYD8w67Ki/hzq.', '12345678', '0', 1, '919876543212', '919876543212', NULL, '123456789qwertyuio', NULL, 'upload/profile_photo/user.png', '2025-09-08 04:32:10', '2025-09-08 10:14:13', 1, 'Nonvisitor', NULL, NULL, NULL, '0', '75'),
-(11, 11, 10, 3, 'Ajay', 'TFC1010', 'ajay@gmail.com', NULL, '$2y$10$4WLVcrQea.JqYDRnJ7PALuRUd0Qh89cdETv.u5ZG07j.zzNaCn4jS', '12345678', '0', 1, '918789789878', '918789789878', NULL, '123456789asdfghjklzxcvbnm,', NULL, 'upload/profile_photo/user.png', '2025-09-08 04:39:19', '2025-09-08 10:14:38', 1, 'Nonvisitor', NULL, NULL, NULL, '0', '75'),
-(12, 12, 11, 3, 'Jesin', 'TFC1011', 'jesin@gmail.com', NULL, '$2y$10$OQJl4t8snfVHGsvnpXFJDeooRVSfWK0LVv3qBo1B4ekWZGxEc6D/i', '12345678', '0', 1, '919090909090', '919090909090', NULL, '1234567dftyudcvbnm', NULL, 'upload/profile_photo/user.png', '2025-09-08 04:43:42', '2025-09-08 10:15:08', 1, 'Nonvisitor', NULL, NULL, NULL, '0', '75'),
-(13, 13, 12, 3, 'Suriya', 'TFC1012', 'suriya@gmail.com', NULL, '$2y$10$hTOrvq3HPgNbE2LOnA0fwuLZ0br/VwWpkbTo/xaX4q791yScLKUPi', '12345678', '0', 1, '919878987898', '919878987898', NULL, 'asdfghj2345678', NULL, 'upload/profile_photo/user.png', '2025-09-08 04:49:30', '2025-09-08 10:15:08', 1, 'Nonvisitor', NULL, NULL, NULL, '0', '0'),
-(23, NULL, 2, 4, 'Global - Rebirth', 'TFC1014', 'testing090@gmail.com', NULL, '', NULL, '0', 1, '918565987834', NULL, NULL, NULL, NULL, 'upload/profile_photo/user.png', '2025-09-08 10:15:08', '2025-09-08 10:15:08', 1, 'Nonvisitor', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `users` (`id`, `global_id`, `referral_id`, `user_type_id`, `name`, `user_name`, `email`, `email_verified_at`, `password`, `cpassword`, `wallet`, `status`, `phone`, `whatsapp_number`, `address`, `wallet_address`, `remember_token`, `photo`, `created_at`, `updated_at`, `plan_id`, `message`, `fcm_token`, `theme`, `referral_code`, `global_rebirth_amount`) VALUES
+(1, 1, NULL, 1, 'Admin', 'TFC1000', 'tfc@gmail.com', NULL, '$2y$10$w3UCJFqhijngNBLVU1cwmecl3TvpwmdLVgHGnjtG7WOmlhkOzkrFy', '12345678', '9450.45', 1, '9876543210', NULL, NULL, '0x7509dEb5a6367E094BA35ac8f8F7b2c1997654f7', NULL, 'upload/profile_photo/1.png', '2025-08-14 16:43:22', '2025-09-10 05:32:42', 5, 'Nonvisitor', 'eK7FIO_zthVCNgi6MjfvCR:APA91bEvoDpqYrhIXNUSH5eZio-obveHbeY52srANxuK44xIENuiYtzYGGTsNLrZSRy-iGckPwcir9PZYt_tauxazpHH6rks_LoJdfxLr_hFAFUR0b_XCLk', 'bg-theme13', NULL, '100'),
+(2, 2, 1, 3, 'Testing1', 'TFC1001', 'testing090@gmail.com', NULL, '$2y$10$eNkqNTUsTWo6YaOE1a.OyemJbN.mQzAC5EQTSn2nRmKhl6QgRRYF2', '12345678', '1100', 1, '918565987834', '918565987834', NULL, '1234567qwertyukl;', NULL, 'upload/profile_photo/user.png', '2025-09-06 06:16:18', '2025-09-10 05:32:42', 5, 'Nonvisitor', NULL, NULL, NULL, '0'),
+(9, 9, 2, 3, 'Akil', 'TFC1002', 'akil@gmail.com', NULL, '$2y$10$9088ZAggULqLBm5b27cKpedUXQvUV7e73nfWEcMZphDf7a8CDerM6', '1234567890', '100', 1, '918825456445', '918825456445', NULL, '123456789qwertyuio', NULL, 'upload/profile_photo/user.png', '2025-09-08 04:09:04', '2025-09-10 05:32:42', 1, 'Nonvisitor', NULL, NULL, NULL, '0'),
+(10, 10, 9, 3, 'Joshua', 'TFC1009', 'joshua@gmail.com', NULL, '$2y$10$lsIOE60jSoMdqXgMUJ1M7ualWcgtCTNfhqaKCHYJYD8w67Ki/hzq.', '12345678', '100', 1, '919876543212', '919876543212', NULL, '123456789qwertyuio', NULL, 'upload/profile_photo/user.png', '2025-09-08 04:32:10', '2025-09-10 04:56:29', 0, 'Nonvisitor', NULL, NULL, NULL, '0'),
+(11, 11, 10, 3, 'Ajay', 'TFC1010', 'ajay@gmail.com', NULL, '$2y$10$4WLVcrQea.JqYDRnJ7PALuRUd0Qh89cdETv.u5ZG07j.zzNaCn4jS', '12345678', '100', 1, '918789789878', '918789789878', NULL, '123456789asdfghjklzxcvbnm,', NULL, 'upload/profile_photo/user.png', '2025-09-08 04:39:19', '2025-09-10 04:56:58', 0, 'Nonvisitor', NULL, NULL, NULL, '0'),
+(12, 12, 11, 3, 'Jesin', 'TFC1011', 'jesin@gmail.com', NULL, '$2y$10$OQJl4t8snfVHGsvnpXFJDeooRVSfWK0LVv3qBo1B4ekWZGxEc6D/i', '12345678', '100', 1, '919090909090', '919090909090', NULL, '1234567dftyudcvbnm', NULL, 'upload/profile_photo/user.png', '2025-09-08 04:43:42', '2025-09-10 04:57:31', 0, 'Nonvisitor', NULL, NULL, NULL, '0'),
+(13, 13, 12, 3, 'Suriya', 'TFC1012', 'suriya@gmail.com', NULL, '$2y$10$hTOrvq3HPgNbE2LOnA0fwuLZ0br/VwWpkbTo/xaX4q791yScLKUPi', '12345678', '200', 1, '919878987898', '919878987898', NULL, 'asdfghj2345678', NULL, 'upload/profile_photo/user.png', '2025-09-08 04:49:30', '2025-09-10 05:04:47', 0, 'Nonvisitor', NULL, NULL, NULL, '0'),
+(33, NULL, 13, 3, 'suriya testing', 'TFC1013', 'suriyatest@gmail.com', NULL, '$2y$10$.B4g69cbRiarTyzFISwHG.URJwT0CcdqwWF32kPDrNZlRxLlytP0m', '12345678', '0', 1, '919766543212', '919766543212', NULL, '23456ygfdcvnjytre356', NULL, 'upload/profile_photo/user.png', '2025-09-10 04:59:17', '2025-09-10 05:04:47', 0, 'Nonvisitor', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -539,14 +498,12 @@ INSERT INTO `user_plan` (`id`, `user_id`, `plan_id`, `amount`, `created_at`, `cr
 (3, 1, 3, '5000', '2025-09-08 10:10:41', 1),
 (4, 1, 4, '7000', '2025-09-08 10:10:44', 1),
 (5, 1, 5, '9000', '2025-09-08 10:10:46', 1),
-(6, 2, 1, '500', '2025-09-08 10:12:34', 2),
-(7, 9, 1, '500', '2025-09-08 10:12:44', 9),
-(8, 10, 1, '500', '2025-09-08 10:13:35', 10),
-(9, 11, 1, '500', '2025-09-08 10:14:13', 11),
-(10, 12, 1, '500', '2025-09-08 10:14:38', 12),
-(11, 13, 1, '500', '2025-09-08 10:15:08', 13),
-(12, 23, 1, '500', '2025-09-08 10:15:08', 13),
-(13, 23, 1, '500', '2025-09-08 10:15:08', 13);
+(54, 2, 1, '500', '2025-09-10 05:12:37', 2),
+(55, 2, 2, '2000', '2025-09-10 05:28:01', 2),
+(56, 2, 3, '5000', '2025-09-10 05:28:05', 2),
+(57, 2, 4, '7000', '2025-09-10 05:28:08', 2),
+(58, 2, 5, '9000', '2025-09-10 05:28:11', 2),
+(62, 9, 1, '500', '2025-09-10 05:32:42', 9);
 
 -- --------------------------------------------------------
 
@@ -591,7 +548,8 @@ CREATE TABLE `wallet` (
 
 INSERT INTO `wallet` (`id`, `user_id`, `wallet_amount`, `status`, `type`, `created_at`) VALUES
 (1, 2, '500', '1', 'sponser_income', '2025-09-08 16:28:01'),
-(2, 1, '250', '1', 'sponser_income', '2025-09-08 16:29:36');
+(2, 1, '250', '1', 'sponser_income', '2025-09-08 16:29:36'),
+(3, 2, '500', '1', 'sponser_income', '2025-09-09 14:06:24');
 
 -- --------------------------------------------------------
 
@@ -626,6 +584,12 @@ INSERT INTO `withdrawal` (`id`, `from_id`, `to_id`, `tds_amount`, `youwillget`, 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `admin_income`
+--
+ALTER TABLE `admin_income`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `countries`
@@ -722,6 +686,12 @@ ALTER TABLE `withdrawal`
 --
 
 --
+-- AUTO_INCREMENT for table `admin_income`
+--
+ALTER TABLE `admin_income`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `countries`
 --
 ALTER TABLE `countries`
@@ -731,7 +701,7 @@ ALTER TABLE `countries`
 -- AUTO_INCREMENT for table `global_regain`
 --
 ALTER TABLE `global_regain`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -767,25 +737,25 @@ ALTER TABLE `settings`
 -- AUTO_INCREMENT for table `sponser_income`
 --
 ALTER TABLE `sponser_income`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `upline_income`
 --
 ALTER TABLE `upline_income`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `user_plan`
 --
 ALTER TABLE `user_plan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
 -- AUTO_INCREMENT for table `user_type`
@@ -797,7 +767,7 @@ ALTER TABLE `user_type`
 -- AUTO_INCREMENT for table `wallet`
 --
 ALTER TABLE `wallet`
-  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `withdrawal`

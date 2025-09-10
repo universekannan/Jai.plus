@@ -33,7 +33,7 @@ class RegisterController extends Controller
     $new = $latestId - 1; 
     $newId = $new + 1001; 
     $formattedId = str_pad($newId, 4, '0', STR_PAD_LEFT); 
-    $username = "TFC" . $formattedId; 
+    $username = "JAI" . $formattedId; 
 //print_r($username);die;
     $referralId = strtoupper(substr($request->name, 0, 3)) . rand(1000, 9999);
 

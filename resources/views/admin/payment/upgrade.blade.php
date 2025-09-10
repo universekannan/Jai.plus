@@ -138,7 +138,6 @@
                                     <tr>
                                         <th>#</th>
                                         <th>From</th>
-                                        <th>To Username</th>
                                         <th>Income </th>
                                         <th>Package Amount </th>
                                         <th>Reason</th>
@@ -153,7 +152,6 @@
                                     <tr>
                                         <td>{{ $key + 1 }}</td>
                                         <td>{{ $global->from_username }}</td>
-                                        <td>{{ $global->to_username }}</td>
                                         <td>{{ $global->amount }} </td>
                                         <td>{{ $plan->plan_amount ?? '-' }} </td>
                                         <td>{{ $global->reasonname }}</td>

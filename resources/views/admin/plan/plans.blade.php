@@ -51,7 +51,7 @@
                                         </td>
                                         <td width="10%" style="white-space: nowrap">
                                             <a onclick="edit_plan('{{ $centerslist->id }}','{{ addslashes($centerslist->plan_name) }}','{{ $centerslist->plan_amount }}',
-                                            '{{ $centerslist->sponser_amount }}','{{ $centerslist->upline_amount }}','{{ $centerslist->regain_amount }}',
+                                            '{{ $centerslist->sponser_amount }}','{{ $centerslist->upline_amount }}','{{ $centerslist->regain_amount }}','{{ $centerslist->service_amount }}',
                                             '{{ $centerslist->status }}')" href="#" title="Edit Plan"
                                                 class="btn btn-success" data-toggle="modal" data-target="#editplan">
                                                 <i class="fa fa-edit"></i>
@@ -118,6 +118,14 @@
                                                         <input required type="number" class="form-control"
                                                             name="regain_amount" id="regain_amount_add"
                                                             placeholder="Global Rebirth Amount %">
+                                                    </div>
+                                                    <div class="form-group mb-3">
+                                                        <label for="service_amount_add" class="form-label"><span
+                                                                style="color:red">*</span> Service Amount
+                                                            (%)</label>
+                                                        <input required type="number" class="form-control"
+                                                            name="service_amount" id="service_amount_add"
+                                                            placeholder="Service Amount %">
                                                     </div>
                                                 </div>
                                             </div>
@@ -192,7 +200,14 @@
                                                             name="regain_amount" id="regain_amount_edit"
                                                             placeholder="Global Rebirth Amount %">
                                                     </div>
-
+                                                    <div class="form-group mb-3">
+                                                        <label for="service_amount_edit" class="form-label"><span
+                                                                style="color:red">*</span> Service Amount
+                                                            (%)</label>
+                                                        <input required type="number" class="form-control"
+                                                            name="service_amount" id="service_amount_edit"
+                                                            placeholder="Global Rebirth Amount %">
+                                                    </div>
 
                                                     <div class="form-group mb-3">
                                                         <label for="status_edit"
@@ -225,23 +240,14 @@
 
 
 <script>
-function edit_plan(id, plan_name, plan_amount, sponser_amount, level_amount, upline_amount, regain_amount, shib_coin,
-    pepe_coin, bonk_coin, floki_coin, btt_coin,
-    baby_doge_coin, tfc_coin, status) {
+function edit_plan(id, plan_name, plan_amount, sponser_amount, upline_amount, regain_amount,service_amount, status) {
     $('#edit_plan_id').val(id);
     $('#plan_name_edit').val(plan_name);
     $('#plan_amount_edit').val(plan_amount);
     $('#sponser_amount_edit').val(sponser_amount);
-    $('#level_amount_edit').val(level_amount);
     $('#upline_amount_edit').val(upline_amount);
     $('#regain_amount_edit').val(regain_amount);
-    $('#shib_coin_edit').val(shib_coin);
-    $('#pepe_coin_edit').val(pepe_coin);
-    $('#bonk_coin_edit').val(bonk_coin);
-    $('#floki_coin_edit').val(floki_coin);
-    $('#btt_coin_edit').val(btt_coin);
-    $('#baby_doge_coin_edit').val(baby_doge_coin);
-    $('#tfc_coin_edit').val(tfc_coin);
+    $('#service_amount_edit').val(service_amount);
     $('#status_edit').val(status);
     $('#editplan').modal('show');
 }
