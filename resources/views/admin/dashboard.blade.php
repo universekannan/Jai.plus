@@ -12,32 +12,7 @@
 
         <h3>{{ auth()->user()->name }} - {{ auth()->user()->user_name }}</h3>
         <br>
-        <div class="row row-cols-7 g-1">
-            @foreach ($plans as $plan)
-            @php
-            if (in_array($plan->id, $userPlans)) {
-            $colorClass = 'bg-info ';
-            } elseif ($plan->id == $nextPlanId) {
-            $colorClass = 'bg-warning text-dark';
-            } else {
-            $colorClass = 'bg-gray ';
-            }
-            @endphp
-            <div class="col">
-                <div class="card rounded-2 {{ $colorClass }} mini-plan-card">
-                    <div class="card-body p-1">
-                        <div class="text-center">
-                            <div class="plan-name">{{ Str::limit($plan->plan_name, 8) }}</div>
-                            <div class="plan-amount">{{ $plan->plan_amount }}</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            @endforeach
-        </div>
-
-
-
+       
         <div class="row">
             <div class="col-md-3 col-sm-6">
                 <a href="{{ url('admin/members/1') }}">
@@ -98,19 +73,6 @@
                         <div class="info-box-content">
                             <span class="info-box-text">Direct Refferal Income</span>
                             <span class="info-box-number">{{ $sponserIncome }} </span>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-md-3 col-sm-6">
-                <a href="{{ url('admin/upgrade') }}">
-                    <div class="info-box bg-light">
-                        <span class="info-box-icon bg-secondary"><i class="fas fa-level-up-alt"></i></span>
-                        <div class="info-box-content">
-                            <span class="info-box-text">Total Upgrade Package</span>
-                            <span class="info-box-number">{{ Auth::user()->upgrade ?? 0 }} </span>
-                            <small>Upgrade Amount</small>
                         </div>
                     </div>
                 </a>
