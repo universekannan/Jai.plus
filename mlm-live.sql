@@ -3,7 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
+<<<<<<< HEAD:mlm.sql
 -- Generation Time: Sep 10, 2025 at 07:51 AM
+=======
+-- Generation Time: Sep 10, 2025 at 07:54 AM
+>>>>>>> e039d9a01f286507e2bcf8e2c9e94c47fffc57b3:mlm-live.sql
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -212,7 +216,7 @@ INSERT INTO `countries` (`id`, `name`, `iso2`, `iso3`, `phone_code`) VALUES
 --
 
 CREATE TABLE `global_regain` (
-  `id` int(10) UNSIGNED NOT NULL,
+  `id` int(11) NOT NULL,
   `plan_id` int(11) DEFAULT NULL,
   `user_type_id` int(11) DEFAULT NULL,
   `from_id` int(11) DEFAULT NULL,
@@ -431,7 +435,7 @@ CREATE TABLE `upline_income` (
 --
 
 CREATE TABLE `users` (
-  `id` int(30) NOT NULL,
+  `id` int(20) NOT NULL,
   `global_id` int(11) DEFAULT NULL,
   `referral_id` int(10) DEFAULT NULL,
   `user_type_id` int(10) DEFAULT NULL,
@@ -464,6 +468,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `global_id`, `referral_id`, `user_type_id`, `name`, `user_name`, `email`, `email_verified_at`, `password`, `cpassword`, `wallet`, `status`, `phone`, `whatsapp_number`, `address`, `wallet_address`, `remember_token`, `photo`, `created_at`, `updated_at`, `plan_id`, `message`, `fcm_token`, `theme`, `referral_code`, `global_rebirth_amount`) VALUES
+<<<<<<< HEAD:mlm.sql
 (1, 1, NULL, 1, 'Admin', 'TFC1000', 'tfc@gmail.com', NULL, '$2y$10$w3UCJFqhijngNBLVU1cwmecl3TvpwmdLVgHGnjtG7WOmlhkOzkrFy', '12345678', '9450.45', 1, '9876543210', NULL, NULL, '0x7509dEb5a6367E094BA35ac8f8F7b2c1997654f7', NULL, 'upload/profile_photo/1.png', '2025-08-14 16:43:22', '2025-09-10 05:32:42', 5, 'Nonvisitor', 'eK7FIO_zthVCNgi6MjfvCR:APA91bEvoDpqYrhIXNUSH5eZio-obveHbeY52srANxuK44xIENuiYtzYGGTsNLrZSRy-iGckPwcir9PZYt_tauxazpHH6rks_LoJdfxLr_hFAFUR0b_XCLk', 'bg-theme13', NULL, '100'),
 (2, 2, 1, 3, 'Testing1', 'TFC1001', 'testing090@gmail.com', NULL, '$2y$10$eNkqNTUsTWo6YaOE1a.OyemJbN.mQzAC5EQTSn2nRmKhl6QgRRYF2', '12345678', '1100', 1, '918565987834', '918565987834', NULL, '1234567qwertyukl;', NULL, 'upload/profile_photo/user.png', '2025-09-06 06:16:18', '2025-09-10 05:32:42', 5, 'Nonvisitor', NULL, NULL, NULL, '0'),
 (9, 9, 2, 3, 'Akil', 'TFC1002', 'akil@gmail.com', NULL, '$2y$10$9088ZAggULqLBm5b27cKpedUXQvUV7e73nfWEcMZphDf7a8CDerM6', '1234567890', '100', 1, '918825456445', '918825456445', NULL, '123456789qwertyuio', NULL, 'upload/profile_photo/user.png', '2025-09-08 04:09:04', '2025-09-10 05:32:42', 1, 'Nonvisitor', NULL, NULL, NULL, '0'),
@@ -472,6 +477,9 @@ INSERT INTO `users` (`id`, `global_id`, `referral_id`, `user_type_id`, `name`, `
 (12, 12, 11, 3, 'Jesin', 'TFC1011', 'jesin@gmail.com', NULL, '$2y$10$OQJl4t8snfVHGsvnpXFJDeooRVSfWK0LVv3qBo1B4ekWZGxEc6D/i', '12345678', '100', 1, '919090909090', '919090909090', NULL, '1234567dftyudcvbnm', NULL, 'upload/profile_photo/user.png', '2025-09-08 04:43:42', '2025-09-10 04:57:31', 0, 'Nonvisitor', NULL, NULL, NULL, '0'),
 (13, 13, 12, 3, 'Suriya', 'TFC1012', 'suriya@gmail.com', NULL, '$2y$10$hTOrvq3HPgNbE2LOnA0fwuLZ0br/VwWpkbTo/xaX4q791yScLKUPi', '12345678', '200', 1, '919878987898', '919878987898', NULL, 'asdfghj2345678', NULL, 'upload/profile_photo/user.png', '2025-09-08 04:49:30', '2025-09-10 05:04:47', 0, 'Nonvisitor', NULL, NULL, NULL, '0'),
 (33, NULL, 13, 3, 'suriya testing', 'TFC1013', 'suriyatest@gmail.com', NULL, '$2y$10$.B4g69cbRiarTyzFISwHG.URJwT0CcdqwWF32kPDrNZlRxLlytP0m', '12345678', '0', 1, '919766543212', '919766543212', NULL, '23456ygfdcvnjytre356', NULL, 'upload/profile_photo/user.png', '2025-09-10 04:59:17', '2025-09-10 05:04:47', 0, 'Nonvisitor', NULL, NULL, NULL, NULL);
+=======
+(1, 1, NULL, 1, 'Admin', 'TFC1000', 'tfc@gmail.com', NULL, '$2y$10$w3UCJFqhijngNBLVU1cwmecl3TvpwmdLVgHGnjtG7WOmlhkOzkrFy', '12345678', '9450.45', 1, '9876543210', NULL, NULL, '0x7509dEb5a6367E094BA35ac8f8F7b2c1997654f7', NULL, 'upload/profile_photo/1.png', '2025-08-14 16:43:22', '2025-09-10 05:32:42', 5, 'Nonvisitor', 'eK7FIO_zthVCNgi6MjfvCR:APA91bEvoDpqYrhIXNUSH5eZio-obveHbeY52srANxuK44xIENuiYtzYGGTsNLrZSRy-iGckPwcir9PZYt_tauxazpHH6rks_LoJdfxLr_hFAFUR0b_XCLk', 'bg-theme13', NULL, '100');
+>>>>>>> e039d9a01f286507e2bcf8e2c9e94c47fffc57b3:mlm-live.sql
 
 -- --------------------------------------------------------
 
@@ -480,7 +488,7 @@ INSERT INTO `users` (`id`, `global_id`, `referral_id`, `user_type_id`, `name`, `
 --
 
 CREATE TABLE `user_plan` (
-  `id` int(11) NOT NULL,
+  `id` int(20) NOT NULL,
   `user_id` int(11) NOT NULL,
   `plan_id` int(11) NOT NULL,
   `amount` varchar(30) DEFAULT NULL,
@@ -497,6 +505,7 @@ INSERT INTO `user_plan` (`id`, `user_id`, `plan_id`, `amount`, `created_at`, `cr
 (2, 1, 2, '2000', '2025-09-08 10:10:38', 1),
 (3, 1, 3, '5000', '2025-09-08 10:10:41', 1),
 (4, 1, 4, '7000', '2025-09-08 10:10:44', 1),
+<<<<<<< HEAD:mlm.sql
 (5, 1, 5, '9000', '2025-09-08 10:10:46', 1),
 (54, 2, 1, '500', '2025-09-10 05:12:37', 2),
 (55, 2, 2, '2000', '2025-09-10 05:28:01', 2),
@@ -504,6 +513,9 @@ INSERT INTO `user_plan` (`id`, `user_id`, `plan_id`, `amount`, `created_at`, `cr
 (57, 2, 4, '7000', '2025-09-10 05:28:08', 2),
 (58, 2, 5, '9000', '2025-09-10 05:28:11', 2),
 (62, 9, 1, '500', '2025-09-10 05:32:42', 9);
+=======
+(5, 1, 5, '9000', '2025-09-08 10:10:46', 1);
+>>>>>>> e039d9a01f286507e2bcf8e2c9e94c47fffc57b3:mlm-live.sql
 
 -- --------------------------------------------------------
 
@@ -701,7 +713,11 @@ ALTER TABLE `countries`
 -- AUTO_INCREMENT for table `global_regain`
 --
 ALTER TABLE `global_regain`
+<<<<<<< HEAD:mlm.sql
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
+=======
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+>>>>>>> e039d9a01f286507e2bcf8e2c9e94c47fffc57b3:mlm-live.sql
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -749,13 +765,21 @@ ALTER TABLE `upline_income`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
+<<<<<<< HEAD:mlm.sql
   MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+=======
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+>>>>>>> e039d9a01f286507e2bcf8e2c9e94c47fffc57b3:mlm-live.sql
 
 --
 -- AUTO_INCREMENT for table `user_plan`
 --
 ALTER TABLE `user_plan`
+<<<<<<< HEAD:mlm.sql
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+=======
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+>>>>>>> e039d9a01f286507e2bcf8e2c9e94c47fffc57b3:mlm-live.sql
 
 --
 -- AUTO_INCREMENT for table `user_type`
