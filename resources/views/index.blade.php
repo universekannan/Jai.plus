@@ -5,7 +5,7 @@
 <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Crypto - ICO Crypto, Blockchain & Cryptocurrency Web Template</title>
+        <title>JAI Plus</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -48,7 +48,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <nav class="navbar navbar-expand-lg">
-                            <a class="navbar-brand" href="index-2.html">
+                            <a class="navbar-brand" href="#home">
                                 <img src="assets/img/logo.svg" alt="Logo">
                             </a>
                             <button class="navbar-toggler" type="button" data-toggle="collapse"
