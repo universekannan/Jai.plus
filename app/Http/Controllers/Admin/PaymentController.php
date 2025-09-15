@@ -266,7 +266,7 @@ public function updatewallet_sponser(Request $request)
             ->increment('wallet', $globalregain);
 
       
-        DB::table('sponser_income')
+        DB::table('global_regain')
             ->where('to_id', $userId)
             ->where('widtdrawal_status', '0')
             ->where('pay_reason_id', '2')
