@@ -126,7 +126,7 @@
     
             // Show modal with QR code + amount
             $("#payAmount").text(amount.toFixed(2) + " INR");
-            $("#qrCodeImage").attr("src", "/images/payment_qr.png");
+            $("#qrCodeImage").attr("src", "{{ asset('qr.png') }}");
             $("#paymentModal").modal("show");
     
             // Handle submit
