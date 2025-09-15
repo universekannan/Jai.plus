@@ -40,8 +40,10 @@
                                 @if(auth()->user()->user_type_id == 1)
                                 <td>
                                     <a href="#" class="btn btn-sm btn-info"
-                                        onclick="update_plan_request('{{ $item->id }}','{{ $item->image }}','{{ $item->status }}')">
+                                        onclick="update_plan_request('{{ $item->id }}','{{ $item->image ? asset($item->image) : '' }}', '{{ $item->status }}')">
                                         <i class="fas fa-edit"></i>
+                                    </a>
+
                                     </a>
                                 </td>
                                 @endif
@@ -108,13 +110,10 @@ function update_plan_request(id, image, status) {
     $('#plan_request_id').val(id);
 
     if (image) {
-        $("#edit_withdrawal_image")
-            .attr("src", "/" + image) 
-            .show();
+        $("#edit_withdrawal_image").attr("src", image).show();
     } else {
         $("#edit_withdrawal_image").hide();
     }
-
 
     $("#update_plan_activation_request").modal("show");
 }
