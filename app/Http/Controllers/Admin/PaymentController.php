@@ -203,14 +203,14 @@ public function getData(Request $request)
 
 	public function wallet(Request $request)
 	{
-		$sponserIncome = DB::table('sponser_income')
-			->where('pay_reason_id', '1')
+		$globalregain = DB::table('global_regain')
+			->where('pay_reason_id', '2')
             ->where('widtdrawal_status', '0')
 			->where('to_id', auth()->user()->id)
 			->sum('amount');
 			
 			
-		  return view('admin.payment.wallet', compact( 'sponserIncome'));
+		  return view('admin.payment.wallet', compact( 'globalregain'));
 	}
 
 
@@ -220,23 +220,23 @@ public function updatewallet_sponser(Request $request)
    
     $userId = auth()->id();
 
-    $sponsorIncome = DB::table('sponser_income')
+    $globalregain = DB::table('global_regain')
         ->where('to_id', $userId)
         ->where('widtdrawal_status', '0')
-        ->where('pay_reason_id', '1')
+        ->where('pay_reason_id', '2')
         ->sum('amount');
 
-    if ($sponsorIncome > 0) {
+    if ($globalregain > 0) {
      
         DB::table('users')
             ->where('id', $userId)
-            ->increment('wallet', $sponsorIncome);
+            ->increment('wallet', $globalregain);
 
       
         DB::table('sponser_income')
             ->where('to_id', $userId)
             ->where('widtdrawal_status', '0')
-            ->where('pay_reason_id', '1')
+            ->where('pay_reason_id', '2')
             ->update(['widtdrawal_status' => '1']);
     }
 
@@ -244,13 +244,13 @@ public function updatewallet_sponser(Request $request)
     DB::table('wallet')->insert([
         'user_id'           => auth()->user()->id,
         'wallet_amount'     => $request->amount,
-        'type'              => 'sponser_income',
+        'type'              => 'global_regain',
         'status'            => 1,
         'created_at'        => now(),
     ]);
 
 
-    return redirect()->back()->with('success', 'Sponsor income moved successfully!');
+    return redirect()->back()->with('success', 'Globalregain income moved successfully!');
 }
 
 
