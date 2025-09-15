@@ -70,16 +70,5 @@
 @endsection
 
 @push('page_scripts')
-<script>
-$(function() {
-    $('#example2').DataTable({
-        "paging": false,
-        "ordering": true,
-        "info": false,
-        "autoWidth": false,
-        "responsive": true
-    });
-});
-</script>
 @endpush
 

@@ -681,7 +681,6 @@ public function kannanaaaaa() {
         });
     }
 
-
     public function plan_payment_request(Request $request)
     {
         $request->validate([
@@ -721,7 +720,22 @@ public function kannanaaaaa() {
         return response()->json(['success' => true, 'message' => 'Payment request created']);
     }
     
+    public function planActivationrequest()
+    {
+        $user_id = Auth::id();
+  
+        $query = DB::table('withdrawal')
+            ->join('users', 'withdrawal.from_id', '=', 'users.id')
+            ->select('withdrawal.*', 'users.name as from_name') 
+            ->orderBy('withdrawal.id', 'asc');
+    
+        if (Auth::user()->user_type_id != 1) {
+            $query->where('withdrawal.from_id', $user_id);
+        }
+    
+        $withdrawal = $query->get();
 
-
+    return view("admin.plan.plan_request", compact('withdrawal'));
+  }
 
 }
