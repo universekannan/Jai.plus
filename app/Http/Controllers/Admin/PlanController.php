@@ -173,6 +173,7 @@ public function kannanaaaaa() {
           'sponser_amount'    => $request->sponser_amount,
           'upline_amount'     => $request->upline_amount,
           'regain_amount'     => $request->regain_amount,
+          'service_amount'     => $request->service_amount,
           'status'            => 1,
           'created_at'        => now(),
       ]);
@@ -194,9 +195,10 @@ public function kannanaaaaa() {
         'plan_name'         => $request->plan_name,
         'plan_amount'       => $request->plan_amount,
         'sponser_amount'    => $request->sponser_amount,
-        'upline_amount'     => $request->upline_amount,
+          'upline_amount'     => $request->upline_amount,
         'regain_amount'     => $request->regain_amount,
-        'status'            => $request->status,
+          'service_amount'     => $request->service_amount,
+          'status'            => $request->status,
         'updated_at'        => now(),
     ] );
 
@@ -595,6 +597,10 @@ public function kannanaaaaa() {
                             0
                         );
                     }
+
+                    DB::table('global_regain')->where('plan_id',$planId)->where('to_id',$parentId)->update([
+                        'status'        => 1,
+                    ]);
                 } else {
                     if ($userId != '2') {
                         $this->storeGlobalPayment(

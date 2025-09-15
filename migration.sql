@@ -17,3 +17,7 @@ CREATE TABLE `admin_income` (
 ) ENGINE=InnoDB;
 
 ALTER TABLE `users` DROP `upgrade`;
+
+
+
+ALTER TABLE `plans` ADD `upgrade_amount` VARCHAR(20) NULL DEFAULT NULL AFTER `upline_amount`;

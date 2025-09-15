@@ -30,27 +30,27 @@ class DashboardController extends Controller
             $InactiveMembers = DB::table('users')->where('plan_id', 0)->where('referral_id', $referral_id)->count();
         }
 
-        if (Auth::user()->user_type_id == 1) {
-			$LastWeekActiveMembers = DB::table('users')
-				->where('status', 1)
-				->whereBetween(DB::raw('DATE(created_at)'), [$weekStart, $weekEnd])
-				->count();
-			$LastWeekInactiveMembers = DB::table('users')
-				->where('status', 2)
-				->whereBetween(DB::raw('DATE(created_at)'), [$weekStart, $weekEnd])
-				->count();
-        } else {
-			$LastWeekActiveMembers = DB::table('users')
-				->where('status', 1)
-                ->where('referral_id', $referral_id)
-				->whereBetween(DB::raw('DATE(created_at)'), [$weekStart, $weekEnd])
-				->count();
-			$LastWeekInactiveMembers = DB::table('users')
-				->where('status', 2)
-                 ->where('referral_id', $referral_id)
-				->whereBetween(DB::raw('DATE(created_at)'), [$weekStart, $weekEnd])
-				->count();
-        }
+        // if (Auth::user()->user_type_id == 1) {
+		// 	$LastWeekActiveMembers = DB::table('users')
+		// 		->where('status', 1)
+		// 		->whereBetween(DB::raw('DATE(created_at)'), [$weekStart, $weekEnd])
+		// 		->count();
+		// 	$LastWeekInactiveMembers = DB::table('users')
+		// 		->where('status', 2)
+		// 		->whereBetween(DB::raw('DATE(created_at)'), [$weekStart, $weekEnd])
+		// 		->count();
+        // } else {
+		// 	$LastWeekActiveMembers = DB::table('users')
+		// 		->where('status', 1)
+        //         ->where('referral_id', $referral_id)
+		// 		->whereBetween(DB::raw('DATE(created_at)'), [$weekStart, $weekEnd])
+		// 		->count();
+		// 	$LastWeekInactiveMembers = DB::table('users')
+		// 		->where('status', 2)
+        //          ->where('referral_id', $referral_id)
+		// 		->whereBetween(DB::raw('DATE(created_at)'), [$weekStart, $weekEnd])
+		// 		->count();
+        // }
 
         $userPlans = DB::table('user_plan')
             ->where('user_id', $userId)
@@ -80,47 +80,47 @@ class DashboardController extends Controller
             
         $nextPlanName = $nextPlan ? $nextPlan->plan_name : 'All plan activated';
 
-        $LastWeekwalletIncome = DB::table('users')->where('id', auth()->user()->id)->whereBetween(DB::raw('DATE(updated_at)'), [$weekStart, $weekEnd])
-        ->sum('wallet');
+        // $LastWeekwalletIncome = DB::table('users')->where('id', auth()->user()->id)->whereBetween(DB::raw('DATE(updated_at)'), [$weekStart, $weekEnd])
+        // ->sum('wallet');
 
         $sponserIncome = DB::table('sponser_income')->where('to_id', auth()->user()->id)->where('pay_reason_id', '1')->sum('amount');
-        $LastWeeksponserIncome = DB::table('sponser_income')
-        ->where('pay_reason_id', '1')
-        ->where('to_id', auth()->user()->id)
-        ->whereDate('created_at','>=', $weekStart)->whereDate('created_at','<=', $weekEnd)
-        ->sum('amount');
+        // $LastWeeksponserIncome = DB::table('sponser_income')
+        // ->where('pay_reason_id', '1')
+        // ->where('to_id', auth()->user()->id)
+        // ->whereDate('created_at','>=', $weekStart)->whereDate('created_at','<=', $weekEnd)
+        // ->sum('amount');
 
-        $LastWeekrebirthIncome = DB::table('global_regain')
-        ->where('pay_reason_id', '2')
-        ->where('from_id', auth()->user()->id)
-        ->count();
+        // $LastWeekrebirthIncome = DB::table('global_regain')
+        // ->where('pay_reason_id', '2')
+        // ->where('from_id', auth()->user()->id)
+        // ->count();
 
         
 
         $uplineIncome = DB::table('upline_income')->where('to_id', auth()->user()->id)->where('pay_reason_id', '3')->sum('amount');
-        $LastWeekInuplineIncome = DB::table('upline_income')
-        ->where('pay_reason_id', '3')
-        ->where('to_id', auth()->user()->id)
-        ->whereDate('created_at','>=', $weekStart)->whereDate('created_at','<=', $weekEnd)
-        ->sum('amount');
+        // $LastWeekInuplineIncome = DB::table('upline_income')
+        // ->where('pay_reason_id', '3')
+        // ->where('to_id', auth()->user()->id)
+        // ->whereDate('created_at','>=', $weekStart)->whereDate('created_at','<=', $weekEnd)
+        // ->sum('amount');
             
 		if (Auth::user()->user_type_id == 1) {
 			$Withdrawal = DB::table('withdrawal')
 				->where('status', 1)
 				->count();
-			$LastWeekWithdrawal = DB::table('withdrawal')
-				->where('status', 2)
-				->whereBetween(DB::raw('DATE(created_at)'), [$weekStart, $weekEnd])
-				->count();
+			// $LastWeekWithdrawal = DB::table('withdrawal')
+			// 	->where('status', 2)
+			// 	->whereBetween(DB::raw('DATE(created_at)'), [$weekStart, $weekEnd])
+			// 	->count();
         } else {
 			$Withdrawal = DB::table('withdrawal')
 				->where('status', 1)
 				->count();
-			$LastWeekWithdrawal = DB::table('withdrawal')
-				->where('status', 2)
-                ->where('to_id', $referral_id)
-				->whereBetween(DB::raw('DATE(created_at)'), [$weekStart, $weekEnd])
-				->count();
+			// $LastWeekWithdrawal = DB::table('withdrawal')
+			// 	->where('status', 2)
+            //     ->where('to_id', $referral_id)
+			// 	->whereBetween(DB::raw('DATE(created_at)'), [$weekStart, $weekEnd])
+			// 	->count();
         }
 
        
@@ -168,7 +168,7 @@ class DashboardController extends Controller
 
         $totalAdminAmount = $sponserQuery + $uplineQuery + $globalQuery;
 
-        return view('admin.dashboard', compact('ActiveMembers', 'InactiveMembers', 'LastWeekActiveMembers', 'LastWeekInactiveMembers', 'nextPlanName', 'remainingPlansCount', 'uplineIncome', 'LastWeekInuplineIncome', 'LastWeekwalletIncome', 'sponserIncome', 'LastWeeksponserIncome','rebirthIncome','LastWeekrebirthIncome','Withdrawal','LastWeekWithdrawal','GRUpgrade','GRAdmin','GRTotal','UPUpgrade','UPAdmin','UPTotal','plans','userPlans','nextPlanId', 'totalAdminAmount'));
+        return view('admin.dashboard', compact('ActiveMembers', 'InactiveMembers', 'nextPlanName', 'remainingPlansCount', 'uplineIncome', 'sponserIncome', 'rebirthIncome','Withdrawal','GRUpgrade','GRAdmin','GRTotal','UPUpgrade','UPAdmin','UPTotal','plans','userPlans','nextPlanId', 'totalAdminAmount'));
     }
 	
 
