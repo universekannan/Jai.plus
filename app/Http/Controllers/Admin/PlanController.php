@@ -462,7 +462,7 @@ public function kannanaaaaa() {
   }
 
   
-    public function activatePlanPayment(Request $request)
+     public function activatePlanPayment(Request $request)
     {
         $request->validate([
             'plan_id' => 'required|integer',
@@ -508,9 +508,8 @@ public function kannanaaaaa() {
             /**
              * 1) SPONSOR COMMISSION
              */
-            $referrerCommission      = ($amount * $planData->sponser_amount) / 100;
+            $referrerCommission = ($amount * $planData->sponser_amount) / 100;
 
-            // Referrer bonus
             if (!empty($currentUser->referral_id)) {
                 $this->storeSponserPayment(
                     'RebirthIn',
@@ -524,6 +523,15 @@ public function kannanaaaaa() {
                     "Referral Sponsor Income",
                     '3'
                 );
+
+                // ✅ Update sponsor wallet
+                DB::table('users')
+                    ->where('id', $currentUser->referral_id)
+                    ->update([
+                        'wallet'     => DB::raw("wallet + $referrerCommission"),
+                        'updated_at' => now(),
+                    ]);
+
             } else {
                 $this->storeSponserPayment(
                     'RebirthIn',
@@ -537,15 +545,22 @@ public function kannanaaaaa() {
                     "Referral Sponsor Income (Admin)",
                     '3'
                 );
+
+                // ✅ Update admin wallet
+                DB::table('users')
+                    ->where('id', 1) // admin user
+                    ->update([
+                        'wallet'     => DB::raw("wallet + $referrerCommission"),
+                        'updated_at' => now(),
+                    ]);
             }
 
-        /**
-             * 2) UPLINE COMMISSION (20%)
+            /**
+             * 2) UPLINE COMMISSION
              */
-            $commissionAmount = ($amount * $planData->upline_amount) / 100; // 20%
+            $commissionAmount = ($amount * $planData->upline_amount) / 100;
             $uplinerId        = $this->getUpline($currentUser, $planId) ?: 1;
 
-            // Give full 20% to upline
             $this->storeUplinePayment(
                 'Upline',
                 $planId,
@@ -559,10 +574,18 @@ public function kannanaaaaa() {
                 '3'
             );
 
+            // ✅ Update upline wallet
+            DB::table('users')
+                ->where('id', $uplinerId)
+                ->update([
+                    'wallet'     => DB::raw("wallet + $commissionAmount"),
+                    'updated_at' => now(),
+                ]);
+
             /**
-             * 3) GLOBAL REGAIN (20%)
+             * 3) GLOBAL REGAIN
              */
-            $rotatingCommissionAmount = ($amount * $planData->regain_amount) / 100; // fixed 20%
+            $rotatingCommissionAmount = ($amount * $planData->regain_amount) / 100;
 
             $globalregainsssar = DB::table('global_regain')
                 ->where('plan_id', $planId)
@@ -581,7 +604,6 @@ public function kannanaaaaa() {
                     ->count();
 
                 if ($globalregain == 4) {
-                    
                     if ($userId != '2') {
                         $this->storeGlobalPayment(
                             'PlanTree',
@@ -598,9 +620,12 @@ public function kannanaaaaa() {
                         );
                     }
 
-                    DB::table('global_regain')->where('plan_id',$planId)->where('to_id',$parentId)->update([
-                        'status'        => 1,
-                    ]);
+                    DB::table('global_regain')
+                        ->where('plan_id', $planId)
+                        ->where('to_id', $parentId)
+                        ->update([
+                            'status' => 1,
+                        ]);
                 } else {
                     if ($userId != '2') {
                         $this->storeGlobalPayment(
@@ -619,7 +644,6 @@ public function kannanaaaaa() {
                     }
                 }
             } else {
-                // fallback if no global_regain record exists
                 \Log::warning("No global_regain entry found for plan_id {$planId}");
                 $this->storeGlobalPayment(
                     'PlanTree',
@@ -637,9 +661,9 @@ public function kannanaaaaa() {
             }
 
             /**
-             * 4) Service COMMISSION (10%)
+             * 4) SERVICE COMMISSION
              */
-            $serAmount = ($amount * $planData->service_amount) / 100; // 10%
+            $serAmount = ($amount * $planData->service_amount) / 100;
             $this->storeAdminPayment(
                 'Admin',
                 $planId,
@@ -653,8 +677,8 @@ public function kannanaaaaa() {
                 '3'
             );
 
-
             return response()->json(['success' => true]);
         });
-    }  
+    }
+
 }

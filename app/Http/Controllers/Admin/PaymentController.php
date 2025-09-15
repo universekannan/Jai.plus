@@ -20,52 +20,19 @@ class PaymentController extends Controller
 
   public function adminPayment()
   {
-    $sponserQuery = DB::table('sponser_income')
-        ->join('users as from_users', 'from_users.id', '=', 'sponser_income.from_id')
-        ->join('payment_reason', 'payment_reason.id', '=', 'sponser_income.pay_reason_id')
+    $adminQuery = DB::table('admin_income')
+        ->join('users as from_users', 'from_users.id', '=', 'admin_income.from_id')
         ->select(
-            'sponser_income.*',
+            'admin_income.*',
             'from_users.user_name as from_username',
             'from_users.name',
-            'payment_reason.name as reasonname'
         )
-        ->where('sponser_income.pay_reason_id', 5) 
-        ->where('sponser_income.to_id', 1)
-        ->orderBy('sponser_income.id', 'desc')
+        ->orderBy('admin_income.id', 'desc')
         ->get();
 
-    $uplineQuery = DB::table('upline_income')
-        ->join('users as from_users', 'from_users.id', '=', 'upline_income.from_id')
-        ->join('payment_reason', 'payment_reason.id', '=', 'upline_income.pay_reason_id')
-        ->select(
-            'upline_income.*',
-            'from_users.user_name as from_username',
-            'from_users.name',
-            'payment_reason.name as reasonname'
-        )
-        ->where('upline_income.pay_reason_id', 3) 
-        ->where('upline_income.to_id', 1)
-        ->orderBy('upline_income.id', 'desc')
-        ->get();
-
-    $globalQuery = DB::table('global_regain')
-        ->join('users as from_users', 'from_users.id', '=', 'global_regain.from_id')
-        ->join('payment_reason', 'payment_reason.id', '=', 'global_regain.pay_reason_id')
-        ->select(
-            'global_regain.*',
-            'from_users.user_name as from_username',
-            'from_users.name',
-            'payment_reason.name as reasonname'
-        )
-        ->where('global_regain.pay_reason_id', 5) 
-        ->where('global_regain.to_id', 1)
-        ->orderBy('global_regain.id', 'desc')
-        ->get();
 
     return view('admin.payment.admin_payment', [
-        'sponserQuery' => $sponserQuery,
-        'uplineQuery' => $uplineQuery,
-        'globalQuery' => $globalQuery,
+        'adminQuery' => $adminQuery,
     ]);
   }
 
