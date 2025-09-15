@@ -65,10 +65,13 @@
                             <button type="submit" class="btn btn-primary btn-block">Sign In</button>
                         </div>
                     </div>
-
+<br>
                     <!-- Register button centered below -->
-                    <div class="text-center mt-3">
-                        <a href="{{ url('register') }}" class="btn btn-primary px-4">New Register</a>
+                    <div class="col-12">
+                        <div class="text-center">
+                            <p class="mb-0">Don't have an account yet? <a href="{{ url('register') }}">Sign up here</a>
+                            </p>
+                        </div>
                     </div>
                 </form>
 
@@ -78,6 +81,7 @@
         </div>
 
     </div>
+
 
 
 
