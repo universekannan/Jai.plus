@@ -681,6 +681,45 @@ public function kannanaaaaa() {
         });
     }
 
+    public function plan_payment_request(Request $request)
+    {
+        $request->validate([
+            'plan_id' => 'required|integer',
+            'user_id' => 'required|integer',
+            'image'   => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+        ]);
+    
+        $already = DB::table('plan_payment_request')
+            ->where('plan_id', $request->plan_id)
+            ->where('user_id', $request->user_id)
+            ->where('status', 0)
+            ->exists();
+    
+        if ($already) {
+            return response()->json([
+                'success' => false,
+                'message' => 'You have already submitted a request for this plan.'
+            ]);
+        }
+    
+        $filePath = null;
+        if ($request->hasFile('image')) {
+            $fileName = time().'_'.$request->file('image')->getClientOriginalName();
+            $request->file('image')->move(public_path('uploads/payments'), $fileName);
+            $filePath = 'uploads/payments/'.$fileName;
+        }
+    
+        DB::table('plan_payment_request')->insert([
+            'plan_id'    => $request->plan_id,
+            'user_id'    => $request->user_id,
+            'image'      => $filePath,
+            'status'     => 0,
+            'created_at' => now(),
+        ]);
+    
+        return response()->json(['success' => true, 'message' => 'Payment request created']);
+    }
+    
     public function planActivationrequest()
     {
         $user_id = Auth::id();

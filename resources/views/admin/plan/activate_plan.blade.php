@@ -53,7 +53,34 @@
     </div>
 </div>
 
+<!-- Payment Modal -->
+<div class="modal fade" id="paymentModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Pay with QR Code</h5>
+          <button type="button" class="btn-close" data-dismiss="modal">X</button>
+        </div>
+        <div class="modal-body text-center">
+          <p><strong>Payable Amount:</strong> <span id="payAmount"></span></p>
+          <div id="qrCodeBox">
+            <img id="qrCodeImage" src="" alt="QR Code" style="width:200px;height:200px;">
+          </div>
+          <br>
+          <div class="mb-3">
+            <label for="paymentProof" class="form-label">Upload Payment Proof</label>
+            <input type="file" class="form-control" id="paymentProof" accept="image/*">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" id="submitPayment">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
+  
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script>
@@ -93,6 +120,10 @@
                 });
             }
         } else {
+            // Save planId & userId into modal
+            $("#paymentModal").data("planid", planId);
+            $("#paymentModal").data("userid", userId);
+    
             // Show modal with QR code + amount
             $("#payAmount").text(amount.toFixed(2) + " INR");
             $("#qrCodeImage").attr("src", "/images/payment_qr.png");
@@ -101,42 +132,40 @@
             // Handle submit
             $("#submitPayment").off("click").on("click", function() {
                 const formData = new FormData();
-                formData.append("plan_id", planId);
-                formData.append("amount", amount);
-                formData.append("user_id", userId);
-                formData.append("upgrade", upgrade);
-                formData.append("upgrade_status", 0); // using QR payment
-                formData.append("_token", $('meta[name="csrf-token"]').attr('content'));
+                formData.append("plan_id", $("#paymentModal").data("planid"));
+                formData.append("user_id", $("#paymentModal").data("userid"));
+                formData.append("_token", $('meta[name="csrf-token"]').attr("content"));
     
                 const file = $("#paymentProof")[0].files[0];
                 if (file) {
-                    formData.append("payment_proof", file);
+                    formData.append("image", file);
                 }
     
-                // $.ajax({
-                //     url: "{{ url('admin/activate_plan_payment') }}",
-                //     type: "POST",
-                //     data: formData,
-                //     processData: false,
-                //     contentType: false,
-                //     success: function(data) {
-                //         if (data.success) {
-                //             alert("Plan Activated successfully!");
-                //             $("#paymentModal").modal("hide");
-                //             window.location.reload();
-                //         } else {
-                //             alert("Error saving plan");
-                //         }
-                //     },
-                //     error: function(xhr, status, error) {
-                //         console.error(error);
-                //         alert("An error occurred while saving the plan.");
-                //     }
-                // });
+                $.ajax({
+                    url: "{{ url('admin/plan_payment_request') }}",
+                    type: "POST",
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function(data) {
+                        if (data.success) {
+                            alert("Payment request submitted successfully!");
+                            $("#paymentModal").modal("hide");
+                            window.location.reload();
+                        } else {
+                            alert("Error: " + data.message);
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error(error);
+                        alert("An error occurred while submitting payment request.");
+                    }
+                });
             });
         }
     });
     </script>
+    
     
 
 @endsection

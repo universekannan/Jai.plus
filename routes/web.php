@@ -75,6 +75,8 @@ Route::get('admin/activate_plan/{id}', [App\Http\Controllers\Admin\PlanControlle
 Route::post('admin/activate_plan_payment', [App\Http\Controllers\Admin\PlanController::class, 'activatePlanPayment'])->name('activate_plan_payment');
 Route::get('admin/plan_payment/{id}/{usrid}', [App\Http\Controllers\Admin\PlanController::class, 'plan_payment'])->name('plan_payment');
 
+Route::post('admin/plan_payment_request', [App\Http\Controllers\Admin\PlanController::class, 'plan_payment_request']);
+
 
 Route::get('admin/withdrawal/{id}', [App\Http\Controllers\Admin\PaymentController::class, 'withdrawal'])->name('withdrawal');
 Route::post('addwithdrawal', [App\Http\Controllers\Admin\PaymentController::class, 'addWithdrawal'])->name('addwithdrawal');
