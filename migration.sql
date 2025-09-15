@@ -17,3 +17,5 @@ CREATE TABLE `admin_income` (
 ) ENGINE=InnoDB;
 
 ALTER TABLE `users` DROP `upgrade`;
+
+ALTER TABLE `admin_income` CHANGE `id` `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT, add PRIMARY KEY (`id`);
