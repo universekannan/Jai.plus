@@ -45,9 +45,9 @@
                                 
                                 <tr>
                                     <td>1</td>
-                                    <td>Sponsor Income</td>
+                                    <td>Global Regain</td>
                                     <td>{{ date('d-m-Y') }}</td>
-                                    <td>{{ $sponserIncome }} </td>
+                                    <td>{{ $globalregain }} </td>
                                     <td>
                                         <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#paymentModal1">
                                             <i class="fa fa-arrow-right"></i> Move to Wallet
@@ -56,7 +56,7 @@
                                 </tr>
                                 <tr>
                                     <td>2</td>
-                                    <td>Withdrawal Available Amount</td>
+                                    <td>Wallet Available Amount</td>
                                     <td>{{ date('d-m-Y') }}</td>
                                     <td>{{ Auth::user()->wallet }} </td>
                                     <td>
@@ -85,8 +85,8 @@
                             </div>
                             <div class="modal-body text-center">
                                 <input type="hidden" name="user_id" value="{{ Auth::id() }}">
-                                <input type="hidden" name="amount" value="{{ $sponserIncome }}">
-                                <p>Are you sure you want to transfer <b>{{ $sponserIncome }} </b> to your wallet?</p>
+                                <input type="hidden" name="amount" value="{{ $globalregain }}">
+                                <p>Are you sure you want to transfer <b>{{ $globalregain }} </b> to your wallet?</p>
                             </div>
                             <div class="modal-footer justify-content-between">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>

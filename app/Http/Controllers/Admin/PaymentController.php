@@ -20,52 +20,19 @@ class PaymentController extends Controller
 
   public function adminPayment()
   {
-    $sponserQuery = DB::table('sponser_income')
-        ->join('users as from_users', 'from_users.id', '=', 'sponser_income.from_id')
-        ->join('payment_reason', 'payment_reason.id', '=', 'sponser_income.pay_reason_id')
+    $adminQuery = DB::table('admin_income')
+        ->join('users as from_users', 'from_users.id', '=', 'admin_income.from_id')
         ->select(
-            'sponser_income.*',
+            'admin_income.*',
             'from_users.user_name as from_username',
             'from_users.name',
-            'payment_reason.name as reasonname'
         )
-        ->where('sponser_income.pay_reason_id', 5) 
-        ->where('sponser_income.to_id', 1)
-        ->orderBy('sponser_income.id', 'desc')
+        ->orderBy('admin_income.id', 'desc')
         ->get();
 
-    $uplineQuery = DB::table('upline_income')
-        ->join('users as from_users', 'from_users.id', '=', 'upline_income.from_id')
-        ->join('payment_reason', 'payment_reason.id', '=', 'upline_income.pay_reason_id')
-        ->select(
-            'upline_income.*',
-            'from_users.user_name as from_username',
-            'from_users.name',
-            'payment_reason.name as reasonname'
-        )
-        ->where('upline_income.pay_reason_id', 3) 
-        ->where('upline_income.to_id', 1)
-        ->orderBy('upline_income.id', 'desc')
-        ->get();
-
-    $globalQuery = DB::table('global_regain')
-        ->join('users as from_users', 'from_users.id', '=', 'global_regain.from_id')
-        ->join('payment_reason', 'payment_reason.id', '=', 'global_regain.pay_reason_id')
-        ->select(
-            'global_regain.*',
-            'from_users.user_name as from_username',
-            'from_users.name',
-            'payment_reason.name as reasonname'
-        )
-        ->where('global_regain.pay_reason_id', 5) 
-        ->where('global_regain.to_id', 1)
-        ->orderBy('global_regain.id', 'desc')
-        ->get();
 
     return view('admin.payment.admin_payment', [
-        'sponserQuery' => $sponserQuery,
-        'uplineQuery' => $uplineQuery,
-        'globalQuery' => $globalQuery,
+        'adminQuery' => $adminQuery,
     ]);
   }
 
@@ -236,14 +203,14 @@ public function getData(Request $request)
 
 	public function wallet(Request $request)
 	{
-		$sponserIncome = DB::table('sponser_income')
-			->where('pay_reason_id', '1')
+		$globalregain = DB::table('global_regain')
+			->where('pay_reason_id', '2')
             ->where('widtdrawal_status', '0')
 			->where('to_id', auth()->user()->id)
 			->sum('amount');
 			
 			
-		  return view('admin.payment.wallet', compact( 'sponserIncome'));
+		  return view('admin.payment.wallet', compact( 'globalregain'));
 	}
 
 
@@ -253,23 +220,23 @@ public function updatewallet_sponser(Request $request)
    
     $userId = auth()->id();
 
-    $sponsorIncome = DB::table('sponser_income')
+    $globalregain = DB::table('global_regain')
         ->where('to_id', $userId)
         ->where('widtdrawal_status', '0')
-        ->where('pay_reason_id', '1')
+        ->where('pay_reason_id', '2')
         ->sum('amount');
 
-    if ($sponsorIncome > 0) {
+    if ($globalregain > 0) {
      
         DB::table('users')
             ->where('id', $userId)
-            ->increment('wallet', $sponsorIncome);
+            ->increment('wallet', $globalregain);
 
       
-        DB::table('sponser_income')
+        DB::table('global_regain')
             ->where('to_id', $userId)
             ->where('widtdrawal_status', '0')
-            ->where('pay_reason_id', '1')
+            ->where('pay_reason_id', '2')
             ->update(['widtdrawal_status' => '1']);
     }
 
@@ -277,13 +244,13 @@ public function updatewallet_sponser(Request $request)
     DB::table('wallet')->insert([
         'user_id'           => auth()->user()->id,
         'wallet_amount'     => $request->amount,
-        'type'              => 'sponser_income',
+        'type'              => 'global_regain',
         'status'            => 1,
         'created_at'        => now(),
     ]);
 
 
-    return redirect()->back()->with('success', 'Sponsor income moved successfully!');
+    return redirect()->back()->with('success', 'Globalregain income moved successfully!');
 }
 
 

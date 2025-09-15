@@ -65,7 +65,7 @@
                             <button type="submit" class="btn btn-primary btn-block">Sign In</button>
                         </div>
                     </div>
-<br>
+                    <br>
                     <!-- Register button centered below -->
                     <div class="col-12">
                         <div class="text-center">
@@ -74,12 +74,8 @@
                         </div>
                     </div>
                 </form>
-
-
             </div>
-
         </div>
-
     </div>
 
 
