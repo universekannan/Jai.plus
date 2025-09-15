@@ -685,18 +685,29 @@ public function kannanaaaaa() {
     {
         $user_id = Auth::id();
   
-        $query = DB::table('withdrawal')
-            ->join('users', 'withdrawal.from_id', '=', 'users.id')
-            ->select('withdrawal.*', 'users.name as from_name') 
-            ->orderBy('withdrawal.id', 'asc');
+        $query = DB::table('plan_payment_request')
+            ->join('users', 'plan_payment_request.user_id', '=', 'users.id')
+            ->select('plan_payment_request.*', 'users.name as from_name') 
+            ->where('plan_payment_request.status', 0)
+            ->orderBy('plan_payment_request.id', 'asc');
     
         if (Auth::user()->user_type_id != 1) {
-            $query->where('withdrawal.from_id', $user_id);
+            $query->where('plan_payment_request.user_id', $user_id);
         }
     
-        $withdrawal = $query->get();
+        $plan_payment_request = $query->get();
 
-    return view("admin.plan.plan_request", compact('withdrawal'));
+    return view("admin.plan.plan_request", compact('plan_payment_request'));
   }
 
+  public function update_plan_activation_request(Request $request)
+  {
+      
+      DB::table('plan_payment_request')->where('id', $request->plan_request_id)->update([
+          'status'      => $request->status,
+          'created_at'  => now(),
+      ]);
+  
+      return redirect()->back()->with('success', 'Withdrawal status updated successfully.');
+  }
 }
