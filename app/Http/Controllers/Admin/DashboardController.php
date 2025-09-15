@@ -151,22 +151,10 @@ class DashboardController extends Controller
         }
 
 
-        $sponserQuery = DB::table('sponser_income')
-        ->where('pay_reason_id', 5) 
+        $totalAdminAmount = DB::table('admin_income')
         ->where('to_id', 1)
         ->sum('amount');
 
-        $uplineQuery = DB::table('upline_income')
-        ->where('pay_reason_id', 5) 
-        ->where('to_id', 1)
-        ->sum('amount');
-
-        $globalQuery = DB::table('global_regain')
-        ->where('pay_reason_id', 5) 
-        ->where('to_id', 1)
-        ->sum('amount');
-
-        $totalAdminAmount = $sponserQuery + $uplineQuery + $globalQuery;
 
         return view('admin.dashboard', compact('ActiveMembers', 'InactiveMembers', 'nextPlanName', 'remainingPlansCount', 'uplineIncome', 'sponserIncome', 'rebirthIncome','Withdrawal','GRUpgrade','GRAdmin','GRTotal','UPUpgrade','UPAdmin','UPTotal','plans','userPlans','nextPlanId', 'totalAdminAmount'));
     }
