@@ -27,3 +27,14 @@ ALTER TABLE `users` ADD `bankBranch` VARCHAR(50) NULL DEFAULT NULL AFTER `messag
 ALTER TABLE `users` ADD `ifscCode` VARCHAR(30) NULL DEFAULT NULL AFTER `fcm_token`;
 ALTER TABLE `users` ADD `aadharNo` VARCHAR(50) NULL DEFAULT NULL AFTER `bankName`;
 ALTER TABLE `users` ADD `pancardNo` VARCHAR(50) NULL DEFAULT NULL AFTER `ifscCode`;
+
+
+
+CREATE TABLE `plan_payment_request` (
+  `id` int(11) NOT NULL,
+  `plan_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `image` varchar(200) DEFAULT NULL,
+  `status` int(11) NOT NULL DEFAULT 0,
+  `created_at` datetime NOT NULL
+) ENGINE=InnoDB
