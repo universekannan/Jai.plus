@@ -24,7 +24,7 @@ body.dark-mode .main-header .navbar-nav .nav-item>a {
         @php
         $registerLink = url('/register/' . auth()->user()->user_name);
 
-        $shareMessage = "Hey! Friends!! Join TFC using my referral details:\n"
+        $shareMessage = "Hey! Friends!! Join JAI using my referral details:\n"
         . "User Name: " . auth()->user()->name . "\n"
         . "Phone: " . auth()->user()->phone . "\n"
         . "Referral User Id: " . auth()->user()->user_name . "\n"
@@ -42,11 +42,11 @@ body.dark-mode .main-header .navbar-nav .nav-item>a {
         </li>
 
         <!-- Copy Referral -->
-        <li class="nav-item">
+        <!-- <li class="nav-item">
             <button type="button" class="btn btn-primary btn-sm mr-2" id="copyReferral" data-text="{{ $shareMessage }}">
                 <i class="fas fa-copy"></i> <span id="copyText">Copy</span>
             </button>
-        </li>
+        </li> -->
         @endif
 
         <!-- User Dropdown -->
@@ -133,18 +133,18 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
-document.getElementById('copyReferral')?.addEventListener('click', function() {
-    let textToCopy = this.getAttribute('data-text');
+// document.getElementById('copyReferral')?.addEventListener('click', function() {
+//     let textToCopy = this.getAttribute('data-text');
 
-    navigator.clipboard.writeText(textToCopy).then(() => {
-        let copyText = document.getElementById('copyText');
-        copyText.textContent = "Copied! ✓";
+//     navigator.clipboard.writeText(textToCopy).then(() => {
+//         let copyText = document.getElementById('copyText');
+//         copyText.textContent = "Copied! ✓";
 
-        setTimeout(() => {
-            copyText.textContent = "Copy";
-        }, 5000);
-    }).catch(() => {
-        alert('Failed to copy.');
-    });
-});
+//         setTimeout(() => {
+//             copyText.textContent = "Copy";
+//         }, 5000);
+//     }).catch(() => {
+//         alert('Failed to copy.');
+//     });
+// });
 </script>

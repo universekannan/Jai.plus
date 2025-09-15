@@ -29,14 +29,12 @@ class RegisterController extends Controller
         'password' => 'required|string|min:6|confirmed',
     ]);
 
-    $latestId = User::max('id') ?? 0; 
-    $new = $latestId - 1; 
-    $newId = $new + 1001; 
-    $formattedId = str_pad($newId, 4, '0', STR_PAD_LEFT); 
-    $username = "TFC" . $formattedId; 
-//print_r($username);die;
+    $latestId = User::max('id') ?? 0;
+    $startFrom = 999;
+    $newId = $startFrom + $latestId; 
+    $formattedId = str_pad($newId, 4, '0', STR_PAD_LEFT);
+    $username = "JP" . $formattedId;
     $referralId = strtoupper(substr($request->name, 0, 3)) . rand(1000, 9999);
-
 
     if ($request->filled('referral_id')) {
         $referrer = User::where('user_name', $request->referral_id)->first();

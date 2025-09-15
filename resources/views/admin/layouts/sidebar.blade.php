@@ -1,7 +1,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <a href="{{ route('dashboard') }}" class="brand-link">
-        <img src="{{ asset('/AdminLTELogo.png') }}" class="brand-image img-circle elevation-3">
-        <span class="brand-text font-weight-light">{{ config('app.name') }}</span>
+        <img src="{{ asset('whpower.png') }}" class="brand-image img-circle elevation-3">
+        <span class="brand-text font-weight-light">JAIPLUS</span>
     </a>
     <div class="sidebar">
         <nav class="mt-2">
@@ -58,30 +58,30 @@
                             <a href="{{ url('admin/spornser') }}"
                                 class="nav-link {{ request()->is('admin/spornser') ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Sponsor</p>
+                                <p>Direct Refferal Income</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ url('admin/global_rebirth') }}"
                                 class="nav-link {{ request()->is('admin/global_rebirth') ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Global Rebirth</p>
+                                <p>Regain Income</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ url('admin/upline_spornser') }}"
                                 class="nav-link {{ request()->is('admin/upline_spornser') ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Upline Sponsor</p>
+                                <p>Upline Income</p>
                             </a>
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a href="{{ url('admin/upgrade') }}"
                                 class="nav-link {{ request()->is('admin/upgrade') ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Upgrade</p>
                             </a>
-                        </li>
+                        </li> -->
                     </ul>
                 </li>
 
