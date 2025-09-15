@@ -83,16 +83,58 @@
                             </div>
 
                             <div class="form-group row mb-3">
-                                <label class="col-sm-2 col-form-label">Wallet Address</label>
+                                <label class="col-sm-2 col-form-label">Address</label>
                                 <div class="col-sm-8">
                                     <div class="input-group">
-                                        <input required type="text" id="walletAddress" name="wallet_address"
-                                            class="form-control" value="{{ $profile->wallet_address }}"
-                                            placeholder="Wallet Address">
-                                        <button type="button" class="btn btn-primary" id="copyWalletBtn">
-                                            Copy
-                                        </button>
+									    <textarea class="form-control" name="address" placeholder="Experience">{{ $profile->address }}</textarea>
                                     </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row mb-3">
+                                <label class="col-sm-2 col-form-label">Account Number</label>
+                                <div class="col-sm-8">
+                                    <input required type="text" name="accountNo" class="form-control"
+                                        value="{{ $profile->accountNo }}" placeholder="Account Number">
+                                </div>
+                            </div>
+							
+                            <div class="form-group row mb-3">
+                                <label class="col-sm-2 col-form-label">Bank Name</label>
+                                <div class="col-sm-8">
+                                    <input required type="text" name="bankName" class="form-control"
+                                        value="{{ $profile->bankName }}" placeholder="Bank Name">
+                                </div>
+                            </div>
+							
+                            <div class="form-group row mb-3">
+                                <label class="col-sm-2 col-form-label">Bank Branch</label>
+                                <div class="col-sm-8">
+                                    <input required type="text" name="bankBranch" class="form-control"
+                                        value="{{ $profile->bankBranch }}" placeholder="Bank Branch">
+                                </div>
+                            </div>
+							
+                            <div class="form-group row mb-3">
+                                <label class="col-sm-2 col-form-label">Ifsc Code</label>
+                                <div class="col-sm-8">
+                                    <input required type="text" name="ifscCode" class="form-control"
+                                        value="{{ $profile->ifscCode }}" placeholder="Ifsc Code">
+                                </div>
+                            </div>
+
+                            <div class="form-group row mb-3">
+                                <label class="col-sm-2 col-form-label">Aadhar No</label>
+                                <div class="col-sm-8">
+                                    <input required type="text" name="aadharNo" class="form-control"
+                                        value="{{ $profile->aadharNo }}" placeholder="Aadhar No">
+                                </div>
+                            </div>
+                            <div class="form-group row mb-3">
+                                <label class="col-sm-2 col-form-label">PAN Card No</label>
+                                <div class="col-sm-8">
+                                    <input required type="text" name="pancardNo" class="form-control"
+                                        value="{{ $profile->pancardNo }}" placeholder="PAN Card No">
                                 </div>
                             </div>
 
