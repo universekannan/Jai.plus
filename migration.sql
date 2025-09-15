@@ -30,11 +30,12 @@ ALTER TABLE `users` ADD `pancardNo` VARCHAR(50) NULL DEFAULT NULL AFTER `ifscCod
 
 
 
-CREATE TABLE `plan_payment_request` (
-  `id` int(11) NOT NULL,
-  `plan_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `image` varchar(200) DEFAULT NULL,
-  `status` int(11) NOT NULL DEFAULT 0,
-  `created_at` datetime NOT NULL
-) ENGINE=InnoDB
+CREATE TABLE `plan_payment_request` ( 
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `plan_id` int(11) NOT NULL, 
+  `user_id` int(11) NOT NULL, 
+  `image` varchar(200) DEFAULT NULL, 
+  `status` int(11) NOT NULL DEFAULT 0, 
+  `created_at` datetime NOT NULL, 
+  PRIMARY KEY (`id`) 
+  ) ENGINE=InnoDB;
