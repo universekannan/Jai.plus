@@ -22,3 +22,9 @@ ALTER TABLE `users` DROP `upgrade`;
 
 ALTER TABLE `plans` ADD `upgrade_amount` VARCHAR(20) NULL DEFAULT NULL AFTER `upline_amount`;
 ALTER TABLE `global_regain` ADD `widtdrawal_status` VARCHAR(20) NOT NULL DEFAULT '0' AFTER `amount`;
+ALTER TABLE `users` ADD `accountNo` INT(50) NULL DEFAULT NULL AFTER `message`;
+ALTER TABLE `users` ADD `bankName` VARCHAR(50) NULL DEFAULT NULL AFTER `message`;
+ALTER TABLE `users` ADD `bankBranch` VARCHAR(50) NULL DEFAULT NULL AFTER `message`;
+ALTER TABLE `users` ADD `ifscCode` VARCHAR(30) NULL DEFAULT NULL AFTER `fcm_token`;
+ALTER TABLE `users` ADD `aadharNo` VARCHAR(50) NULL DEFAULT NULL AFTER `bankName`;
+ALTER TABLE `users` ADD `pancardNo` VARCHAR(50) NULL DEFAULT NULL AFTER `ifscCode`;
