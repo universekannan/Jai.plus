@@ -19,3 +19,4 @@ CREATE TABLE `admin_income` (
 ALTER TABLE `users` DROP `upgrade`;
 
 ALTER TABLE `admin_income` CHANGE `id` `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT, add PRIMARY KEY (`id`);
+ALTER TABLE `plans` ADD `upgrade_amount` VARCHAR(20) NULL DEFAULT NULL AFTER `upline_amount`;

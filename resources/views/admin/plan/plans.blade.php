@@ -30,7 +30,7 @@
                                         <th>ID</th>
                                         <th>Plan Name</th>
                                         <th>Plan Amount</th>
-                                        <th>Sponsor Amount</th>
+                                        <th>Direct Refferal</th>
                                         <th>Status</th>
                                         <th>Action</th>
                                     </tr>
@@ -51,7 +51,7 @@
                                         </td>
                                         <td width="10%" style="white-space: nowrap">
                                             <a onclick="edit_plan('{{ $centerslist->id }}','{{ addslashes($centerslist->plan_name) }}','{{ $centerslist->plan_amount }}',
-                                            '{{ $centerslist->sponser_amount }}','{{ $centerslist->upline_amount }}','{{ $centerslist->regain_amount }}','{{ $centerslist->service_amount }}',
+                                            '{{ $centerslist->sponser_amount }}','{{ $centerslist->upline_amount }}','{{ $centerslist->upgrade_amount }}','{{ $centerslist->regain_amount }}','{{ $centerslist->service_amount }}',
                                             '{{ $centerslist->status }}')" href="#" title="Edit Plan"
                                                 class="btn btn-success" data-toggle="modal" data-target="#editplan">
                                                 <i class="fa fa-edit"></i>
@@ -97,10 +97,10 @@
 
                                                     <div class="form-group mb-3">
                                                         <label for="sponser_amount_add" class="form-label"><span
-                                                                style="color:red">*</span> Sponsor Amount (%)</label>
+                                                                style="color:red">*</span> Direct Refferal (%)</label>
                                                         <input required type="number" class="form-control"
                                                             name="sponser_amount" id="sponser_amount_add"
-                                                            placeholder="Sponsor Amount %">
+                                                            placeholder="Direct Refferal %">
                                                     </div>
 
                                                     <div class="form-group mb-3">
@@ -109,6 +109,14 @@
                                                         <input required type="number" class="form-control"
                                                             name="upline_amount" id="upline_amount_add"
                                                             placeholder="Upline Amount %">
+                                                    </div>
+
+                                                    <div class="form-group mb-3">
+                                                        <label for="upgrade_amount_add" class="form-label"><span
+                                                                style="color:red">*</span> Upgrade Amount (%)</label>
+                                                        <input required type="number" class="form-control"
+                                                            name="upgrade_amount" id="upgrade_amount_add"
+                                                            placeholder="Upgrade Amount %">
                                                     </div>
 
                                                     <div class="form-group mb-3">
@@ -178,10 +186,10 @@
 
                                                     <div class="form-group mb-3">
                                                         <label for="sponser_amount_edit" class="form-label"><span
-                                                                style="color:red">*</span> Sponsor Amount (%)</label>
+                                                                style="color:red">*</span> Direct Refferal (%)</label>
                                                         <input required type="number" class="form-control"
                                                             name="sponser_amount" id="sponser_amount_edit"
-                                                            placeholder="Sponsor Amount %">
+                                                            placeholder="Direct Refferal %">
                                                     </div>
 
                                                     <div class="form-group mb-3">
@@ -190,6 +198,14 @@
                                                         <input required type="number" class="form-control"
                                                             name="upline_amount" id="upline_amount_edit"
                                                             placeholder="Upline Amount %">
+                                                    </div>
+
+                                                    <div class="form-group mb-3">
+                                                        <label for="upgrade_amount_edit" class="form-label"><span
+                                                                style="color:red">*</span> Upgrade Amount (%)</label>
+                                                        <input required type="number" class="form-control"
+                                                            name="upgrade_amount" id="upgrade_amount_edit"
+                                                            placeholder="Upgrade Amount %">
                                                     </div>
 
                                                     <div class="form-group mb-3">
@@ -240,12 +256,13 @@
 
 
 <script>
-function edit_plan(id, plan_name, plan_amount, sponser_amount, upline_amount, regain_amount,service_amount, status) {
+function edit_plan(id, plan_name, plan_amount, sponser_amount, upline_amount, upgrade_amount, regain_amount,service_amount, status) {
     $('#edit_plan_id').val(id);
     $('#plan_name_edit').val(plan_name);
     $('#plan_amount_edit').val(plan_amount);
     $('#sponser_amount_edit').val(sponser_amount);
     $('#upline_amount_edit').val(upline_amount);
+    $('#upgrade_amount_edit').val(upgrade_amount);
     $('#regain_amount_edit').val(regain_amount);
     $('#service_amount_edit').val(service_amount);
     $('#status_edit').val(status);
