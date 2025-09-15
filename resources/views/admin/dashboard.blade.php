@@ -137,7 +137,6 @@
                 </div>
             </div>
 
-
             <div class="col-md-3 col-sm-6">
                 <a href="#" data-toggle="modal" data-target="#uplineIncome">
                     <div class="info-box bg-light">
