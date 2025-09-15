@@ -183,6 +183,12 @@ class UsersController extends Controller
             'phone'   => $request->phone,
             'email'   => $request->email,
             'address' => $request->address,
+            'bankBranch' => $request->bankBranch,
+            'bankName' => $request->bankName,
+            'aadharNo' => $request->aadharNo,
+            'accountNo' => $request->accountNo, 
+            'ifscCode' => $request->ifscCode,     
+            'pancardNo' => $request->pancardNo,
             'wallet_address' => $request->wallet_address,
         ]);
         if ($request->hasFile('photo')) {

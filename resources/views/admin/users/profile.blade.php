@@ -86,7 +86,7 @@
                                 <label class="col-sm-2 col-form-label">Address</label>
                                 <div class="col-sm-8">
                                     <div class="input-group">
-									    <textarea class="form-control" name="address" placeholder="Experience">{{ $profile->address }}</textarea>
+									    <textarea class="form-control" name="address" placeholder="address">{{ $profile->address }}</textarea>
                                     </div>
                                 </div>
                             </div>
