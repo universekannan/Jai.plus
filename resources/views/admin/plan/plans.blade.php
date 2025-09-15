@@ -223,7 +223,7 @@
 
                                             <div class="modal-footer justify-content-between">
                                                 <button type="button" class="btn btn-secondary"
-                                                    data-bs-dismiss="modal">Close</button>
+                                                data-dismiss="modal">Close</button>
                                                 <input class="btn btn-primary" type="submit" value="Update" />
                                             </div>
                                         </div>
