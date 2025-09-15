@@ -221,10 +221,10 @@ public function updatewallet_sponser(Request $request)
     $userId = auth()->id();
 
     $globalregain = DB::table('global_regain')
-        ->where('to_id', $userId)
-        ->where('widtdrawal_status', '0')
-        ->where('pay_reason_id', '2')
-        ->sum('amount');
+    ->where('to_id', auth()->id())
+    ->where('widtdrawal_status', '0')
+    ->where('pay_reason_id', '2')
+    ->sum('amount');
 
     if ($globalregain > 0) {
      

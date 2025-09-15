@@ -65,14 +65,17 @@
             <div class="col-md-3 col-sm-6">
                 <a href="{{ url('admin/spornser') }}">
                     <div class="info-box bg-light">
-                        <span class="info-box-icon bg-info"><i class="fas fa-dollar-sign"></i></span>
+                        <span class="info-box-icon bg-info">
+                            <i class="fas fa-rupee-sign"></i>
+                        </span>
                         <div class="info-box-content">
-                            <span class="info-box-text">Direct Refferal Income</span>
-                            <span class="info-box-number">{{ $sponserIncome }} </span>
+                            <span class="info-box-text">Direct Referral Income</span>
+                            <span class="info-box-number">{{ $sponserIncome }}</span>
                         </div>
                     </div>
                 </a>
             </div>
+
 
             <div class="col-md-3 col-sm-6">
                 <a href="{{ url('admin/global_rebirth') }}">
