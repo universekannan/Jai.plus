@@ -243,6 +243,10 @@ public function updatewallet_sponser(Request $request)
             ->where('id', $userId)
             ->increment('wallet', $globalregain);
 
+            DB::table('users')
+            ->where('id', $userId)
+            ->update(['global_rebirth_amount' => 0]);
+
       
         DB::table('global_regain')
             ->where('to_id', $userId)
