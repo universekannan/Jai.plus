@@ -42,7 +42,7 @@ $to = $to ?? date('Y-m-d');
                             </tr>
                         </thead>
                         <tbody>
-                            @if ($globalregain > 5)
+                            @if ($globalregains > 5)
                             <tr>
                                 <td>1</td>
                                 <td>Global Regain</td>
@@ -58,7 +58,8 @@ $to = $to ?? date('Y-m-d');
                             @endif
 
                             <tr>
-                                <td>{{ $globalregain >= 5 ? 2 : 1 }}</td>
+                                <td>{{ $globalregains >= 5 ? 2 : 1 }}</td>
+
                                 <td>Wallet Amount</td>
                                 <td>{{ date('d-m-Y') }}</td>
                                 <td>{{ Auth::user()->wallet }}</td>
@@ -78,7 +79,9 @@ $to = $to ?? date('Y-m-d');
 
 
 
-        @if ($globalregain >= 5)
+
+        @if ($globalregains >= 5)
+
         <div class="modal fade" id="paymentModal1" tabindex="-1" role="dialog" aria-labelledby="paymentModalLabel1"
             aria-hidden="true">
             <div class="modal-dialog modal-md" role="document">
