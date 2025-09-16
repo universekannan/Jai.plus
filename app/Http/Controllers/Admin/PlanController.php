@@ -712,6 +712,7 @@ public function kannanaaaaa() {
         DB::table('plan_payment_request')->insert([
             'plan_id'    => $request->plan_id,
             'user_id'    => $request->user_id,
+            'amount'     => $request->amount,
             'image'      => $filePath,
             'status'     => 0,
             'created_at' => now(),
@@ -742,11 +743,27 @@ public function kannanaaaaa() {
   public function update_plan_activation_request(Request $request)
   {
       
-      DB::table('plan_payment_request')->where('id', $request->plan_request_id)->update([
-          'status'      => $request->status,
-          'created_at'  => now(),
-      ]);
+    DB::table('plan_payment_request')->where('id', $request->plan_request_id)->update([
+        'status'      => $request->status,
+        'created_at'  => now(),
+    ]);
   
-      return redirect()->back()->with('success', 'Withdrawal status updated successfully.');
+    if ($request->status == 1) {
+        $data = DB::table('plan_payment_request')
+            ->where('id', $request->plan_request_id)
+            ->first();
+    
+        $request->merge([
+            'user_id'        => $data->user_id,
+            'amount'         => $data->amount,
+            'plan_id'        => $data->plan_id,
+            'upgrade'        => 0,
+            'upgrade_status' => 0,
+        ]);
+    
+        $this->activatePlanPayment($request);
+    }
+    
+    return redirect()->back()->with('success', 'Withdrawal status updated successfully.');
   }
 }

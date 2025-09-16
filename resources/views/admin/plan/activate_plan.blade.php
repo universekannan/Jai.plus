@@ -134,6 +134,7 @@
                 const formData = new FormData();
                 formData.append("plan_id", $("#paymentModal").data("planid"));
                 formData.append("user_id", $("#paymentModal").data("userid"));
+                formData.append("amount", $("#paymentModal").data("amount"));
                 formData.append("_token", $('meta[name="csrf-token"]').attr("content"));
     
                 const file = $("#paymentProof")[0].files[0];

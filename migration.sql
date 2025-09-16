@@ -39,3 +39,5 @@ CREATE TABLE `plan_payment_request` (
   `created_at` datetime NOT NULL, 
   PRIMARY KEY (`id`) 
   ) ENGINE=InnoDB;
+
+  ALTER TABLE `plan_payment_request` ADD `amount` VARCHAR(100) NULL AFTER `plan_id`;
