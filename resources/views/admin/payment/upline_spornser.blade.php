@@ -38,7 +38,7 @@ $to = $to ?? date('Y-m-d');
                                 @php
                                 $ftIncome = DB::table('upline_income')
                                 ->where('to_id', Auth::id())
-                                ->where('pay_reason_id', 4)
+                                ->where('pay_reason_id', 3)
                                 ->where('plan_id', $planCheck->id)
                                 ->count();
                                 @endphp
@@ -81,7 +81,7 @@ $to = $to ?? date('Y-m-d');
                                                             @php
                                                             $getFTdata = DB::table('upline_income')
                                                             ->select('upline_income.from_id','upline_income.amount','upline_income.created_at')
-                                                            ->where('upline_income.pay_reason_id', 4)
+                                                            ->where('upline_income.pay_reason_id', 3)
                                                             ->where('upline_income.to_id', Auth::id())
                                                             ->where('upline_income.plan_id', $planCheck->id)
                                                             ->get();
