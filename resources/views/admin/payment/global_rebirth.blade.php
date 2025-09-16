@@ -64,7 +64,7 @@
                                     ->join('users','users.id','=','global_regain.from_id')
                                     ->where('global_regain.pay_reason_id', 2)
                                     ->where('global_regain.from_id', auth()->user()->id)
-                                    ->where('global_regain.to_id','!=' 1)
+                                    ->where('global_regain.to_id','!=', 1)
                                     ->where('global_regain.plan_id', $Userplan->id)
                                     ->get();
                                     @endphp
