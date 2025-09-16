@@ -87,55 +87,53 @@ public function kannanaaaaa() {
     ->first();
             
     $globalregain = DB::table('global_regain')
-                    ->where('plan_id', 1)
-                    ->where('status', 0)
-                    // ->where('from_id', $parentId)
-                    ->orderby('id','ASC')
-                    ->count();
+        ->where('plan_id', 1)
+        ->where('status', 0)
+        // ->where('from_id', $parentId)
+        ->orderby('id','ASC')
+        ->count();
 
                    
-                    if($globalregain < 3) {
-
-                        
-    
+    if($globalregain < 3) {
         $parentId =  2;
 
-                        DB::table('global_regain')->insert([
-                            'plan_id'        => 1,
-                            'from_id'        => $parentId,
-                            'to_id'          => 7,
-                            'level'          => 1,
-                            'pay_reason_id'  => 2,
-                            'amount'         => 5,
-                            'payment_status' => 1,
-                            'message'        => 'Global Regain',
-                            'user_type_id'   => 3,
-                            'log_id'         => auth()->id(),
-                            'created_at'     => now(),
-                        ]);
-                    } else {
+        DB::table('global_regain')->insert([
+            'plan_id'        => 1,
+            'from_id'        => $parentId,
+            'to_id'          => 7,
+            'level'          => 1,
+            'pay_reason_id'  => 2,
+            'amount'         => 5,
+            'payment_status' => 1,
+            'message'        => 'Global Regain',
+            'user_type_id'   => 3,
+            'log_id'         => auth()->id(),
+            'created_at'     => now(),
+         ]);
 
-                        $parentId = $globalregainsss->to_id;
+        } else {
 
-                        DB::table('global_regain')->insert([
-                            'plan_id'        => 1,
-                            'from_id'        => $parentId,
-                            'to_id'          => 7,
-                            'level'          => 1,
-                            'pay_reason_id'  => 2,
-                            'amount'         => 5,
-                            'payment_status' => 1,
-                            'message'        => 'Global Regain',
-                            'user_type_id'   => 3,
-                            'log_id'         => auth()->id(),
-                            'created_at'     => now(),
-                        ]);
+        $parentId = $globalregainsss->to_id;
 
-                        DB::table('global_regain')->where('to_id',$parentId)->update([
-                            'status'        => 1,
-                        ]);
+        DB::table('global_regain')->insert([
+            'plan_id'        => 1,
+            'from_id'        => $parentId,
+            'to_id'          => 7,
+            'level'          => 1,
+            'pay_reason_id'  => 2,
+            'amount'         => 5,
+            'payment_status' => 1,
+            'message'        => 'Global Regain',
+            'user_type_id'   => 3,
+            'log_id'         => auth()->id(),
+            'created_at'     => now(),
+        ]);
 
-                    }
+        DB::table('global_regain')->where('to_id',$parentId)->update([
+            'status'        => 1,
+        ]);
+
+        }
                 
 }
 

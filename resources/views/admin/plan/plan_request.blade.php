@@ -28,14 +28,11 @@
                         </thead>
                         <tbody>
                             @forelse($plan_payment_request as $key => $item)
-                            @php
-                            $plan = DB::table('plans')->where('id',$item->plan_id)->first();
-                            @endphp
                             <tr>
                                 <td>{{ $key + 1 }}</td>
                                 <td>{{ $item->from_name }}</td>
                                 <td>{{ $item->user_name }}</td>
-                                <td>{{ $plan->plan_amount ?? '-' }} </td>
+                                <td>{{ $item->amount ?? '-' }} </td>
                                 @if(auth()->user()->user_type_id == 1)
                                 <td>
                                     <a href="#" class="btn btn-sm btn-info" onclick="update_plan_request(
@@ -44,7 +41,7 @@
                                         '{{ $item->status }}',
                                         '{{ $item->from_name }}',
                                         '{{ $item->user_name }}',
-                                        '{{ $plan->plan_amount ?? '-' }}'
+                                        '{{ $item->amount ?? '-' }}'
                                     )"><i class="fas fa-edit"></i>
                                     </a>
                                 </td>
@@ -90,7 +87,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-4 col-form-label">Plan Amount</label>
                                 <div class="col-sm-8">
-                                    <input type="text" id="edit_plan_amount" class="form-control" readonly>
+                                    <input type="text" id="edit_amount" class="form-control" readonly>
                                 </div>
                             </div>
 
@@ -128,12 +125,12 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-function update_plan_request(id, image, status, from_name, user_name, plan_amount) {
+function update_plan_request(id, image, status, from_name, user_name, amount) {
     $("#editstatus").val(status);
     $('#plan_request_id').val(id);
     $('#edit_from_name').val(from_name);
     $('#edit_user_name').val(user_name);
-    $('#edit_plan_amount').val(plan_amount);
+    $('#edit_amount').val(amount);
 
     if (image) {
         $("#edit_withdrawal_image").attr("src", image).show();
