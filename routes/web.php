@@ -69,7 +69,7 @@ Route::post('updatemember', [App\Http\Controllers\Admin\UsersController::class, 
 Route::get('admin/plans', [App\Http\Controllers\Admin\PlanController::class, 'plans'])->name('plans');
 Route::get('admin/user_activate_plan', [App\Http\Controllers\Admin\PlanController::class, 'userActivatePlan'])->name('user_activate_plan');
 Route::get('admin/plan_activation_request', [App\Http\Controllers\Admin\PlanController::class, 'planActivationrequest'])->name('plan_activation_request');
-Route::get('update_plan_activation_request', [App\Http\Controllers\Admin\PlanController::class, 'update_plan_activation_request'])->name('update_plan_activation_request');
+Route::post('update_plan_activation_request', [App\Http\Controllers\Admin\PlanController::class, 'update_plan_activation_request'])->name('update_plan_activation_request');
 Route::post('addplan', [App\Http\Controllers\Admin\PlanController::class, 'addplan'])->name('addplan');
 Route::post('editplan', [App\Http\Controllers\Admin\PlanController::class, 'editplan'])->name('editplan');
 Route::get('admin/activate_plan/{id}', [App\Http\Controllers\Admin\PlanController::class, 'activatePlan'])->name('activate_plan');
