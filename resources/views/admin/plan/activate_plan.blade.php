@@ -41,7 +41,7 @@
                                     <p class="mb-0 font-13">{{ $statusText }}</p>
                                 </div>
                                 <div class="widgets-icons bg-light-transparent ms-auto">
-                                    <i class="fas fa-trophy"></i>
+                                    <i class="fas fa-rupee-sign"></i>
                                 </div>
                             </div>
                         </div>
