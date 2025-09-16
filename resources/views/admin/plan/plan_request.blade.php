@@ -39,11 +39,13 @@
                                 <td>{{ $plan->plan_amount ?? '-' }} </td>
                                 @if(auth()->user()->user_type_id == 1)
                                 <td>
-                                    <a href="#" class="btn btn-sm btn-info"
-                                        onclick="update_plan_request('{{ $item->id }}','{{ $item->image ? asset($item->image) : '' }}', '{{ $item->status }}')">
-                                        <i class="fas fa-edit"></i>
-                                    </a>
-
+                                    <a href="#" class="btn btn-sm btn-info" onclick="update_plan_request(
+                                        '{{ $item->id }}',
+                                        '{{ $item->image ? asset($item->image) : '' }}',
+                                        '{{ $item->status }}',
+                                        '{{ $item->from_name }}',
+                                        '{{ $plan->plan_amount ?? '-' }}'
+                                    )"><i class="fas fa-edit"></i>
                                     </a>
                                 </td>
                                 @endif
@@ -70,6 +72,20 @@
                         </div>
                         <div class="modal-body">
                             <input type="hidden" name="plan_request_id" id="plan_request_id">
+
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">Name</label>
+                                <div class="col-sm-8">
+                                    <input type="text" id="edit_from_name" class="form-control" readonly>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">Plan Amount</label>
+                                <div class="col-sm-8">
+                                    <input type="text" id="edit_plan_amount" class="form-control" readonly>
+                                </div>
+                            </div>
 
                             <div class="form-group row">
                                 <label class="col-sm-4 col-form-label">Payment Proof</label>
@@ -105,9 +121,11 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-function update_plan_request(id, image, status) {
+function update_plan_request(id, image, status, from_name, plan_amount) {
     $("#editstatus").val(status);
     $('#plan_request_id').val(id);
+    $('#edit_from_name').val(from_name);
+    $('#edit_plan_amount').val(plan_amount);
 
     if (image) {
         $("#edit_withdrawal_image").attr("src", image).show();
