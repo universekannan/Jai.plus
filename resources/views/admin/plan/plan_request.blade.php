@@ -4,7 +4,7 @@
 
 <section class="content-header">
     <div class="container-fluid d-flex justify-content-between align-items-center">
-        <h3>{{ auth()->user()->name }} - {{ auth()->user()->user_name }}</h3>
+        <h3>Plan Activation Request </h3>
     </div>
 </section>
 
@@ -12,16 +12,14 @@
     <div class="container-fluid">
 
         <div class="card">
-            <div class="card-header">
-                <h3 class="card-title">Plan Activation Request </h3>
-            </div>
             <div class="card-body">
                 <div class="table-responsive">
                     <table id="example2" class="table table-bordered">
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>From</th>
+                                <th>Name</th>
+                                <th>User Id</th>
                                 <th>Plan Amount</th>
                                 @if(auth()->user()->user_type_id == 1)
                                 <th>Action</th>
@@ -36,6 +34,7 @@
                             <tr>
                                 <td>{{ $key + 1 }}</td>
                                 <td>{{ $item->from_name }}</td>
+                                <td>{{ $item->user_name }}</td>
                                 <td>{{ $plan->plan_amount ?? '-' }} </td>
                                 @if(auth()->user()->user_type_id == 1)
                                 <td>
@@ -44,6 +43,7 @@
                                         '{{ $item->image ? asset($item->image) : '' }}',
                                         '{{ $item->status }}',
                                         '{{ $item->from_name }}',
+                                        '{{ $item->user_name }}',
                                         '{{ $plan->plan_amount ?? '-' }}'
                                     )"><i class="fas fa-edit"></i>
                                     </a>
@@ -74,9 +74,16 @@
                             <input type="hidden" name="plan_request_id" id="plan_request_id">
 
                             <div class="form-group row">
-                                <label class="col-sm-4 col-form-label">Name</label>
+                                <label class="col-sm-4 col-form-label">From Name</label>
                                 <div class="col-sm-8">
                                     <input type="text" id="edit_from_name" class="form-control" readonly>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">User Id</label>
+                                <div class="col-sm-8">
+                                    <input type="text" id="edit_user_name" class="form-control" readonly>
                                 </div>
                             </div>
 
@@ -101,8 +108,8 @@
                                 <label class="col-sm-4 col-form-label">Status</label>
                                 <div class="col-sm-8">
                                     <select id="editstatus" name="status" class="form-control">
-                                        <option value="0">Pending</option>
-                                        <option value="1">Approve</option>
+                                        <option value="0">Plan Request</option>
+                                        <option value="1">Plan Activate</option>
                                     </select>
                                 </div>
                             </div>
@@ -121,10 +128,11 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-function update_plan_request(id, image, status, from_name, plan_amount) {
+function update_plan_request(id, image, status, from_name, user_name, plan_amount) {
     $("#editstatus").val(status);
     $('#plan_request_id').val(id);
     $('#edit_from_name').val(from_name);
+    $('#edit_user_name').val(user_name);
     $('#edit_plan_amount').val(plan_amount);
 
     if (image) {

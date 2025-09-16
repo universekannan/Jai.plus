@@ -726,7 +726,7 @@ public function kannanaaaaa() {
   
         $query = DB::table('plan_payment_request')
             ->join('users', 'plan_payment_request.user_id', '=', 'users.id')
-            ->select('plan_payment_request.*', 'users.name as from_name') 
+            ->select('plan_payment_request.*', 'users.name as from_name', 'users.user_name as user_name' ) 
             ->where('plan_payment_request.status', 0)
             ->orderBy('plan_payment_request.id', 'asc');
     
