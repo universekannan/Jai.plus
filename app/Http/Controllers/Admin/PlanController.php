@@ -347,7 +347,7 @@ public function kannanaaaaa() {
         'created_at'     => now(),
     ]);
 
-     if($type == 'Rebirth'){
+     if($type == 'RebirthIn'){
           $wallet = DB::table('users')->where('id', $toId)->value('wallet');
          $walletBalance = ($wallet ?? 0) + $amount;
          DB::table('users')->where('id', $toId)->update([
@@ -522,14 +522,6 @@ public function kannanaaaaa() {
                   '3'
               );
   
-              // ✅ Update sponsor wallet
-              DB::table('users')
-                  ->where('id', $currentUser->referral_id)
-                  ->update([
-                      'wallet'     => DB::raw("wallet + $referrerCommission"),
-                      'updated_at' => now(),
-                  ]);
-  
           } else {
               $this->storeSponserPayment(
                   'RebirthIn',
@@ -543,14 +535,6 @@ public function kannanaaaaa() {
                   "Referral Sponsor Income (Admin)",
                   '3'
               );
-  
-              // ✅ Update admin wallet
-              DB::table('users')
-                  ->where('id', 1) // admin user
-                  ->update([
-                      'wallet'     => DB::raw("wallet + $referrerCommission"),
-                      'updated_at' => now(),
-                  ]);
           }
   
           /**
@@ -571,14 +555,6 @@ public function kannanaaaaa() {
               "Upline Sponsor",
               '3'
           );
-  
-          // ✅ Update upline wallet
-          DB::table('users')
-              ->where('id', $uplinerId)
-              ->update([
-                  'wallet'     => DB::raw("wallet + $commissionAmount"),
-                  'updated_at' => now(),
-              ]);
   
           /**
            * 3) GLOBAL REGAIN
