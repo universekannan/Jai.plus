@@ -83,8 +83,7 @@
                                             data-user_name="{{ $member->user_name ?? '' }}"
                                             data-cpassword="{{ $member->cpassword ?? '' }}"
                                             data-email="{{ $member->email ?? '' }}"
-                                            data-phone="{{ $member->phone ?? '' }}"
-                                            data-wallet_address="{{ $member->wallet_address ?? '' }}">
+                                            data-phone="{{ $member->phone ?? '' }}">
                                             <i class="fa fa-eye"></i>
                                         </a>
                                         <a href="#" class="btn btn-primary btn-sm editmemberBtn"
@@ -146,10 +145,6 @@
                             <th>Phone</th>
                             <td id="view_phone"></td>
                         </tr>
-                        <tr>
-                            <th>Wallet Address</th>
-                            <td id="view_wallet_address"></td>
-                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -210,7 +205,6 @@ $(document).on('click', '.viewmemberBtn', function(e) {
     $('#view_cpassword').text($(this).data('cpassword'));
     $('#view_email').text($(this).data('email'));
     $('#view_phone').text($(this).data('phone'));
-    $('#view_wallet_address').text($(this).data('wallet_address'));
     $('#viewmemberModal').modal('show');
 });
 
