@@ -229,7 +229,7 @@ public function updatewallet_sponser(Request $request)
     $userId = auth()->id();
 
     $globalregain = DB::table('global_regain')
-    ->where('to_id', auth()->id())
+    ->where('form_id 1', auth()->id())
     ->where('widtdrawal_status', '0')
     ->where('pay_reason_id', '2')
     ->sum('amount');
