@@ -460,224 +460,181 @@ public function kannanaaaaa() {
   }
 
   
-     public function activatePlanPayment(Request $request)
-    {
-        $request->validate([
-            'plan_id' => 'required|integer',
-            'user_id' => 'required|integer',
-            'amount'  => 'required|numeric',
-        ]);
-
-        $userId         = $request->user_id;
-        $amount         = $request->amount;
-        $planId         = $request->plan_id;
-        $upgrade        = $request->upgrade;
-        $upgrade_status = $request->upgrade_status;
-
-        return DB::transaction(function () use ($userId, $amount, $planId, $upgrade, $upgrade_status) {
-
-            // Store the activated plan
-            DB::table('user_plan')->insert([
-                'plan_id'    => $planId,
-                'user_id'    => $userId,
-                'amount'     => $amount,
-                'created_by' => auth()->id(),
-                'created_at' => now(),
-            ]);
-
-            $planData = DB::table('plans')->where('id', $planId)->first();
-
-            if ($upgrade_status == 1) {
-                $totup = $upgrade - $planData->plan_amount;
-                DB::table('users')->where('id', $userId)->update([
-                    'upgrade' => $totup,
-                ]);
-            }
-
-            // Update user to latest plan
-            DB::table('users')->where('id', $userId)->update([
-                'plan_id'    => $planId,
-                'status'     => 1,
-                'updated_at' => now(),
-            ]);
-
-            $currentUser = DB::table('users')->where('id', $userId)->first();
-
-            /**
-             * 1) SPONSOR COMMISSION
-             */
-            $referrerCommission = ($amount * $planData->sponser_amount) / 100;
-
-            if (!empty($currentUser->referral_id)) {
-                $this->storeSponserPayment(
-                    'RebirthIn',
-                    $planId,
-                    $userId,
-                    $currentUser->referral_id,
-                    1,
-                    '1',
-                    $referrerCommission,
-                    1,
-                    "Referral Sponsor Income",
-                    '3'
-                );
-
-                // ✅ Update sponsor wallet
-                DB::table('users')
-                    ->where('id', $currentUser->referral_id)
-                    ->update([
-                        'wallet'     => DB::raw("wallet + $referrerCommission"),
-                        'updated_at' => now(),
-                    ]);
-
-            } else {
-                $this->storeSponserPayment(
-                    'RebirthIn',
-                    $planId,
-                    $userId,
-                    1,
-                    1,
-                    '1',
-                    $referrerCommission,
-                    1,
-                    "Referral Sponsor Income (Admin)",
-                    '3'
-                );
-
-                // ✅ Update admin wallet
-                DB::table('users')
-                    ->where('id', 1) // admin user
-                    ->update([
-                        'wallet'     => DB::raw("wallet + $referrerCommission"),
-                        'updated_at' => now(),
-                    ]);
-            }
-
-            /**
-             * 2) UPLINE COMMISSION
-             */
-            $commissionAmount = ($amount * $planData->upline_amount) / 100;
-            $uplinerId        = $this->getUpline($currentUser, $planId) ?: 1;
-
-            $this->storeUplinePayment(
-                'Upline',
-                $planId,
-                $userId,
-                $uplinerId,
-                $planId,
-                '3',
-                $commissionAmount,
-                1,
-                "Upline Sponsor",
-                '3'
-            );
-
-            // ✅ Update upline wallet
-            DB::table('users')
-                ->where('id', $uplinerId)
-                ->update([
-                    'wallet'     => DB::raw("wallet + $commissionAmount"),
-                    'updated_at' => now(),
-                ]);
-
-            /**
-             * 3) GLOBAL REGAIN
-             */
-            $rotatingCommissionAmount = ($amount * $planData->regain_amount) / 100;
-
-            $globalregainsssar = DB::table('global_regain')
-                ->where('plan_id', $planId)
-                ->where('status', 0)
-                ->where('pay_reason_id', '2')
-                ->orderby('id', 'ASC')
-                ->first();
-
-            if ($globalregainsssar) {
-                $parentId     = $globalregainsssar->to_id;
-                $globalregain = DB::table('global_regain')
-                    ->where('plan_id', $planId)
-                    ->where('status', 0)
-                    ->where('from_id', $parentId)
-                    ->where('pay_reason_id', '2')
-                    ->count();
-
-                if ($globalregain == 4) {
-                    if ($userId != '2') {
-                        $this->storeGlobalPayment(
-                            'PlanTree',
-                            $planId,
-                            $parentId,
-                            $userId,
-                            1,
-                            '2',
-                            $rotatingCommissionAmount,
-                            1,
-                            "Global Regain Income",
-                            '3',
-                            0
-                        );
-                    }
-
-                    DB::table('global_regain')
-                        ->where('plan_id', $planId)
-                        ->where('to_id', $parentId)
-                        ->update([
-                            'status' => 1,
-                        ]);
-                } else {
-                    if ($userId != '2') {
-                        $this->storeGlobalPayment(
-                            'PlanTree',
-                            $planId,
-                            $parentId,
-                            $userId,
-                            1,
-                            '2',
-                            $rotatingCommissionAmount,
-                            1,
-                            "Global Regain Income",
-                            '3',
-                            0
-                        );
-                    }
-                }
-            } else {
-                \Log::warning("No global_regain entry found for plan_id {$planId}");
-                $this->storeGlobalPayment(
-                    'PlanTree',
-                    $planId,
-                    1,
-                    $userId,
-                    1,
-                    '2',
-                    $rotatingCommissionAmount,
-                    1,
-                    "Global Regain Income (Admin fallback)",
-                    '3',
-                    0
-                );
-            }
-
-            /**
-             * 4) SERVICE COMMISSION
-             */
-            $serAmount = ($amount * $planData->service_amount) / 100;
-            $this->storeAdminPayment(
-                'Admin',
-                $planId,
-                $userId,
-                1,
-                $planId,
-                '3',
-                $serAmount,
-                1,
-                "Service Charge",
-                '3'
-            );
-
-            return response()->json(['success' => true]);
-        });
-    }
+  public function activatePlanPayment(Request $request)
+  {
+      $request->validate([
+          'plan_id' => 'required|integer',
+          'user_id' => 'required|integer',
+          'amount'  => 'required|numeric',
+      ]);
+  
+      $userId         = $request->user_id;
+      $amount         = $request->amount;
+      $planId         = $request->plan_id;
+      $upgrade        = $request->upgrade;
+      $upgrade_status = $request->upgrade_status;
+  
+      return DB::transaction(function () use ($userId, $amount, $planId, $upgrade, $upgrade_status) {
+  
+          // Store the activated plan
+          DB::table('user_plan')->insert([
+              'plan_id'    => $planId,
+              'user_id'    => $userId,
+              'amount'     => $amount,
+              'created_by' => auth()->id(),
+              'created_at' => now(),
+          ]);
+  
+          $planData = DB::table('plans')->where('id', $planId)->first();
+  
+          if ($upgrade_status == 1) {
+              $totup = $upgrade - $planData->plan_amount;
+              DB::table('users')->where('id', $userId)->update([
+                  'upgrade' => $totup,
+              ]);
+          }
+  
+          // Update user to latest plan
+          DB::table('users')->where('id', $userId)->update([
+              'plan_id'    => $planId,
+              'status'     => 1,
+              'updated_at' => now(),
+          ]);
+  
+          $currentUser = DB::table('users')->where('id', $userId)->first();
+  
+          /**
+           * 1) SPONSOR COMMISSION
+           */
+          $referrerCommission = ($amount * $planData->sponser_amount) / 100;
+  
+          if (!empty($currentUser->referral_id)) {
+              $this->storeSponserPayment(
+                  'RebirthIn',
+                  $planId,
+                  $userId,
+                  $currentUser->referral_id,
+                  1,
+                  '1',
+                  $referrerCommission,
+                  1,
+                  "Referral Sponsor Income",
+                  '3'
+              );
+  
+              // ✅ Update sponsor wallet
+              DB::table('users')
+                  ->where('id', $currentUser->referral_id)
+                  ->update([
+                      'wallet'     => DB::raw("wallet + $referrerCommission"),
+                      'updated_at' => now(),
+                  ]);
+  
+          } else {
+              $this->storeSponserPayment(
+                  'RebirthIn',
+                  $planId,
+                  $userId,
+                  1,
+                  1,
+                  '1',
+                  $referrerCommission,
+                  1,
+                  "Referral Sponsor Income (Admin)",
+                  '3'
+              );
+  
+              // ✅ Update admin wallet
+              DB::table('users')
+                  ->where('id', 1) // admin user
+                  ->update([
+                      'wallet'     => DB::raw("wallet + $referrerCommission"),
+                      'updated_at' => now(),
+                  ]);
+          }
+  
+          /**
+           * 2) UPLINE COMMISSION
+           */
+          $commissionAmount = ($amount * $planData->upline_amount) / 100;
+          $uplinerId        = $this->getUpline($currentUser, $planId) ?: 1;
+  
+          $this->storeUplinePayment(
+              'Upline',
+              $planId,
+              $userId,
+              $uplinerId,
+              $planId,
+              '3',
+              $commissionAmount,
+              1,
+              "Upline Sponsor",
+              '3'
+          );
+  
+          // ✅ Update upline wallet
+          DB::table('users')
+              ->where('id', $uplinerId)
+              ->update([
+                  'wallet'     => DB::raw("wallet + $commissionAmount"),
+                  'updated_at' => now(),
+              ]);
+  
+          /**
+           * 3) GLOBAL REGAIN
+           * Regain starts from 3rd activation
+           * User #2 receives first, each user gets 5 activations
+           */
+          $rotatingCommissionAmount = ($amount * $planData->regain_amount) / 100;
+  
+          $activationCount = DB::table('user_plan')
+              ->where('plan_id', $planId)
+              ->count();
+  
+          if ($activationCount >= 3) {
+              $offset     = floor(($activationCount - 3) / 5);
+              $receiverId = 2 + $offset; 
+  
+              if ($userId != $receiverId) {
+                  $this->storeGlobalPayment(
+                      'PlanTree',
+                      $planId,
+                      $receiverId,  // receiver
+                      $userId,      // activating user
+                      1,
+                      '2',
+                      $rotatingCommissionAmount,
+                      1,
+                      "Global Regain Income",
+                      '3',
+                      0
+                  );
+              }
+          } else {
+              \Log::info("Activation {$activationCount}: Regain not started yet");
+          }
+  
+          /**
+           * 4) SERVICE COMMISSION
+           */
+          $serAmount = ($amount * $planData->service_amount) / 100;
+          $this->storeAdminPayment(
+              'Admin',
+              $planId,
+              $userId,
+              1,
+              $planId,
+              '3',
+              $serAmount,
+              1,
+              "Service Charge",
+              '3'
+          );
+  
+          return response()->json(['success' => true]);
+      });
+  }
+  
 
     public function plan_payment_request(Request $request)
     {
