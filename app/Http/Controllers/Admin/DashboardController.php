@@ -126,17 +126,18 @@ class DashboardController extends Controller
        
         
        
-        $GRUpgrade = DB::table('global_regain')->where('pay_reason_id', 4)->where('from_id', auth()->user()->id)->sum('amount');
-        $GRAdmin = DB::table('global_regain')->where('pay_reason_id', 5)->where('from_id', auth()->user()->id)->sum('amount');
-        $GRTotal = $GRUpgrade + $GRAdmin;
+        // $GRUpgrade = DB::table('global_regain')->where('pay_reason_id', 2)->where('from_id', auth()->user()->id)->sum('amount');
+        // $GRAdmin = DB::table('global_regain')->where('pay_reason_id', 5)->where('from_id', auth()->user()->id)->sum('amount');
+        // $GRTotal = $GRUpgrade + $GRAdmin;
 
+        $rebirthIncome = DB::table('global_regain')->where('pay_reason_id', 2)->where('from_id', auth()->user()->id)->where('to_id','!=',1)->sum('amount');
 
        
         $UPUpgrade = DB::table('upline_income')->where('pay_reason_id', 4)->where('to_id', auth()->user()->id)->sum('amount');
         $UPAdmin = DB::table('upline_income')->where('pay_reason_id', 5)->where('to_id', auth()->user()->id)->sum('amount');
         $UPTotal = $UPUpgrade + $UPAdmin;
 
-        $rebirthIncome = $GRTotal;
+        // $rebirthIncome = $GRTotal;
 
 
         $userId = auth()->id();
