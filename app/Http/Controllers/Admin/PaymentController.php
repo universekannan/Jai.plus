@@ -208,9 +208,15 @@ public function getData(Request $request)
             ->where('widtdrawal_status', '0')
 			->where('to_id', auth()->user()->id)
 			->sum('amount');
+
+            $globalregains = DB::table('global_regain')
+            ->where('to_id', auth()->id())
+            ->where('widtdrawal_status', '0')
+            ->where('pay_reason_id', '2')
+            ->get();
 			
 			
-		  return view('admin.payment.wallet', compact( 'globalregain'));
+		  return view('admin.payment.wallet', compact( 'globalregain','globalregains'));
 	}
 
 
@@ -225,6 +231,9 @@ public function updatewallet_sponser(Request $request)
     ->where('widtdrawal_status', '0')
     ->where('pay_reason_id', '2')
     ->sum('amount');
+
+
+   
 
     if ($globalregain > 0) {
      
