@@ -35,7 +35,7 @@
                                 <td>{{ $key + 1 }}</td>
                                 <td>{{ $item->from_name }}</td>
                                 <td>{{ $item->user_name }}</td>
-                                <td>{{ $plan->plan_amount ?? '-' }} </td>
+                                <td>{{ $item->amount ?? '-' }} </td>
                                 @if(auth()->user()->user_type_id == 1)
                                 <td>
                                     <a href="#" class="btn btn-sm btn-info" onclick="update_plan_request(
