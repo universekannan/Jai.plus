@@ -157,7 +157,7 @@ class DashboardController extends Controller
         ->sum('amount');
 
 
-        return view('admin.dashboard', compact('ActiveMembers', 'InactiveMembers', 'nextPlanName', 'remainingPlansCount', 'uplineIncome', 'sponserIncome', 'rebirthIncome','Withdrawal','GRUpgrade','GRAdmin','GRTotal','UPUpgrade','UPAdmin','UPTotal','plans','userPlans','nextPlanId', 'totalAdminAmount'));
+        return view('admin.dashboard', compact('ActiveMembers', 'InactiveMembers', 'nextPlanName', 'remainingPlansCount', 'uplineIncome', 'sponserIncome', 'rebirthIncome','Withdrawal','UPUpgrade','UPAdmin','UPTotal','plans','userPlans','nextPlanId', 'totalAdminAmount'));
     }
 	
 
