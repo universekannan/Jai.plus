@@ -206,14 +206,16 @@ public function getData(Request $request)
 		$globalregain = DB::table('global_regain')
 			->where('pay_reason_id', '2')
             ->where('widtdrawal_status', '0')
-			->where('to_id', auth()->user()->id)
+			->where('from_id', auth()->user()->id)
+            ->where('to_id', '!=', 1)
 			->sum('amount');
 
             $globalregains = DB::table('global_regain')
-            ->where('to_id', auth()->id())
+            ->where('from_id', auth()->id())
+            ->where('to_id', '!=', 1)
             ->where('widtdrawal_status', '0')
             ->where('pay_reason_id', '2')
-            ->get();
+            ->count();
 			
 			
 		  return view('admin.payment.wallet', compact( 'globalregain','globalregains'));

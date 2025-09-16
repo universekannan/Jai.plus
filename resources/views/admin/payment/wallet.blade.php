@@ -42,7 +42,7 @@ $to = $to ?? date('Y-m-d');
                             </tr>
                         </thead>
                         <tbody>
-                            @if ($globalregains > 5)
+                            @if ($globalregains >= 5)
                             <tr>
                                 <td>1</td>
                                 <td>Global Regain</td>
