@@ -123,6 +123,7 @@
             // Save planId & userId into modal
             $("#paymentModal").data("planid", planId);
             $("#paymentModal").data("userid", userId);
+            $("#paymentModal").data("amount", amount);
     
             // Show modal with QR code + amount
             $("#payAmount").text(amount.toFixed(2) + " INR");
