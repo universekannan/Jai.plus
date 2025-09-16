@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/whpower.png">
     <!-- Place favicon.png in the root directory -->
 
     <!-- ========================= CSS here ========================= -->
@@ -51,7 +51,7 @@
                 <div class="col-lg-12">
                     <nav class="navbar navbar-expand-lg">
                         <a class="navbar-brand" href="#home">
-                            <img src="assets/img/logo.svg" alt="Logo">
+                            <img src="assets/img/logo.png" alt="Logo">
                         </a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse"
                             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -537,7 +537,7 @@
             <div class="row">
                 <div class="col-xl-4 col-lg-4 col-md-6">
                     <div class="footer-widget mb-60 wow fadeInLeft" data-wow-delay=".2s">
-                        <a href="index-2.html" class="logo mb-40"><img src="assets/img/logo.svg" alt=""></a>
+                        <a href="index-2.html" class="logo mb-40"><img src="assets/img/fotter_logo.png" alt=""></a>
                         <p class="mb-30">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed dianonumy eirmod
                             tempor invidunt ut labore.</p>
                         <div class="footer-social-links">
