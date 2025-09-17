@@ -25,9 +25,12 @@ class DashboardController extends Controller
         if (Auth::user()->user_type_id == 1) {
             $ActiveMembers = DB::table('users')->where('plan_id','>', 0)->count();
             $InactiveMembers = DB::table('users')->where('plan_id', 0)->count();
+            $TotalMembers = $ActiveMembers + $InactiveMembers;
+
         } else {
             $ActiveMembers = DB::table('users')->where('plan_id','>', 0)->where('referral_id', $referral_id)->count();
             $InactiveMembers = DB::table('users')->where('plan_id', 0)->where('referral_id', $referral_id)->count();
+            $TotalMembers = $ActiveMembers + $InactiveMembers;
         }
 
         // if (Auth::user()->user_type_id == 1) {
@@ -103,7 +106,7 @@ class DashboardController extends Controller
         // ->where('to_id', auth()->user()->id)
         // ->whereDate('created_at','>=', $weekStart)->whereDate('created_at','<=', $weekEnd)
         // ->sum('amount');
-            
+        $TotalAmount = $sponserIncome + $uplineIncome;
 		if (Auth::user()->user_type_id == 1) {
 			$Withdrawal = DB::table('withdrawal')
 				->where('status', 1)
@@ -157,7 +160,7 @@ class DashboardController extends Controller
         ->sum('amount');
 
 
-        return view('admin.dashboard', compact('ActiveMembers', 'InactiveMembers', 'nextPlanName', 'remainingPlansCount', 'uplineIncome', 'sponserIncome', 'rebirthIncome','Withdrawal','UPUpgrade','UPAdmin','UPTotal','plans','userPlans','nextPlanId', 'totalAdminAmount'));
+        return view('admin.dashboard', compact('ActiveMembers','TotalMembers','TotalAmount', 'InactiveMembers', 'nextPlanName', 'remainingPlansCount', 'uplineIncome', 'sponserIncome', 'rebirthIncome','Withdrawal','UPUpgrade','UPAdmin','UPTotal','plans','userPlans','nextPlanId', 'totalAdminAmount'));
     }
 	
 
