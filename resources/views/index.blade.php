@@ -72,6 +72,8 @@
                                 <li class="nav-item">
                                     <a class="page-scroll" href="#service">Service</a>
                                 </li>
+                                <li class="nav-item"><a href="assets/img/jaiplus 2.pdf" target="_blank"
+                                        rel="noopener noreferrer">Brochure</a></li>
                                 <li class="nav-item">
                                     <a class="page-scroll" href="#roadmap">Roadmap</a>
                                 </li>
@@ -146,7 +148,7 @@
                     <div class="col-xl-4 col-lg-4 col-md-6">
                         <div class="single-feature text-center mb-30 wow fadeInUp" data-wow-delay=".2s">
                             <div class="feature-img mb-20">
-                                <img src= "{{ asset('assets/img/feature-1.svg') }}" alt="">  
+                                <img src="{{ asset('assets/img/feature-1.svg') }}" alt="">
                             </div>
                             <div class="feature-content">
                                 <h5>Buy Your Crypto</h5>
@@ -227,7 +229,7 @@
 
 
 
-    
+
 
     <!-- <section id="service" class="service-section pt-150 pb-120">
         <div class="container">
@@ -338,8 +340,11 @@
                     <span class="circle"></span>
                     <span>May 2023</span>
                     <p>Coin Marketcap, World Coin Index</p>
+
                 </div>
+
             </div>
+
         </div>
     </section>
     <!-- ========================= roadmap-section end ========================= -->
@@ -481,7 +486,7 @@
     <!-- ========================= team-section end ========================= -->
 
 
-   
+
 
     <!-- ========================= countdown-section start ========================= -->
     <section class="countdown-section pt-70 pb-70 img-bg" style="background-image: url(assets/img/common-bg.jpg)">
@@ -561,7 +566,7 @@
                     <div class="contact-map mb-30">
                         <div class="map-canvas">
                             <iframe class="map" id="gmap_canvas"
-                                src="https://maps.google.com/maps?q=Mission%20District%2C%20San%20Francisco%2C%20CA%2C%20USA&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=&amp;output=embed"
+                                src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d125774.31671515282!2d78.3940244727932!3d9.89664501875512!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sKamarajar%20Road%2C%20%20Melur%20Road%2C%20Sivagangai!5e0!3m2!1sen!2sin!4v1758108143161!5m2!1sen!2sin"
                                 frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
                         </div>
                     </div>
@@ -596,7 +601,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6 text-center">
-                    <img src="{{ asset('assets/img/teram.jpg') }}" alt="Service Image" class="img-fluid wow fadeInUp"  
+                    <img src="{{ asset('assets/img/teram.jpg') }}" alt="Service Image" class="img-fluid wow fadeInUp"
                         data-wow-delay=".4s">
                 </div>
             </div>
@@ -610,37 +615,60 @@
             <div class="row">
                 <div class="col-xl-4 col-lg-4 col-md-6">
                     <div class="footer-widget mb-60 wow fadeInLeft" data-wow-delay=".2s">
-                        <a href="index-2.html" class="logo mb-40"><img src="assets/img/fotter_logo.png" alt=""></a>
-                        <p class="mb-30">To Establish Sustainable livelihood security system and food
-                            sovereignty in all members.</p>
+
+                        <!-- Logo -->
+                        <a href="{{ url('home') }}" class="logo mb-40 d-block">
+                            <img src="assets/img/fotter_logo.png" alt="Footer Logo" class="img-fluid">
+                        </a>
+
+                        <!-- Description -->
+                        <p class="mb-30 text-white">
+                            To establish a sustainable livelihood security system and food sovereignty in all members.
+                        </p> <!-- Phone Number -->
+                        
+                        <p class="mb-30">
+                            <a href="tel:+916381654512" class="text-white text-decoration-none">
+                                <i class="bi bi-telephone-inbound-fill me-2"></i> +91 6381654512
+                            </a>
+                        </p>
+                        <p class="mb-30">
+                            <a href="mailto:whetrust2022@gmail.com" class="text-white text-decoration-none">
+                                <i class="bi bi-envelope-fill me-2"></i> whetrust2022@gmail.com
+
+                            </a>
+                        </p>
+                        <!-- Social Media Links -->
                         <div class="footer-social-links">
-                            <ul>
+                            <ul class="list-unstyled d-flex gap-3">
                                 <li><a href="#"><i class="lni lni-facebook-filled"></i></a></li>
                                 <li><a href="#"><i class="lni lni-twitter-filled"></i></a></li>
                                 <li><a href="#"><i class="lni lni-linkedin-original"></i></a></li>
                                 <li><a href="#"><i class="lni lni-instagram-original"></i></a></li>
                             </ul>
                         </div>
+
                     </div>
                 </div>
+
+
                 <div class="col-xl-2 col-lg-2 col-md-6">
                     <div class="footer-widget mb-60 wow fadeInUp" data-wow-delay=".4s">
                         <h4>Company</h4>
                         <ul class="footer-links">
                             <li>
-                                <a href="javascript:void(0)">Home</a>
+                                <a href="#home">Home</a>
                             </li>
                             <li>
                                 <a href="#about">About</a>
                             </li>
                             <li>
-                                <a href="javascript:void(0)">Service</a>
+                                <a href="#service">Service</a>
                             </li>
                             <li>
-                                <a href="javascript:void(0)">Team</a>
+                                <a href="#team">Team</a>
                             </li>
                             <li>
-                                <a href="javascript:void(0)">Contact</a>
+                                <a href="#contact">Contact</a>
                             </li>
                         </ul>
                     </div>
@@ -662,24 +690,28 @@
                                 <a href="javascript:void(0)">Support Forum</a>
                             </li>
                             <li>
-                                <a href="javascript:void(0)">Terms Conditions</a>
+                                <a href="#service">Terms Conditions</a>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-3 col-md-6">
                     <div class="footer-widget mb-60 wow fadeInRight" data-wow-delay=".8s">
-                        <h4>Resource</h4>
+                        <h4>Address </h4>
                         <ul>
                             <li class="mb-30">
-                                <p>Company No: C5B345 <br>
-                                    CSINE GROUP LTD.</p>
+                                <p>WOMEN HOLISTIC
+                                    EMPOWERMENT
+                                    TRUST<br>(WHE TRUST)</p>
                             </li>
                             <li>
-                                <p>Address: M-321 Volunt Ave, <br> Staten Islandm, NY 201526</p>
+                                <p>Address: No 5/673, Kamarajar Road, <br> Melur Road, Sivagangai-630561 Sivagangai
+                                    District, Tamilnadu, India.</p>
                             </li>
                         </ul>
                     </div>
+
+
                 </div>
             </div>
             <div class="copyright-area">
@@ -745,3 +777,7 @@
 <!-- Mirrored from preview.uideck.com/items/crypto/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 10 Sep 2025 08:44:09 GMT -->
 
 </html>
+
+
+
+
