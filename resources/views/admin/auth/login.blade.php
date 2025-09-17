@@ -34,7 +34,7 @@
                     <div class="input-group mb-3">
                         <input type="text" name="user_name" placeholder="User Name" class="form-control">
                         <div class="input-group-append">
-                            <div class="input-group-text"><span class="fas fa-envelope"></span></div>
+                            <div class="input-group-text"><span class="fas fa-user"></span></div>
                         </div>
                     </div>
 
