@@ -39,24 +39,23 @@
             </div>
 
             <div class="col-md-3 col-sm-6">
+                <div class="info-box bg-light">
+                    <span class="info-box-icon bg-dark"><i class="fas fa-users"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Total Members</span>
+                        <span class="info-box-number">{{ $TotalMembers }} </span>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-3 col-sm-6">
                 <a href="{{ url('admin/user_activate_plan') }}">
                     <div class="info-box bg-light">
                         <span class="info-box-icon bg-success"><i class="fas fa-trophy"></i></span>
                         <div class="info-box-content">
                             <span class="info-box-text">Next Active Plan</span>
                             <span class="info-box-number">{{ $nextPlanName }}</span>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-md-3 col-sm-6">
-                <a href="{{ url('admin/wallet') }}">
-                    <div class="info-box bg-light">
-                        <span class="info-box-icon bg-warning"><i class="fas fa-wallet"></i></span>
-                        <div class="info-box-content">
-                            <span class="info-box-text">Wallet</span>
-                            <span class="info-box-number">{{ Auth::user()->wallet }} </span>
                         </div>
                     </div>
                 </a>
@@ -96,6 +95,19 @@
                         <div class="info-box-content">
                             <span class="info-box-text">Upline Income</span>
                             <span class="info-box-number">{{ $uplineIncome }} </span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+                <a href="{{ url('admin/wallet') }}">
+                    <div class="info-box bg-light">
+                        <span class="info-box-icon bg-warning"><i class="fas fa-wallet"></i></span>
+                        <div class="info-box-content">
+                            <span class="info-box-text">Wallet</span>
+                            <span class="info-box-number">{{ Auth::user()->wallet }} </span>
+                            <p class="mb-0 font-13 text">{{ $TotalAmount }} from Total Earning</p>
                         </div>
                     </div>
                 </a>
