@@ -104,13 +104,11 @@
                     <div class="hero-content-wrapper">
                         <h1 class="text-white wow fadeInDown" data-wow-delay=".2s">Joint Action for Indian People
                             Livelihood Utilize Service</h1>
-                        <p class="text-white wow fadeInLeft" data-wow-delay=".4s">Reg.13/2014
-                        </p>
+
                         <p class="text-white wow fadeInLeft" data-wow-delay=".4s">Women Holistic Empowerment Trust, We
                             are working in India Only
                             JAIPLUS is one of the Trust Programme</p>
-                        <p class="text-white wow fadeInLeft" data-wow-delay=".4s">Reg.off : Sivagangai Branch : Madurai
-                        </p>
+
                         <a href="{{ url('register') }}" class="theme-btn wow fadeInUp" data-wow-delay=".6s">Register
                             Now</a>
                         <a href="{{ url('login') }}" class="theme-btn wow fadeInUp" data-wow-delay=".6s">
@@ -148,7 +146,7 @@
                     <div class="col-xl-4 col-lg-4 col-md-6">
                         <div class="single-feature text-center mb-30 wow fadeInUp" data-wow-delay=".2s">
                             <div class="feature-img mb-20">
-                                <img src="assets/img/feature-1.svg" alt="">
+                                <img src= "{{ asset('assets/img/feature-1.svg') }}" alt="">  
                             </div>
                             <div class="feature-content">
                                 <h5>Buy Your Crypto</h5>
@@ -229,34 +227,7 @@
 
 
 
-    <section id="service" class="service-section pt-150 pb-120">
-        <div class="container">
-            <div class="row align-items-center mb-55">
-                <div class="col-lg-6">
-                    <div class="section-title">
-                        <h2 class="mb-20 wow fadeInDown" data-wow-delay=".2s">Our Awesome Features</h2>
-                        <p class="wow fadeInUp" data-wow-delay=".4s">
-                            We offer cutting-edge solutions to meet your business needs.
-                            Our platform ensures secure transactions, fast notifications, and advanced trading services.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-6 text-center">
-                    <img src="your-image-path.jpg" alt="Service Image" class="img-fluid wow fadeInUp"
-                        data-wow-delay=".4s">
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-
-
-
-
-
-
-
+    
 
     <!-- <section id="service" class="service-section pt-150 pb-120">
         <div class="container">
@@ -509,6 +480,9 @@
     </section>
     <!-- ========================= team-section end ========================= -->
 
+
+   
+
     <!-- ========================= countdown-section start ========================= -->
     <section class="countdown-section pt-70 pb-70 img-bg" style="background-image: url(assets/img/common-bg.jpg)">
         <div class="container">
@@ -595,6 +569,39 @@
             </div>
         </div>
     </section>
+
+
+    <section id="service" class="service-section pt-150 pb-120">
+        <div class="container">
+            <div class="row align-items-center mb-55">
+                <div class="col-lg-6">
+                    <div class="section-title">
+                        <h2 class="mb-20 wow fadeInDown" data-wow-delay=".2s">Terms & Conditions </h2>
+                        <p class="wow fadeInUp" data-wow-delay=".4s">
+                            Eligible member Indians only. Above 18+ years old.
+                            Each Package Amount are advanced for Tour(or) Livelihood
+                            Support.
+                            Upgrade Amount used upgrade only.
+                            Regain Income at 100% Non-working plan.
+                            All regain income only used for Tour(or) Livelihood support.
+                            One Bank Account to one member Id.
+                            Minimum withdrawal Rs.300, daily cut off 11:55 PM
+                            All Withdrawal deduction for upgrade Amount 10% and
+                            service activities 10% and Tour Amount 10%.
+                            Monday to Friday Daily Payment 6AM to 10AM
+                            If You take Full packages, You will get 80% withdrawal
+                            Income.
+                            Eligible members will go to tour and Exposal visit every month.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <img src="{{ asset('assets/img/teram.jpg') }}" alt="Service Image" class="img-fluid wow fadeInUp"  
+                        data-wow-delay=".4s">
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- ========================= contact-section end ========================= -->
 
     <!-- ========================= footer start ========================= -->
@@ -624,7 +631,7 @@
                                 <a href="javascript:void(0)">Home</a>
                             </li>
                             <li>
-                                <a href="javascript:void(0)">About</a>
+                                <a href="#about">About</a>
                             </li>
                             <li>
                                 <a href="javascript:void(0)">Service</a>
