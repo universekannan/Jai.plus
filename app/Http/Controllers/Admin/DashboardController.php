@@ -86,7 +86,6 @@ class DashboardController extends Controller
         // $LastWeekwalletIncome = DB::table('users')->where('id', auth()->user()->id)->whereBetween(DB::raw('DATE(updated_at)'), [$weekStart, $weekEnd])
         // ->sum('wallet');
 
-        $sponserIncome = DB::table('sponser_income')->where('to_id', auth()->user()->id)->where('pay_reason_id', '1')->sum('amount');
         // $LastWeeksponserIncome = DB::table('sponser_income')
         // ->where('pay_reason_id', '1')
         // ->where('to_id', auth()->user()->id)
@@ -98,15 +97,21 @@ class DashboardController extends Controller
         // ->where('from_id', auth()->user()->id)
         // ->count();
 
-        
-
+        $totalAdminAmount = DB::table('admin_income')
+        ->where('to_id', 1)
+        ->sum('amount');
+        $sponserIncome = DB::table('sponser_income')->where('to_id', auth()->user()->id)->where('pay_reason_id', '1')->sum('amount');
         $uplineIncome = DB::table('upline_income')->where('to_id', auth()->user()->id)->where('pay_reason_id', '3')->sum('amount');
         // $LastWeekInuplineIncome = DB::table('upline_income')
         // ->where('pay_reason_id', '3')
         // ->where('to_id', auth()->user()->id)
         // ->whereDate('created_at','>=', $weekStart)->whereDate('created_at','<=', $weekEnd)
         // ->sum('amount');
-        $TotalAmount = $sponserIncome + $uplineIncome;
+        if (Auth::user()->user_type_id == 1) {
+        $TotalAmount = $sponserIncome + $uplineIncome+ $totalAdminAmount;
+        }else{
+            $TotalAmount = $sponserIncome + $uplineIncome;  
+        }
 		if (Auth::user()->user_type_id == 1) {
 			$Withdrawal = DB::table('withdrawal')
 				->where('status', 1)
@@ -155,9 +160,7 @@ class DashboardController extends Controller
         }
 
 
-        $totalAdminAmount = DB::table('admin_income')
-        ->where('to_id', 1)
-        ->sum('amount');
+       
 
 
         return view('admin.dashboard', compact('ActiveMembers','TotalMembers','TotalAmount', 'InactiveMembers', 'nextPlanName', 'remainingPlansCount', 'uplineIncome', 'sponserIncome', 'rebirthIncome','Withdrawal','UPUpgrade','UPAdmin','UPTotal','plans','userPlans','nextPlanId', 'totalAdminAmount'));
