@@ -102,9 +102,15 @@
             <div class="row align-items-center">
                 <div class="col-xl-7 col-lg-7">
                     <div class="hero-content-wrapper">
-                        <h1 class="text-white wow fadeInDown" data-wow-delay=".2s">Joint Action for Indian People Livelihood Utilize Service</h1>
-                        <p class="text-white wow fadeInLeft" data-wow-delay=".4s">Women Holistic Empowerment Trust, We are working in India Only
+                        <h1 class="text-white wow fadeInDown" data-wow-delay=".2s">Joint Action for Indian People
+                            Livelihood Utilize Service</h1>
+                        <p class="text-white wow fadeInLeft" data-wow-delay=".4s">Reg.13/2014
+                        </p>
+                        <p class="text-white wow fadeInLeft" data-wow-delay=".4s">Women Holistic Empowerment Trust, We
+                            are working in India Only
                             JAIPLUS is one of the Trust Programme</p>
+                        <p class="text-white wow fadeInLeft" data-wow-delay=".4s">Reg.off : Sivagangai Branch : Madurai
+                        </p>
                         <a href="{{ url('register') }}" class="theme-btn wow fadeInUp" data-wow-delay=".6s">Register
                             Now</a>
                         <a href="{{ url('login') }}" class="theme-btn wow fadeInUp" data-wow-delay=".6s">
@@ -129,9 +135,11 @@
                 <div class="col-xl-7 col-lg-8 mx-auto">
                     <div class="section-title text-center mb-55">
                         <h2 class="mb-20 wow fadeInUp" data-wow-delay=".2s">WOMEN HOLISTIC EMPOWERMENT TRUST</h2>
-                        <p class="wow fadeInUp" data-wow-delay=".4s">To Establish Sustainable livelihood security system
-                            and food
-                            sovereignty in all members.</p>
+                        <p class="wow fadeInUp" data-wow-delay=".4s">We are working holistic empowering marginalized
+                            communities, focusing
+                            on women & children, Farmer and Youth through health care women
+                            Empowerment, Organic agriculture and food security to future generation for
+                            Sustainable livelihood. Since 2014, In Sivagangai district of Tamilnadu, India. </p>
                     </div>
                 </div>
             </div>
@@ -218,7 +226,39 @@
     <!-- ========================= about-section end ========================= -->
 
     <!-- ========================= service-section start ========================= -->
+
+
+
     <section id="service" class="service-section pt-150 pb-120">
+        <div class="container">
+            <div class="row align-items-center mb-55">
+                <div class="col-lg-6">
+                    <div class="section-title">
+                        <h2 class="mb-20 wow fadeInDown" data-wow-delay=".2s">Our Awesome Features</h2>
+                        <p class="wow fadeInUp" data-wow-delay=".4s">
+                            We offer cutting-edge solutions to meet your business needs.
+                            Our platform ensures secure transactions, fast notifications, and advanced trading services.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <img src="your-image-path.jpg" alt="Service Image" class="img-fluid wow fadeInUp"
+                        data-wow-delay=".4s">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+    <!-- <section id="service" class="service-section pt-150 pb-120">
         <div class="container">
             <div class="row">
                 <div class="col-xl-7 col-lg-8 col-md-10 mx-auto">
@@ -286,7 +326,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <!-- ========================= service-section end ========================= -->
 
     <!-- ========================= roadmap-section start ========================= -->
@@ -344,16 +384,34 @@
                 </div>
                 <div class="col-xl-6 col-lg-6">
                     <div class="grows-content-wrapper mb-30">
-                        <h2 class="mb-35 wow fadeInDown" data-wow-delay=".2s">Great Effeciency Like Never Before</h2>
-                        <p class="mb-35 wow fadeInLeft" data-wow-delay=".4s">Lorem ipsum dolor sit amet, consetetur
-                            sadipscing elitr, sed dianonumy eirmod tempor invidunt ut labore. Lorem ipsum dolor sit
-                            amet, consetetur sadipscing elitr, sed dianonumy eirmod tempor invidunt ut labore.</p>
+                        <h2 class="mb-35 wow fadeInDown" data-wow-delay=".2s">OUR MISSION</h2>
+                        <p class="mb-35 wow fadeInLeft" data-wow-delay=".4s">To bring about a significant positive
+                            changes in socio-economic status of
+                            individual and rural society. To Establish sustainable livelihood security system
+                            to all members. </p>
 
-                        <p class="mb-35 wow fadeInLeft" data-wow-delay=".6s">Lorem ipsum dolor sit amet, consetetur
-                            sadipscing elitr, sed dianonumy eirmod tempor invidunt ut labore. Lorem ipsum dolor sit
-                            amet, consetetur sadipscing elitr, sed dianonumy eirmod tempor invidunt ut labore.</p>
+                        <p class="mb-35 wow fadeInLeft" data-wow-delay=".6s">Women & Youth to be given professional
+                            Training .
+                            To provide income & Employment opportunities to individual members.
+                            Health Aware through naturopathy & Food medicine.
+                            We have plan to open a Micro green products centre for self-generation of
+                            income.
+                            Opening counselling centre for youth and needy people.
+                            To conduct to regular training, camp, Seminar to target people, Schools
+                            and colleges.
+                            Safe Environment
+                            Organic Agriculture
+                            Bio diversity conversation
+                            Health & wealth Life
+                            Food Security
+                            Next Technology
+                            Necessary Help for old age people, care and support centre.
+                            Emergency Relief to needy people.
+                            Tourist will experience for Exposal visit and Health, Happiness Wealth,
+                            Social and Spiritual.
+                            Sports Support for youth, Women and children. </p>
 
-                        <a href="#" class="theme-btn theme-btn-2 wow fadeInUp" data-wow-delay=".6s">Download History</a>
+                        <!-- <a href="#" class="theme-btn theme-btn-2 wow fadeInUp" data-wow-delay=".6s">Download History</a> -->
                     </div>
                 </div>
             </div>
