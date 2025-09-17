@@ -102,10 +102,9 @@
             <div class="row align-items-center">
                 <div class="col-xl-7 col-lg-7">
                     <div class="hero-content-wrapper">
-                        <h1 class="text-white wow fadeInDown" data-wow-delay=".2s">Trade and Invest on Crypto Using Our
-                            Platform</h1>
-                        <p class="text-white wow fadeInLeft" data-wow-delay=".4s">Lorem ipsum dolor sit amet, consetetur
-                            sadipscing elitr, sed dianonumy eirmod tempor invidunt ut labore .</p>
+                        <h1 class="text-white wow fadeInDown" data-wow-delay=".2s">Joint Action for Indian People Livelihood Utilize Service</h1>
+                        <p class="text-white wow fadeInLeft" data-wow-delay=".4s">Women Holistic Empowerment Trust, We are working in India Only
+                            JAIPLUS is one of the Trust Programme</p>
                         <a href="{{ url('register') }}" class="theme-btn wow fadeInUp" data-wow-delay=".6s">Register
                             Now</a>
                         <a href="{{ url('login') }}" class="theme-btn wow fadeInUp" data-wow-delay=".6s">
@@ -129,9 +128,10 @@
             <div class="row">
                 <div class="col-xl-7 col-lg-8 mx-auto">
                     <div class="section-title text-center mb-55">
-                        <h2 class="mb-20 wow fadeInUp" data-wow-delay=".2s">Our Specialities</h2>
-                        <p class="wow fadeInUp" data-wow-delay=".4s">Lorem ipsum dolor sit amet, consetetur sadipscing
-                            elitr, sed dianonumy eirmod tempor invidunt ut labore .</p>
+                        <h2 class="mb-20 wow fadeInUp" data-wow-delay=".2s">WOMEN HOLISTIC EMPOWERMENT TRUST</h2>
+                        <p class="wow fadeInUp" data-wow-delay=".4s">To Establish Sustainable livelihood security system
+                            and food
+                            sovereignty in all members.</p>
                     </div>
                 </div>
             </div>
@@ -193,14 +193,22 @@
                         <div class="section-title mb-40">
                             <h2 class="wow fadeInUp" data-wow-delay=".2s">About Us</h2>
                         </div>
-                        <p class="mb-15 wow fadeInUp" data-wow-delay=".4s">Lorem ipsum dolor sit amet, consetetur
-                            sadipscing elitr, sed dianonumy eirmod tempor invidunt ut labore. Lorem ipsum dolor sit
-                            amet, consetetur sadipscing elitr, sed dianonumy eirmod tempor invidunt ut labore. Lorem
-                            ipsum dolor sit amet, consetetur sadipscing elitr, sed dianonumy eirmod tempor invidunt ut
-                            labore.</p>
-                        <p class="mb-35 wow fadeInUp" data-wow-delay=".6s">Lorem ipsum dolor sit amet, consetetur
-                            sadipscing elitr, sed dianonumy eirmod tempor invidunt ut labore. Lorem ipsum dolor sit
-                            amet, consetetur sadipscing elitr, sed dianonumy eirmod tempor invidunt ut labore.</p>
+                        <p class="mb-15 wow fadeInUp" data-wow-delay=".4s">Women & Youth to be given professional
+                            Training .
+                            To provide income & Employment opportunities to
+                            individual members.
+                            Health Aware through naturopathy & Food medicine.
+                            To Aware food security for future generation.
+                            To Aware Bio diversity Conservation.
+                        </p>
+                        <p class="mb-35 wow fadeInUp" data-wow-delay=".6s"> To conduct seminar, Camp and Next
+                            Technologies
+                            Education.
+                            Necessary Help for old age people.
+                            Emergency Relief to needy people.
+                            Tourist will experience for Exposal visit and Health,
+                            Happinees Wealth, Social and Spiritual.
+                            Sports Support for youth, Women And children.</p>
                         <a href="#" class="theme-btn theme-btn-2 wow fadeInRight" data-wow-delay=".8s">Learn More</a>
                     </div>
                 </div>
@@ -538,8 +546,8 @@
                 <div class="col-xl-4 col-lg-4 col-md-6">
                     <div class="footer-widget mb-60 wow fadeInLeft" data-wow-delay=".2s">
                         <a href="index-2.html" class="logo mb-40"><img src="assets/img/fotter_logo.png" alt=""></a>
-                        <p class="mb-30">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed dianonumy eirmod
-                            tempor invidunt ut labore.</p>
+                        <p class="mb-30">To Establish Sustainable livelihood security system and food
+                            sovereignty in all members.</p>
                         <div class="footer-social-links">
                             <ul>
                                 <li><a href="#"><i class="lni lni-facebook-filled"></i></a></li>
@@ -610,8 +618,9 @@
                 </div>
             </div>
             <div class="copyright-area">
-                <p class="mb-0 text-white text-center">Designed and Developed By <a href="https://uideck.com/"
-                        rel="nofollow" target="_blank">UIdeck</a></p>
+                <p class="mb-0 text-white text-center">Designed and Developed By <a
+                        href="https://galaxytechnologypark.com/" rel="nofollow" target="_blank">Galaxy Technology Park
+                        Inc</a></p>
             </div>
         </div>
     </footer>
