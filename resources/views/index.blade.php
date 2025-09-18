@@ -590,11 +590,26 @@
                             </a>
                         </p>
 
+                        <p class="mb-3">
+                            <a href="tel:+919842285404"
+                                class="text-dark text-decoration-none d-flex align-items-center">
+                                <i class="bi bi-telephone-fill me-2 fs-5 text-primary"></i> +91 9842285404
+                            </a>
+                        </p>
+
                         <!-- Email -->
                         <p class="mb-3">
                             <a href="mailto:whetrust2022@gmail.com"
                                 class="text-dark text-decoration-none d-flex align-items-center">
                                 <i class="bi bi-envelope-fill me-2 fs-5 text-primary"></i> whetrust2022@gmail.com
+                            </a>
+                        </p>
+
+                        <p class="mb-3">
+                            <a href="mailto:karunyaaru12009@gmail.com"
+                                class="text-dark text-decoration-none d-flex align-items-center">
+                                <i class="bi bi-envelope-fill me-2 fs-5 text-primary"></i> karunyaaru12009@gmail.com
+
                             </a>
                         </p>
                     </div>
