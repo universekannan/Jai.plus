@@ -28,8 +28,8 @@
                                 <th>#</th>
                                 <th>From</th>
                                 <th>From Name</th>
-                                <th>Income ($)</th>
-                                <th>Package Amount ($)</th>
+                                <th>Income</th>
+                                <th>Package Amount</th>
                                 <th>Date</th>
                             </tr>
                         </thead>
@@ -40,8 +40,8 @@
                                 <td>{{ $key + 1 }}</td>
                                 <td>{{ $admin->from_username }}</td>
                                 <td>{{ $admin->name }}</td>
-                                <td>{{ $admin->amount }} $</td>
-                                <td>{{ $plan->plan_amount }} $</td>
+                                <td>{{ $admin->amount }}</td>
+                                <td>{{ $plan->plan_amount }}</td>
                                 <td>{{ $admin->created_at }}</td>
                             </tr>
                             @endforeach

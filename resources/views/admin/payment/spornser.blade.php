@@ -41,7 +41,7 @@
                                 <th>#</th>
                                 <th>From ID</th>
                                 <th>From Name</th>
-                                <th>Sponsor Amount 50% </th>
+                                <th>Sponsor Amount (50%)</th>
                                 <th>Package Amount </th>
                                 <th>Reason</th>
                                 <th>Date</th>
