@@ -24,7 +24,7 @@ body.dark-mode .main-header .navbar-nav .nav-item>a {
         @php
         $registerLink = url('/register/' . auth()->user()->user_name);
 
-        $shareMessage = "Hey! Friends!! Join JAI using my referral details:\n"
+        $shareMessage = "Hey! Friends!! Join JAI Plus using my referral details:\n"
         . "User Name: " . auth()->user()->name . "\n"
         . "Phone: " . auth()->user()->phone . "\n"
         . "Referral User Id: " . auth()->user()->user_name . "\n"
