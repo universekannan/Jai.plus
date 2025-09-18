@@ -14,6 +14,8 @@
     <!-- Place favicon.png in the root directory -->
 
     <!-- ========================= CSS here ========================= -->
+    <!-- Bootstrap Icons CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="assets/css/bootstrap-5.0.0-alpha-1.min.css">
     <link rel="stylesheet" href="assets/css/LineIcons.2.0.css">
     <link rel="stylesheet" href="assets/css/animate.css">
@@ -69,14 +71,14 @@
                                 <li class="nav-item">
                                     <a class="page-scroll" href="#about">About</a>
                                 </li>
-                                <li class="nav-item">
+                                <!-- <li class="nav-item">
                                     <a class="page-scroll" href="#service">Service</a>
-                                </li>
+                                </li> -->
                                 <li class="nav-item"><a href="assets/img/jaiplus 2.pdf" target="_blank"
                                         rel="noopener noreferrer">Brochure</a></li>
-                                <li class="nav-item">
+                                <!-- <li class="nav-item">
                                     <a class="page-scroll" href="#roadmap">Roadmap</a>
-                                </li>
+                                </li> -->
                                 <li class="nav-item">
                                     <a class="page-scroll" href="#team">Team</a>
                                 </li>
@@ -151,9 +153,9 @@
                                 <img src="{{ asset('assets/img/feature-1.svg') }}" alt="">
                             </div>
                             <div class="feature-content">
-                                <h5>Buy Your Crypto</h5>
-                                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed dianonumy eirmod tempor
-                                    invidunt ut labore .</p>
+                                <h5>Purchase Your Packages</h5>
+                                <p>Each Package Amount are advanced for Tour(or) Livelihood
+                                    Support.</p>
                             </div>
                         </div>
                     </div>
@@ -163,9 +165,9 @@
                                 <img src="assets/img/feature-2.svg" alt="">
                             </div>
                             <div class="feature-content">
-                                <h5>Sell Instantly</h5>
-                                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed dianonumy eirmod tempor
-                                    invidunt ut labore .</p>
+                                <h5>Withdraw Your Income Instantly</h5>
+                                <p>If You take Full packages, You will get 80% withdrawal
+                                    Income</p>
                             </div>
                         </div>
                     </div>
@@ -176,8 +178,7 @@
                             </div>
                             <div class="feature-content">
                                 <h5>Invest for Longterm</h5>
-                                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed dianonumy eirmod tempor
-                                    invidunt ut labore .</p>
+                                <p>Eligible members will go to tour and Exposal visit every month</p>
                             </div>
                         </div>
                     </div>
@@ -303,7 +304,7 @@
     <!-- ========================= service-section end ========================= -->
 
     <!-- ========================= roadmap-section start ========================= -->
-    <section id="roadmap" class="roadmap-section pt-100 pb-70 img-bg"
+    <!-- <section id="roadmap" class="roadmap-section pt-100 pb-70 img-bg"
         style="background-image: url(assets/img/common-bg.jpg)">
         <div class="container">
             <div class="row">
@@ -346,7 +347,7 @@
             </div>
 
         </div>
-    </section>
+    </section> -->
     <!-- ========================= roadmap-section end ========================= -->
 
     <!-- ========================= grows-section start ========================= -->
@@ -489,7 +490,7 @@
 
 
     <!-- ========================= countdown-section start ========================= -->
-    <section class="countdown-section pt-70 pb-70 img-bg" style="background-image: url(assets/img/common-bg.jpg)">
+    <!-- <section class="countdown-section pt-70 pb-70 img-bg" style="background-image: url(assets/img/common-bg.jpg)">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-xl-6 col-lg-6">
@@ -527,56 +528,9 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <!-- ========================= countdown-section end ========================= -->
-
-    <!-- ========================= contact-section start ========================= -->
-    <section id="contact" class="contact-section pt-120 pb-105">
-        <div class="container">
-            <div class="row align-items-end">
-                <div class="col-xl-6 col-lg-7">
-                    <div class="contact-wrapper mb-30">
-                        <h2 class="mb-20 wow fadeInDown" data-wow-delay=".2s">Cotact With Us</h2>
-                        <p class="mb-55 wow fadeInUp" data-wow-delay=".4s">Lorem ipsum dolor sit amet, consetetur
-                            sadipscing elitr, sed dianonumy eirmod tempor invidunt.</p>
-                        <form action="https://preview.uideck.com/items/crypto/assets/mail.php" method="POST"
-                            id="contact-form" class="contact-form">
-                            <div class="row">
-                                <div class="col-lg-6 col-md-6">
-                                    <input type="text" id="name" name="name" placeholder="Name">
-                                </div>
-                                <div class="col-lg-6 col-md-6">
-                                    <input type="email" id="email" name="email" placeholder="Email">
-                                </div>
-                                <div class="col-lg-6 col-md-6">
-                                    <input type="text" id="phone" name="phone" placeholder="Phone">
-                                </div>
-                                <div class="col-lg-6 col-md-6">
-                                    <input type="text" id="subject" name="subject" placeholder="Subject">
-                                </div>
-                                <div class="col-lg-12">
-                                    <textarea name="message" id="message" rows="5" placeholder="Message"></textarea>
-                                </div>
-                            </div>
-                            <button type="submit" class="theme-btn theme-btn-2">SEND MESSAGE</button>
-                        </form>
-                    </div>
-                </div>
-                <div class="col-xl-6 col-lg-5">
-                    <div class="contact-map mb-30">
-                        <div class="map-canvas">
-                            <iframe class="map" id="gmap_canvas"
-                                src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d125774.31671515282!2d78.3940244727932!3d9.89664501875512!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sKamarajar%20Road%2C%20%20Melur%20Road%2C%20Sivagangai!5e0!3m2!1sen!2sin!4v1758108143161!5m2!1sen!2sin"
-                                frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <section id="service" class="service-section pt-150 pb-120">
+    <section id="terms_condition" class="service-section pt-150 pb-120">
         <div class="container">
             <div class="row align-items-center mb-55">
                 <div class="col-lg-6">
@@ -607,13 +561,95 @@
             </div>
         </div>
     </section>
+    <section id="contact" class="contact-section py-5 bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Contact Info -->
+                <div class="col-lg-6 mb-4">
+                    <div class="contact-wrapper">
+                        <h2 class="mb-4">Contact With Us</h2>
+                        <p class="mb-4 text-dark">
+                            To establish a sustainable livelihood security system and food sovereignty for all members.
+                        </p>
+
+                        <!-- Address -->
+                        <p class="mb-3 d-flex align-items-center text-dark">
+                            <i class="bi bi-geo-alt-fill me-2 fs-5 text-primary"></i> No 5/673, Kamarajar Road, Melur Road,
+                             Sivagangai-630561, 
+                             Sivagangai District, 
+                             Tamilnadu,
+                             India
+                        </p>
+
+                        <!-- Phone -->
+                        <p class="mb-3">
+                            <a href="tel:+916381654512"
+                                class="text-dark text-decoration-none d-flex align-items-center">
+                                <i class="bi bi-telephone-fill me-2 fs-5 text-primary"></i> +91 6381654512
+                            </a>
+                        </p>
+
+                        <!-- Email -->
+                        <p class="mb-3">
+                            <a href="mailto:whetrust2022@gmail.com"
+                                class="text-dark text-decoration-none d-flex align-items-center">
+                                <i class="bi bi-envelope-fill me-2 fs-5 text-primary"></i> whetrust2022@gmail.com
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Map -->
+                <div class="col-lg-6 mb-4">
+                    <div class="contact-map shadow rounded overflow-hidden">
+                        <iframe class="w-100" height="350"
+                            src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d125774.31671515282!2d78.3940244727932!3d9.89664501875512!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sKamarajar%20Road%2C%20%20Melur%20Road%2C%20Sivagangai!5e0!3m2!1sen!2sin!4v1758108143161!5m2!1sen!2sin"
+                            style="border:0;" allowfullscreen="" loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- <div class="col-xl-6 col-lg-7">
+                    <div class="contact-wrapper mb-30">
+                        <h2 class="mb-20 wow fadeInDown" data-wow-delay=".2s">Cotact With Us</h2>
+                        <p class="mb-55 wow fadeInUp" data-wow-delay=".4s">Lorem ipsum dolor sit amet, consetetur
+                            sadipscing elitr, sed dianonumy eirmod tempor invidunt.</p>
+                        <form action="https://preview.uideck.com/items/crypto/assets/mail.php" method="POST"
+                            id="contact-form" class="contact-form">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6">
+                                    <input type="text" id="name" name="name" placeholder="Name">
+                                </div>
+                                <div class="col-lg-6 col-md-6">
+                                    <input type="email" id="email" name="email" placeholder="Email">
+                                </div>
+                                <div class="col-lg-6 col-md-6">
+                                    <input type="text" id="phone" name="phone" placeholder="Phone">
+                                </div>
+                                <div class="col-lg-6 col-md-6">
+                                    <input type="text" id="subject" name="subject" placeholder="Subject">
+                                </div>
+                                <div class="col-lg-12">
+                                    <textarea name="message" id="message" rows="5" placeholder="Message"></textarea>
+                                </div>
+                            </div>
+                            <button type="submit" class="theme-btn theme-btn-2">SEND MESSAGE</button>
+                        </form> 
+                    </div>
+                </div> -->
+
     <!-- ========================= contact-section end ========================= -->
 
     <!-- ========================= footer start ========================= -->
     <footer class="footer pt-100 img-bg" style="background-image: url(assets/img/common-bg.jpg)">
         <div class="container">
             <div class="row">
-                <div class="col-xl-4 col-lg-4 col-md-6">
+                <div class="col-xl-5 col-lg-4 col-md-6">
                     <div class="footer-widget mb-60 wow fadeInLeft" data-wow-delay=".2s">
 
                         <!-- Logo -->
@@ -625,7 +661,7 @@
                         <p class="mb-30 text-white">
                             To establish a sustainable livelihood security system and food sovereignty in all members.
                         </p> <!-- Phone Number -->
-                        
+
                         <p class="mb-30">
                             <a href="tel:+916381654512" class="text-white text-decoration-none">
                                 <i class="bi bi-telephone-inbound-fill me-2"></i> +91 6381654512
@@ -651,9 +687,9 @@
                 </div>
 
 
-                <div class="col-xl-2 col-lg-2 col-md-6">
+                <div class="col-xl-3 col-lg-3 col-md-6">
                     <div class="footer-widget mb-60 wow fadeInUp" data-wow-delay=".4s">
-                        <h4>Company</h4>
+                        <h4>Quick Links</h4>
                         <ul class="footer-links">
                             <li>
                                 <a href="#home">Home</a>
@@ -662,18 +698,19 @@
                                 <a href="#about">About</a>
                             </li>
                             <li>
-                                <a href="#service">Service</a>
-                            </li>
-                            <li>
-                                <a href="#team">Team</a>
+                                <a href="assets/img/jaiplus 2.pdf" target="_blank"
+                                    rel="noopener noreferrer">Brochure</a>
                             </li>
                             <li>
                                 <a href="#contact">Contact</a>
                             </li>
+                            <li>
+                                <a href="#terms_condition">Terms & Conditions </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-xl-3 col-lg-3 col-md-6">
+                <!-- <div class="col-xl-3 col-lg-3 col-md-6">
                     <div class="footer-widget mb-60 wow fadeInUp" data-wow-delay=".6s">
                         <h4>Resource</h4>
                         <ul class="footer-links">
@@ -694,8 +731,8 @@
                             </li>
                         </ul>
                     </div>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-6">
+                </div> -->
+                <div class="col-xl-4 col-lg-4 col-md-6">
                     <div class="footer-widget mb-60 wow fadeInRight" data-wow-delay=".8s">
                         <h4>Address </h4>
                         <ul>
@@ -777,7 +814,3 @@
 <!-- Mirrored from preview.uideck.com/items/crypto/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 10 Sep 2025 08:44:09 GMT -->
 
 </html>
-
-
-
-
