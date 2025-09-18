@@ -12,7 +12,7 @@ $to = $to ?? date('Y-m-d');
         <h3>{{ auth()->user()->name }} - {{ auth()->user()->user_name }}</h3>
 
         <div class="d-flex justify-content-between align-items-center mb-3">
-            <h4 class="mb-0">Upline Sponsor</h4>
+            <h4 class="mb-0">Upline Income</h4>
         </div>
 
         <div class="card">
@@ -73,7 +73,7 @@ $to = $to ?? date('Y-m-d');
                                                                 <th>S No</th>
                                                                 <th>Full Name</th>
                                                                 <th>User Name</th>
-                                                                <th>Income ($)</th>
+                                                                <th>Income</th>
                                                                 <th>Date</th>
                                                             </tr>
                                                         </thead>
@@ -99,7 +99,7 @@ $to = $to ?? date('Y-m-d');
                                                                 <td>{{ $j++ }}</td>
                                                                 <td>{{ $userData->name ?? '-' }}</td>
                                                                 <td>{{ $userData->user_name ?? '-' }}</td>
-                                                                <td>{{ $data->amount }} $</td>
+                                                                <td>{{ $data->amount }}</td>
                                                                 <td>{{ \Carbon\Carbon::parse($data->created_at)->format('d-m-Y H:i') }}
                                                                 </td>
                                                             </tr>

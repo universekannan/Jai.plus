@@ -6,7 +6,7 @@
     <div class="container-fluid d-flex justify-content-between align-items-center">
         <h3>{{ auth()->user()->name }} - {{ auth()->user()->user_name }}</h3>
         <div class="d-flex justify-content-between align-items-center mb-3">
-            <h4 class="mb-0">Global Rebirth</h4>
+            <h4 class="mb-0">Regain Income</h4>
         </div>
     </div>
 </section>
@@ -20,7 +20,7 @@
                 <!-- Small box -->
                 <div class="small-box bg-primary">
                     <div class="inner">
-                        <h4>{{ $Userplan->plan_amount }} $</h4>
+                        <h4>{{ $Userplan->plan_amount }}</h4>
                         <p>{{ $Userplan->plan_name }}</p>
                     </div>
                     <div class="icon">
@@ -37,7 +37,7 @@
                     <div class="modal-content">
                         <div class="modal-header bg-primary">
                             <h4 class="modal-title">
-                                {{ $Userplan->plan_name }} - Global Regain Income
+                                {{ $Userplan->plan_name }} - Regain Income
                             </h4>
                             <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
@@ -50,8 +50,8 @@
                                         <th>S.No</th>
                                         <th>Full Name</th>
                                         <th>User Name</th>
-                                        <th>Income ($)</th>
-                                        <th>Package Amount ($)</th>
+                                        <th>Income </th>
+                                        <th>Package Amount </th>
                                         <th>Date</th>
                                     </tr>
                                 </thead>
@@ -78,8 +78,8 @@
                                         <td>{{ $key + 1 }}</td>
                                         <td>{{ $user->name }}</td>
                                         <td>{{ $user->user_name }}</td>
-                                        <td>{{ $data->amount }} $</td>
-                                        <td>{{ $plan->plan_amount }} $</td>
+                                        <td>{{ $data->amount }}</td>
+                                        <td>{{ $plan->plan_amount }}</td>
                                         <td>{{ date('d M Y h:i A', strtotime($data->created_at)) }}</td>
                                     </tr>
                                     @endforeach
