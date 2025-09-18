@@ -69,9 +69,7 @@
                                 <li class="nav-item">
                                     <a class="page-scroll" href="#about">About</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="page-scroll" href="#service">Service</a>
-                                </li>
+                               
                                 <li class="nav-item"><a href="assets/img/jaiplus 2.pdf" target="_blank"
                                         rel="noopener noreferrer">Brochure</a></li>
                                 <li class="nav-item">
