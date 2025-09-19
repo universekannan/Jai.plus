@@ -64,14 +64,24 @@ $to = $to ?? date('Y-m-d');
                                 <td>{{ date('d-m-Y') }}</td>
                                 <td>{{ Auth::user()->wallet }}</td>
                                 <td>
+                                    @if (Auth::user()->wallet >= 300)
                                     <button class="btn btn-success btn-sm" data-toggle="modal"
                                         data-target="#addwithdrawal">
                                         <i class="fa fa-wallet"></i> Withdraw
                                     </button>
+                                    @else
+                                    <button class="btn btn-success btn-sm" data-toggle="modal"
+                                        data-target="#addwithdrawal" disabled>
+                                        <i class="fa fa-wallet"></i> Withdraw
+                                    </button>
+                                    @endif
                                 </td>
                             </tr>
                         </tbody>
-
+                        <p><strong>Note:</strong> The "Withdraw" button is only enabled if the user's wallet balance is
+                            greater than or
+                            equal to 300.
+                            If the balance is less than 300, the button will appear disabled and cannot be clicked.</p>
                     </table>
                 </div>
             </div>

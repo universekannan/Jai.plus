@@ -394,6 +394,18 @@ class UsersController extends Controller
     return response()->json(['exists' => $exists]);
 }
 
+public function total_members()
+    {
+        $referral_id = Auth::user()->id;
+        if (Auth::user()->user_type_id != 1) {
+            $members = DB::table('users')->where('referral_id', $referral_id)->get();
+        }
+        else{
+            $members = DB::table('users')->get();
+        }
+        
+        return view('admin.users.totalmembers', compact('members'));
+    }
 
 
 }

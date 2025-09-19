@@ -24,8 +24,7 @@
                 @endphp
 
                 <div class="text-center mb-4">
-                    <h5 class="mt-3">JAI - Registration</h5>
-                    <p class="mb-0">Please create your Crypto Wallet account</p>
+                    <h5 class="mt-3">JAI Plus - Registration</h5>
                     @if($referrer)
                     <div class="col-12">
                         <p class="form-control-plaintext mb-0">
