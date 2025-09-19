@@ -123,9 +123,10 @@
                 </div>
                 <div class="col-xl-5 col-lg-5">
                     <div class="hero-img">
-                        <img src="assets/img/hero-img.svg" alt="" class="wow fadeInRight" data-wow-delay=".5s">
+                        <img src="assets/img/loggo.png" alt="" class="wow fadeInRight" data-wow-delay=".5s">
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -146,6 +147,52 @@
                     </div>
                 </div>
             </div>
+
+        </div>
+    </section>
+    <!--========================= feature-section end========================= -->
+
+    <!-- ========================= about-section start ========================= -->
+    <section id="about" class="about-section pt-150 pb-20">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-xl-6 col-lg-6">
+                    <div class="about-img mb-30">
+                        <img src="assets/img/header.png" alt="image" class=" wow fadeInLeft" data-wow-delay=".4s">
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-6">
+                    <div class="about-content mb-30">
+                        <div class="section-title mb-40">
+                            <h2 class="wow fadeInUp" data-wow-delay=".2s">About Us</h2>
+                        </div>
+                        <p class="mb-15 wow fadeInUp" data-wow-delay=".4s">Women & Youth to be given professional
+                            Training .
+                            To provide income & Employment opportunities to
+                            individual members.
+                            Health Aware through naturopathy & Food medicine.
+                            To Aware food security for future generation.
+                            To Aware Bio diversity Conservation.
+                        </p>
+                        <p class="mb-35 wow fadeInUp" data-wow-delay=".6s"> To conduct seminar, Camp and Next
+                            Technologies
+                            Education.
+                            Necessary Help for old age people.
+                            Emergency Relief to needy people.
+                            Tourist will experience for Exposal visit and Health,
+                            Happinees Wealth, Social and Spiritual.
+                            Sports Support for youth, Women And children.</p>
+                        <a href="#" class="theme-btn theme-btn-2 wow fadeInRight" data-wow-delay=".8s">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ========================= about-section end ========================= -->
+
+    <!-- ========================= service-section start ========================= -->
+    <section  class="feature-section pt-150">
+        <div class="container">
             <div class="features-wrapper">
                 <div class="row justify-content-center">
                     <div class="col-xl-4 col-lg-4 col-md-6">
@@ -185,51 +232,9 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </section>
-    <!--========================= feature-section end========================= -->
-
-    <!-- ========================= about-section start ========================= -->
-    <section id="about" class="about-section pt-150 pb-20">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-xl-6 col-lg-6">
-                    <div class="about-img mb-30">
-                        <img src="assets/img/about-img.svg" alt="image" class=" wow fadeInLeft" data-wow-delay=".4s">
-                    </div>
-                </div>
-                <div class="col-xl-6 col-lg-6">
-                    <div class="about-content mb-30">
-                        <div class="section-title mb-40">
-                            <h2 class="wow fadeInUp" data-wow-delay=".2s">About Us</h2>
-                        </div>
-                        <p class="mb-15 wow fadeInUp" data-wow-delay=".4s">Women & Youth to be given professional
-                            Training .
-                            To provide income & Employment opportunities to
-                            individual members.
-                            Health Aware through naturopathy & Food medicine.
-                            To Aware food security for future generation.
-                            To Aware Bio diversity Conservation.
-                        </p>
-                        <p class="mb-35 wow fadeInUp" data-wow-delay=".6s"> To conduct seminar, Camp and Next
-                            Technologies
-                            Education.
-                            Necessary Help for old age people.
-                            Emergency Relief to needy people.
-                            Tourist will experience for Exposal visit and Health,
-                            Happinees Wealth, Social and Spiritual.
-                            Sports Support for youth, Women And children.</p>
-                        <a href="#" class="theme-btn theme-btn-2 wow fadeInRight" data-wow-delay=".8s">Learn More</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- ========================= about-section end ========================= -->
-
-    <!-- ========================= service-section start ========================= -->
-
-
 
 
 
@@ -357,7 +362,7 @@
             <div class="row">
                 <div class="col-xl-6 col-lg-6">
                     <div class="grows-img mb-30">
-                        <img src="assets/img/grows-img.png" alt="" class=" wow fadeInLeft" data-wow-delay=".5s">
+                        <img src="assets/img/about.png" alt="" class=" wow fadeInLeft" data-wow-delay=".5s">
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-6">
@@ -556,7 +561,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6 text-center">
-                    <img src="{{ asset('assets/img/teram.jpg') }}" alt="Service Image" class="img-fluid wow fadeInUp"
+                    <img src="{{ asset('assets/img/term.jpeg') }}" alt="Service Image" class="img-fluid wow fadeInUp"
                         data-wow-delay=".4s">
                 </div>
             </div>
@@ -575,11 +580,12 @@
 
                         <!-- Address -->
                         <p class="mb-3 d-flex align-items-center text-dark">
-                            <i class="bi bi-geo-alt-fill me-2 fs-5 text-primary"></i> No 5/673, Kamarajar Road, Melur Road,
-                             Sivagangai-630561, 
-                             Sivagangai District, 
-                             Tamilnadu,
-                             India
+                            <i class="bi bi-geo-alt-fill me-2 fs-5 text-primary"></i> No 5/673, Kamarajar Road, Melur
+                            Road,
+                            Sivagangai-630561,
+                            Sivagangai District,
+                            Tamilnadu,
+                            India
                         </p>
 
                         <!-- Phone -->
