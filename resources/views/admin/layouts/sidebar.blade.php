@@ -75,13 +75,7 @@
                                 <p>Upline Income</p>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="{{ route('plan_activation_request') }}"
-                                class="nav-link {{ request()->is('admin/plan_activation_request') ? 'active' : '' }}">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Activation Request</p>
-                            </a>
-                        </li>
+
                         <!-- <li class="nav-item">
                             <a href="{{ url('admin/upgrade') }}"
                                 class="nav-link {{ request()->is('admin/upgrade') ? 'active' : '' }}">
@@ -90,6 +84,14 @@
                             </a>
                         </li> -->
                     </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('plan_activation_request') }}"
+                        class="nav-link {{ request()->is('admin/plan_activation_request') ? 'active' : '' }}">
+                        <i class="fas fa-power-off nav-icon"></i>
+                        <p>Plan Activation Request</p>
+                    </a>
                 </li>
 
                 <li class="nav-item">

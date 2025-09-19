@@ -123,4 +123,7 @@ Route::post('/change-password/{username}', [PasswordController::class, 'updatePa
 Route::post('admin/transaction_history', [App\Http\Controllers\Admin\PlanController::class, 'transaction_history'])->name('transaction_history');
 
 
+Route::get('admin/total_members', [App\Http\Controllers\Admin\UsersController::class, 'total_members'])->name('total_members');
+
+
 Route::get('logout', [App\Http\Controllers\Admin\UsersController::class, 'logout'])->name('logout');
