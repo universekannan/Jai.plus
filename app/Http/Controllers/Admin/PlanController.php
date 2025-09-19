@@ -504,57 +504,61 @@ public function kannanaaaaa() {
           $currentUser = DB::table('users')->where('id', $userId)->first();
   
           /**
-           * 1) SPONSOR COMMISSION
-           */
-          $referrerCommission = ($amount * $planData->sponser_amount) / 100;
-  
-          if (!empty($currentUser->referral_id)) {
-              $this->storeSponserPayment(
-                  'RebirthIn',
-                  $planId,
-                  $userId,
-                  $currentUser->referral_id,
-                  1,
-                  '1',
-                  $referrerCommission,
-                  1,
-                  "Referral Sponsor Income",
-                  '3'
-              );
-  
-          } else {
-              $this->storeSponserPayment(
-                  'RebirthIn',
-                  $planId,
-                  $userId,
-                  1,
-                  1,
-                  '1',
-                  $referrerCommission,
-                  1,
-                  "Referral Sponsor Income (Admin)",
-                  '3'
-              );
-          }
+         * 1) SPONSOR COMMISSION
+         */
+        $referrerCommission = ($amount * $planData->sponser_amount) / 100;
+
+        $referrerId = !empty($currentUser->referral_id) ? $currentUser->referral_id : 1;
+
+        $hasPlan = DB::table('user_plan')
+            ->where('user_id', $referrerId)
+            ->where('plan_id', $planId)
+            ->exists();
+
+        if (!$hasPlan) {
+            $referrerId = 1;
+        }
+
+        $this->storeSponserPayment(
+            'RebirthIn',
+            $planId,
+            $userId,
+            $referrerId,
+            1,
+            '1',
+            $referrerCommission,
+            1,
+            $referrerId == 1 ? "Referral Sponsor Income (Admin)" : "Referral Sponsor Income",
+            '3'
+        );
+
   
           /**
            * 2) UPLINE COMMISSION
            */
           $commissionAmount = ($amount * $planData->upline_amount) / 100;
-          $uplinerId        = $this->getUpline($currentUser, $planId) ?: 1;
-  
-          $this->storeUplinePayment(
-              'Upline',
-              $planId,
-              $userId,
-              $uplinerId,
-              $planId,
-              '3',
-              $commissionAmount,
-              1,
-              "Upline Sponsor",
-              '3'
-          );
+          $uplinerId = $this->getUpline($currentUser, $planId) ?: 1;
+          $hasPlan = DB::table('user_plan')->where('user_id', $uplinerId)
+                    ->where('plan_id', $planId)
+                    ->exists();
+
+            if (!$hasPlan) {
+               $uplinerId = 1;
+            }
+
+        $this->storeUplinePayment(
+            'Upline',
+            $planId,
+            $userId,
+            $uplinerId,
+            $planId,
+            '3',
+            $commissionAmount,
+            1,
+            "Upline Sponsor",
+            '3'
+        );
+
   
           /**
            * 3) GLOBAL REGAIN
@@ -575,8 +579,8 @@ public function kannanaaaaa() {
                   $this->storeGlobalPayment(
                       'PlanTree',
                       $planId,
-                      $receiverId,  // receiver
-                      $userId,      // activating user
+                      $receiverId,  
+                      $userId,     
                       1,
                       '2',
                       $rotatingCommissionAmount,
