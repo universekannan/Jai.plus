@@ -71,7 +71,7 @@
                                 <li class="nav-item">
                                     <a class="page-scroll" href="#about">About Us</a>
                                 </li>
-                                 
+
 
 
                                 <li class="nav-item"><a href="{{ asset('assets/img/jaiplus 2.pdf') }}" target="_blank"
@@ -138,7 +138,7 @@
             <div class="row">
                 <div class="col-xl-7 col-lg-8 mx-auto">
                     <div class="section-title text-center mb-55">
-                    <h2 class="mb-20 wow fadeInUp text-primary" data-wow-delay=".2s">INTRODUCTION</h2>
+                        <h2 class="mb-20 wow fadeInUp text-primary" data-wow-delay=".2s">INTRODUCTION</h2>
                         <h2 class="mb-20 wow fadeInUp" data-wow-delay=".2s">WOMEN HOLISTIC EMPOWERMENT TRUST</h2>
                         <p class="wow fadeInUp" data-wow-delay=".4s">We are working holistic empowering marginalized
                             communities, focusing
@@ -166,7 +166,7 @@
                 <div class="col-xl-6 col-lg-6">
                     <div class="about-content mb-30">
                         <div class="section-title mb-40">
-                            <h2 class="wow fadeInUp" data-wow-delay=".2s">ACTIVITIES</h2>  
+                            <h2 class="wow fadeInUp" data-wow-delay=".2s">ACTIVITIES</h2>
                         </div>
                         <p class="mb-15 wow fadeInUp" data-wow-delay=".4s">Women & Youth to be given professional
                             Training .
@@ -238,7 +238,7 @@
         </div>
     </section>
 
-    
+
 
 
 
@@ -593,7 +593,8 @@
                     <div class="contact-wrapper">
                         <h2 class="mb-4">Contact With Us</h2>
                         <p class="mb-4 text-dark">
-                        Joint Action for Indian People Livelihood Utilize Service Run By Women Holistic Empowerment Trust 
+                            Joint Action for Indian People Livelihood Utilize Service Run By Women Holistic Empowerment
+                            Trust
                         </p>
 
                         <!-- Address -->
@@ -699,20 +700,14 @@
 
                         <!-- Description -->
                         <p class="mb-30 text-white">
-                            To establish a sustainable livelihood security system and food sovereignty in all members.
+
+                            We work to holistically empower marginalized communities, especially women, children,
+                            farmers, and youth.
+                            Our focus areas include healthcare, women’s empowerment, organic farming, and food security.
+                            We aim to build sustainable livelihoods for future generations.
                         </p> <!-- Phone Number -->
 
-                        <p class="mb-30">
-                            <a href="tel:+916381654512" class="text-white text-decoration-none">
-                                <i class="bi bi-telephone-inbound-fill me-2"></i> +91 6381654512
-                            </a>
-                        </p>
-                        <p class="mb-30">
-                            <a href="mailto:whetrust2022@gmail.com" class="text-white text-decoration-none">
-                                <i class="bi bi-envelope-fill me-2"></i> whetrust2022@gmail.com
-
-                            </a>
-                        </p>
+                        
                         <!-- Social Media Links -->
                         <div class="footer-social-links">
                             <ul class="list-unstyled d-flex gap-3">
@@ -802,6 +797,19 @@
                                 <p>Address: No 5/673, Kamarajar Road, <br> Melur Road, Sivagangai-630561 Sivagangai
                                     District, Tamilnadu, India.</p>
                             </li>
+                            <br>
+
+                            <p class="mb-30">
+                            <a href="tel:+916381654512" class="text-white text-decoration-none">
+                                <i class="bi bi-telephone-inbound-fill me-2"></i> +91 6381654512
+                            </a>
+                        </p>
+                        <p class="mb-30">
+                            <a href="mailto:whetrust2022@gmail.com" class="text-white text-decoration-none">
+                                <i class="bi bi-envelope-fill me-2"></i> whetrust2022@gmail.com
+
+                            </a>
+                        </p>
                         </ul>
                     </div>
 
