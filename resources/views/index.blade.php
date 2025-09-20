@@ -69,7 +69,7 @@
                                     <a class="page-scroll active" href="#home">Home</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="page-scroll" href="#about">About</a>
+                                    <a class="page-scroll" href="#about">About Us</a>
                                 </li>
                                  
 
@@ -138,6 +138,7 @@
             <div class="row">
                 <div class="col-xl-7 col-lg-8 mx-auto">
                     <div class="section-title text-center mb-55">
+                    <h2 class="mb-20 wow fadeInUp text-primary" data-wow-delay=".2s">INTRODUCTION</h2>
                         <h2 class="mb-20 wow fadeInUp" data-wow-delay=".2s">WOMEN HOLISTIC EMPOWERMENT TRUST</h2>
                         <p class="wow fadeInUp" data-wow-delay=".4s">We are working holistic empowering marginalized
                             communities, focusing
@@ -165,7 +166,7 @@
                 <div class="col-xl-6 col-lg-6">
                     <div class="about-content mb-30">
                         <div class="section-title mb-40">
-                            <h2 class="wow fadeInUp" data-wow-delay=".2s">About Us</h2>
+                            <h2 class="wow fadeInUp" data-wow-delay=".2s">ACTIVITIES</h2>  
                         </div>
                         <p class="mb-15 wow fadeInUp" data-wow-delay=".4s">Women & Youth to be given professional
                             Training .
@@ -183,7 +184,7 @@
                             Tourist will experience for Exposal visit and Health,
                             Happinees Wealth, Social and Spiritual.
                             Sports Support for youth, Women And children.</p>
-                        <a href="#" class="theme-btn theme-btn-2 wow fadeInRight" data-wow-delay=".8s">Learn More</a>
+                        <!-- <a href="#" class="theme-btn theme-btn-2 wow fadeInRight" data-wow-delay=".8s">Learn More</a> -->
                     </div>
                 </div>
             </div>
@@ -226,7 +227,7 @@
                                 <img src="{{ asset('assets/img/feature-3.svg') }}" alt="">
                             </div>
                             <div class="feature-content">
-                                <h5>Invest for Longterm</h5>
+                                <h5> Membership for Long Term </h5>
                                 <p>Eligible members will go to tour and Exposal visit every month</p>
                             </div>
                         </div>
@@ -236,6 +237,8 @@
 
         </div>
     </section>
+
+    
 
 
 
@@ -590,7 +593,7 @@
                     <div class="contact-wrapper">
                         <h2 class="mb-4">Contact With Us</h2>
                         <p class="mb-4 text-dark">
-                            To establish a sustainable livelihood security system and food sovereignty for all members.
+                        Joint Action for Indian People Livelihood Utilize Service Run By Women Holistic Empowerment Trust 
                         </p>
 
                         <!-- Address -->
@@ -753,7 +756,7 @@
                             </li>
                             <li>
                                 <a href=" {{ asset('assets/img/jaiplus 2.pdf') }}" target="_blank"
-                                    rel="noopener noreferrer">Brochure</a>
+                                    rel="noopener noreferrer">Package Details</a>
                             </li>
                             <li>
                                 <a href="#contact">Contact</a>
