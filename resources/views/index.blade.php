@@ -599,7 +599,7 @@
 
                         <!-- Address -->
                         <p class="mb-3 d-flex align-items-center text-dark">
-                            <i class="bi bi-geo-alt-fill me-2 fs-5 text-primary"></i> No 5/673, Kamarajar Road, Melur
+                            <i class="bi bi-geo-alt-fill me-2 fs-5 text-primary"></i> No 5/673, Kamarajar Nagar, Melur
                             Road,
                             Sivagangai-630561,
                             Sivagangai District,
@@ -794,7 +794,7 @@
                                     TRUST<br>(WHE TRUST)</p>
                             </li>
                             <li>
-                                <p>Address: No 5/673, Kamarajar Road, <br> Melur Road, Sivagangai-630561 Sivagangai
+                                <p>Address: No 5/673, Kamarajar Nagar, <br> Melur Road, Sivagangai-630561 Sivagangai
                                     District, Tamilnadu, India.</p>
                             </li>
                             <br>
