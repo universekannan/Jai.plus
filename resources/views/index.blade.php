@@ -53,7 +53,7 @@
                 <div class="col-lg-12">
                     <nav class="navbar navbar-expand-lg">
                         <a class="navbar-brand" href="#home">
-                            <img src="{{ asset('assets/img/logo.png') }}" alt="Logo">    
+                            <img src="{{ asset('assets/img/logo.png') }}" alt="Logo">
                         </a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse"
                             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -71,13 +71,11 @@
                                 <li class="nav-item">
                                     <a class="page-scroll" href="#about">About</a>
                                 </li>
-                                <!-- <li class="nav-item">
-                                    <a class="page-scroll" href="#service">Service</a>
-                                </li> -->
-                                
+                                 
+
 
                                 <li class="nav-item"><a href="{{ asset('assets/img/jaiplus 2.pdf') }}" target="_blank"
-                                        rel="noopener noreferrer">Brochure</a></li>
+                                        rel="noopener noreferrer">Package Details</a></li>
                                 <!-- <li class="nav-item">
                                     <a class="page-scroll" href="#roadmap">Roadmap</a>
                                 </li> -->
@@ -124,9 +122,10 @@
                 </div>
                 <div class="col-xl-5 col-lg-5">
                     <div class="hero-img">
-                        <img src="{{ asset('assets/img/loggo.png') }}" alt="" class="wow fadeInRight" data-wow-delay=".5s">
-                    </div>   
-                </div> 
+                        <img src="{{ asset('assets/img/loggoooo.png') }}" alt="" class="wow fadeInRight"
+                            data-wow-delay=".5s">
+                    </div>
+                </div>
 
             </div>
         </div>
@@ -159,8 +158,9 @@
             <div class="row align-items-center">
                 <div class="col-xl-6 col-lg-6">
                     <div class="about-img mb-30">
-                        <img src="{{ asset('assets/img/header.png') }}" alt="image" class=" wow fadeInLeft" data-wow-delay=".4s">
-                    </div>   
+                        <img src="{{ asset('assets/img/header.png') }}" alt="image" class=" wow fadeInLeft"
+                            data-wow-delay=".4s">
+                    </div>
                 </div>
                 <div class="col-xl-6 col-lg-6">
                     <div class="about-content mb-30">
@@ -192,7 +192,7 @@
     <!-- ========================= about-section end ========================= -->
 
     <!-- ========================= service-section start ========================= -->
-    <section  class="feature-section pt-150">
+    <section class="feature-section pt-150">
         <div class="container">
             <div class="features-wrapper">
                 <div class="row justify-content-center">
@@ -211,7 +211,7 @@
                     <div class="col-xl-4 col-lg-4 col-md-6">
                         <div class="single-feature text-center mb-30 wow fadeInUp" data-wow-delay=".4s">
                             <div class="feature-img mb-25">
-                                <img src="{{ asset('assets/img/feature-2.svg') }}" alt="">  
+                                <img src="{{ asset('assets/img/feature-2.svg') }}" alt="">
                             </div>
                             <div class="feature-content">
                                 <h5>Withdraw Your Income Instantly</h5>
@@ -223,7 +223,7 @@
                     <div class="col-xl-4 col-lg-4 col-md-6">
                         <div class="single-feature text-center mb-30 wow fadeInUp" data-wow-delay=".6s">
                             <div class="feature-img mb-20">
-                                <img src="{{ asset('assets/img/feature-3.svg') }}" alt="">  
+                                <img src="{{ asset('assets/img/feature-3.svg') }}" alt="">
                             </div>
                             <div class="feature-content">
                                 <h5>Invest for Longterm</h5>
@@ -363,8 +363,9 @@
             <div class="row">
                 <div class="col-xl-6 col-lg-6">
                     <div class="grows-img mb-30">
-                        <img src="{{ asset('assets/img/about.png') }}" alt="" class=" wow fadeInLeft" data-wow-delay=".5s">
-                    </div>     
+                        <img src="{{ asset('assets/img/about.png') }}" alt="" class=" wow fadeInLeft"
+                            data-wow-delay=".5s">
+                    </div>
                 </div>
                 <div class="col-xl-6 col-lg-6">
                     <div class="grows-content-wrapper mb-30">
@@ -419,12 +420,25 @@
                 <div class="col-xl-3 col-lg-3 col-md-6">
                     <div class="single-team text-center mb-120 wow fadeInUp" data-wow-delay=".2s">
                         <div class="team-img mb-20">
-                            <img src="{{ asset('assets/img/team-1.png') }}" alt="">  
+                            <img src="{{ asset('assets/img/team-1.png') }}" alt="">
                             <div class="team-social-links">
                                 <ul>
-                                    <li><a href="#"><i class="lni lni-facebook-filled"></i></a></li>
-                                    <li><a href="#"><i class="lni lni-twitter-filled"></i></a></li>
-                                    <li><a href="#"><i class="lni lni-linkedin-original"></i></a></li>
+                                    <li>
+                                        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+                                            <i class="lni lni-facebook-filled"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
+                                            <i class="lni lni-twitter-filled"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
+                                            <i class="lni lni-linkedin-original"></i>
+                                        </a>
+                                    </li>
+
                                 </ul>
                             </div>
                             <div class="team-info">
@@ -437,7 +451,7 @@
                 <div class="col-xl-3 col-lg-3 col-md-6">
                     <div class="single-team text-center mb-120 wow fadeInUp" data-wow-delay=".4s">
                         <div class="team-img mb-20">
-                            <img src="{{ asset('assets/img/team-2.png') }}" alt="">  
+                            <img src="{{ asset('assets/img/team-2.png') }}" alt="">
                             <div class="team-social-links">
                                 <ul>
                                     <li><a href="#"><i class="lni lni-facebook-filled"></i></a></li>
@@ -455,7 +469,7 @@
                 <div class="col-xl-3 col-lg-3 col-md-6">
                     <div class="single-team text-center mb-120 wow fadeInUp" data-wow-delay=".6s">
                         <div class="team-img mb-20">
-                            <img src="{{ asset('assets/img/team-3.png') }}" alt="">  
+                            <img src="{{ asset('assets/img/team-3.png') }}" alt="">
                             <div class="team-social-links">
                                 <ul>
                                     <li><a href="#"><i class="lni lni-facebook-filled"></i></a></li>
@@ -473,7 +487,7 @@
                 <div class="col-xl-3 col-lg-3 col-md-6">
                     <div class="single-team text-center mb-120 wow fadeInUp" data-wow-delay=".8s">
                         <div class="team-img mb-20">
-                            <img src="{{ asset('assets/img/team-4.png') }}" alt="">  
+                            <img src="{{ asset('assets/img/team-4.png') }}" alt="">
                             <div class="team-social-links">
                                 <ul>
                                     <li><a href="#"><i class="lni lni-facebook-filled"></i></a></li>
@@ -678,7 +692,7 @@
                         <!-- Logo -->
                         <a href="{{ url('home') }}" class="logo mb-40 d-block">
                             <img src=" {{ asset('assets/img/fotter_logo.png') }}" alt="Footer Logo" class="img-fluid">
-                        </a>   
+                        </a>
 
                         <!-- Description -->
                         <p class="mb-30 text-white">
@@ -699,10 +713,27 @@
                         <!-- Social Media Links -->
                         <div class="footer-social-links">
                             <ul class="list-unstyled d-flex gap-3">
-                                <li><a href="#"><i class="lni lni-facebook-filled"></i></a></li>
-                                <li><a href="#"><i class="lni lni-twitter-filled"></i></a></li>
-                                <li><a href="#"><i class="lni lni-linkedin-original"></i></a></li>
-                                <li><a href="#"><i class="lni lni-instagram-original"></i></a></li>
+                                <li>
+                                    <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+                                        <i class="lni lni-facebook-filled"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
+                                        <i class="lni lni-twitter-filled"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
+                                        <i class="lni lni-linkedin-original"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+                                        <i class="lni lni-instagram-original"></i>
+                                    </a>
+                                </li>
+
                             </ul>
                         </div>
 
@@ -721,7 +752,7 @@
                                 <a href="#about">About</a>
                             </li>
                             <li>
-                                <a href=" {{ asset('assets/img/jaiplus 2.pdf') }}" target="_blank"   
+                                <a href=" {{ asset('assets/img/jaiplus 2.pdf') }}" target="_blank"
                                     rel="noopener noreferrer">Brochure</a>
                             </li>
                             <li>
