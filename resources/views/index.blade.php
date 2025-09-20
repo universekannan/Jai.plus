@@ -83,7 +83,7 @@
                                     <a class="page-scroll" href="#team">Team</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="page-scroll" href="#contact">Contact</a>
+                                    <a class="page-scroll" href="#contact">Contact Us</a>
                                 </li>
                             </ul>
                         </div> <!-- navbar collapse -->
@@ -747,14 +747,14 @@
                                 <a href="#home">Home</a>
                             </li>
                             <li>
-                                <a href="#about">About</a>
+                                <a href="#about">About Us</a>
                             </li>
                             <li>
                                 <a href=" {{ asset('assets/img/jaiplus 2.pdf') }}" target="_blank"
                                     rel="noopener noreferrer">Package Details</a>
                             </li>
                             <li>
-                                <a href="#contact">Contact</a>
+                                <a href="#contact">Contact Us</a>
                             </li>
                             <li>
                                 <a href="#terms_condition">Terms & Conditions </a>
